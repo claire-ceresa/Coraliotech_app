@@ -1,3 +1,4 @@
+from itertools import product
 from os import listdir
 import json
 from PyQt5.QtWidgets import *
@@ -23,6 +24,9 @@ class NCBI(QMainWindow, Ui_MainWindow):
             self.edit_request.setText(request)
             self.button_go.setEnabled(True)
 
+    def button_go_pressed(self):
+        self.label_messages.setText("")
+
     def button_go_clicked(self):
         request = self.edit_request.text()
         search = Search(request)
@@ -34,17 +38,19 @@ class NCBI(QMainWindow, Ui_MainWindow):
         if len(list_id) > 0:
             for id in list_id:
                 protein = Protein(id)
-                if self.check_exceptions(protein) and self.save_protein(protein):
+                save = self.save_protein(protein)
+                if self.check_exceptions(protein) and save["commited"]:
                     nb_product_saved = nb_product_saved + 1
                 else:
-                    product_not_saved.append(protein.id)
+                    product_not_saved.append({'id':protein.id, 'error':save["error"]})
 
-        message = str(nb_product_saved) + "resultat enregistre dans la base de donnees"
         if len(product_not_saved) > 0:
-            message = message + "\n " + str(len(product_not_saved)) + " non enregistres : " + " , ".join(product_not_saved)
+            message = str(len(product_not_saved)) + " non enregistres : \n"
+            for product in product_not_saved:
+                message = message + " - " + product["id"] + " : " + product["error"] + "\n"
+        else:
+            message = str(nb_product_saved) + " resultat enregistre dans la base de donnees"
         self.label_messages.setText(message)
-
-
 
     def check_exceptions(self, protein):
         if protein.molecular_weight is None:
@@ -56,12 +62,8 @@ class NCBI(QMainWindow, Ui_MainWindow):
     def save_protein(self, protein):
         self.save_cds(protein)
         self.save_organism(protein)
-        try:
-            self.save_product(protein)
-        except:
-            return False
-        else:
-            return True
+        product = self.save_product(protein)
+        return product
 
     def save_cds(self, protein):
         datas_cds = {}
@@ -71,7 +73,8 @@ class NCBI(QMainWindow, Ui_MainWindow):
         datas_cds["poids_moleculaire"] = str(protein.molecular_weight)
         datas_cds["complete"] = "0" if protein.is_partial else "1"
         query = get_query_insert("CDS", datas_cds)
-        commit_query(query)
+        commit = commit_query(query)
+        return commit
 
     def save_organism(self, protein):
         datas_org = {}
@@ -83,8 +86,8 @@ class NCBI(QMainWindow, Ui_MainWindow):
         datas_org["classe"] = "\"" + protein.species.classe + "\"" if protein.species.classe is not None else "NULL"
         datas_org["embranchement"] = "\"" + protein.species.phylum + "\"" if protein.species.phylum is not None else "NULL"
         query = get_query_insert("Organisme", datas_org)
-        print(query)
-        commit_query(query)
+        commit = commit_query(query)
+        return commit
 
     def save_product(self, protein):
         datas_prod = {}
@@ -96,10 +99,8 @@ class NCBI(QMainWindow, Ui_MainWindow):
         datas_prod["id_cds"] = "\"cds_" + protein.id + "\""
         datas_prod["predicted"] = "1" if protein.is_predicted else "0"
         query = get_query_insert("Produit", datas_prod)
-        commit_query(query)
-
-
-
+        commit = commit_query(query)
+        return commit
 
     def organism_written(self):
         if len(self.edit_org.text()) == 0:

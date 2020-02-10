@@ -10,9 +10,9 @@ def commit_query(query):
         cursor.execute(query)
         connection.commit()
         connection.close()
-        return True
-    except:
-        return False
+        return {'commited':True, 'error':''}
+    except Exception as e:
+        return {'commited':False, 'error':str(e)}
 
 
 def execute_query(query):
