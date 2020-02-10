@@ -3,6 +3,7 @@ from PyQt5.QtGui import QPixmap
 from graphic.principal_view import *
 from graphic.NCBI_Window import NCBI_Window
 from graphic.Product_Window import Product_Window
+from objects.DB_Product import DB_Product
 
 class Principal_Window(QMainWindow, Ui_MainWindow):
 
@@ -11,12 +12,15 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.set_image()
         self.window_download = NCBI_Window()
-        self.window_complete = Product_Window(id="EU159467.1")
+        #self.window_product = Product_Window()
 
     def set_image(self):
         """set the logo on the window"""
         picture = QPixmap("logo.png")
         self.label_image.setPixmap(picture)
+
+    def button_download_clicked(self):
+        self.window_download.show()
 
     def button_complete_file_clicked(self):
         # TODO : a voir si utile. Si oui, voir pour gérer un template Excel ou systeme de creation
@@ -24,11 +28,11 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
 
     def button_complete_product_clicked(self):
         # TODO : ouvre la fiche produit modifiable, avec fiche GenBank + autre info complementaire
-        self.window_complete.show()
+        id = self.edit_complete_product.text()
+        self.window_product = Product_Window(id=id)
+        self.window_product.show()
 
     def button_search_clicked(self):
         # TODO : ouvre la liste des resultats (seulement id et nom) et quand clique, ouvre la fiche produit
         return
 
-    def button_download_clicked(self):
-        self.window_download.show()

@@ -90,7 +90,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         datas_prod = {}
         datas_prod["id"] = "\"" + protein.id + "\""
         datas_prod["nom"] = "\"" + protein.name + "\""
-        datas_prod["source"] = "\"NCBI_Window\""
+        datas_prod["source"] = "\"NCBI\""
         datas_prod["note"] = "\"" + protein.note + "\"" if protein.note is not None else "NULL"
         datas_prod["espece"] = "\"" + protein.species.species + "\""
         datas_prod["id_cds"] = "\"cds_" + protein.id + "\""

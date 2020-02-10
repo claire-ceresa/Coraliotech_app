@@ -39,6 +39,30 @@ def get_applications_possibles():
     result = execute_query(query)
     return result
 
-def get_query_select():
-    return
+def get_product_by(id=None, name=None, species=None):
+    if id is not None:
+        query = "SELECT * FROM Produit WHERE id =\"" + id + "\""
+    elif name is not None:
+        query = "SELECT * FROM Produit WHERE nom =\"" + name + "\""
+    elif species is not None:
+        query = "SELECT * FROM Produit WHERE espece =\"" + species + "\""
+    else:
+        return ValueError
+    result = execute_query(query)
+    dict_result = {}
+    if len(result) == 1:
+        dict_result["id"] = result[0][0]
+        dict_result["name"] = result[0][1]
+        dict_result["predicted"] = result[0][2]
+        dict_result["delete"] = result[0][3]
+        dict_result["source"] = result[0][4]
+        dict_result["note"] = result[0][5]
+        dict_result["species"] = result[0][6]
+        dict_result["cds_id"] = result[0][7]
+        dict_result["fonction"] = result[0][8]
+    return dict_result
+
+
+
+
 

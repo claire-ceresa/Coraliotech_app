@@ -1,7 +1,7 @@
 from graphic.product_view import Ui_MainWindow
 from PyQt5.QtWidgets import QMainWindow
 from objects.NCBI_Product import NCBI_Product
-import sqlite3 as s
+from objects.DB_Product import DB_Product
 
 class Product_Window(QMainWindow, Ui_MainWindow):
 
@@ -10,7 +10,11 @@ class Product_Window(QMainWindow, Ui_MainWindow):
             self.setupUi(self)
             self.id = id
             self.setWindowTitle(self.id)
-            self.set_fiche()
+            self.product = DB_Product(id=self.id)
+            self.set_window()
+
+        def set_window(self):
+            self.prod_label_name.setText(self.product.name)
 
         def set_fiche(self):
             protein = NCBI_Product(self.id)
