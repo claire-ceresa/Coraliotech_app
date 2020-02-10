@@ -5,5 +5,3 @@ from Bio import Entrez
 Entrez.email = "claire.ceresa@hotmail.fr"
 
 id = "EU159467.1"
-
-print("test git")
