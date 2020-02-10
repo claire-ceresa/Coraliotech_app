@@ -1,7 +1,7 @@
 from Bio import Entrez
 
-from object.Excel import Excel
-from object.Organism import Organism
+from old_object.Excel import Excel
+from old_object.Organism import Organism
 
 
 class Search:

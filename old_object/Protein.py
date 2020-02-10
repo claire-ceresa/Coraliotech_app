@@ -1,8 +1,8 @@
 from Bio import Entrez
 from Bio import SeqIO
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
-from object.Organism import Organism
-from object.CDS import CDS
+from old_object.Organism import Organism
+from old_object.CDS import CDS
 
 
 class Protein:
@@ -38,7 +38,7 @@ class Protein:
         SeqIO.write(self.fiche, "fiche.txt", "genbank")
 
     def set_fiche(self):
-        """set the attribute sequence with a SeqRecord object"""
+        """set the attribute sequence with a SeqRecord old_object"""
         try:
             fiche = Entrez.efetch(db="nucleotide", id=self.id, rettype="gb", retmode="text")
         except:
@@ -114,7 +114,7 @@ class Protein:
 
     def get_feature_by_type(self, type):
         """:param type: type of the feature you need (CDS, source, etc)
-        :return: the object SeqFeature corresponding to the type"""
+        :return: the old_object SeqFeature corresponding to the type"""
         for feature in self.fiche.features:
             if feature.type == type:
                 return feature

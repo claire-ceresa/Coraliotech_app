@@ -1,6 +1,6 @@
 from graphic.product_view import Ui_MainWindow
 from PyQt5.QtWidgets import QMainWindow
-from object.Protein import Protein
+from old_object.Protein import Protein
 import sqlite3 as s
 
 class Product_Window(QMainWindow, Ui_MainWindow):

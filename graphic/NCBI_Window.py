@@ -4,8 +4,8 @@ import json
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap
 from graphic.ncbi_view import *
-from object.Search import Search
-from object.Protein import Protein
+from old_object.Search import Search
+from old_object.Protein import Protein
 from database.functions_db import *
 
 
