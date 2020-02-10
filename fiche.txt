@@ -1,0 +1,74 @@
+LOCUS       EU159467                1542 bp    mRNA    linear   INV 18-SEP-2008
+DEFINITION  Stylophora pistillata alpha carbonic anhydrase (CA) mRNA, complete
+            cds.
+ACCESSION   EU159467
+VERSION     EU159467.1
+KEYWORDS    .
+SOURCE      Stylophora pistillata
+  ORGANISM  Stylophora pistillata
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
+            Astrocoeniina; Pocilloporidae; Stylophora.
+REFERENCE   1  (bases 1 to 1542)
+  AUTHORS   Moya,A., Tambutte,S., Bertucci,A., Tambutte,E., Lotto,S., Vullo,D.,
+            Supuran,C.T., Allemand,D. and Zoccola,D.
+  TITLE     Carbonic anhydrase in the scleractinian coral Stylophora pistillata:
+            characterization, localization, and role in biomineralization
+  JOURNAL   J. Biol. Chem. 283 (37), 25475-25484 (2008)
+   PUBMED   18617510
+REFERENCE   2  (bases 1 to 1542)
+  AUTHORS   Moya,A., Tambutte,S., Lotto,S., Allemand,D. and Zoccola,D.
+  TITLE     Carbonic anhydrase in the scleractinian coral Stylophora pistillata:
+            characterization, localization and role in biomineralization
+  JOURNAL   Unpublished
+REFERENCE   3  (bases 1 to 1542)
+  AUTHORS   Moya,A., Tambutte,S., Lotto,S., Allemand,D. and Zoccola,D.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (17-SEP-2007) Centre Scientifique de Monaco, Avenue Saint
+            Martin, Monaco 98000, Monaco
+FEATURES             Location/Qualifiers
+     source          1..1542
+                     /organism="Stylophora pistillata"
+                     /mol_type="mRNA"
+                     /db_xref="taxon:50429"
+     gene            1..1542
+                     /gene="CA"
+                     /note="STPCA"
+     CDS             97..1068
+                     /gene="CA"
+                     /codon_start=1
+                     /product="alpha carbonic anhydrase"
+                     /protein_id="ACA53457.1"
+                     /translation="MKLSLFISSLLAMIVACPNLAESAGSWTYRDPEGPDTWKHHYKDC
+                     EGHEQSPINIVPKDTFFEPGLADLVVNYEKSVSAKLFNNGHTVQATFLTGKSNISGGNL
+                     TSHFRALQMHFHWGSENSRGSEHQVGGRKFPLEIHIVHYNAEKYPSVSEAVDKGDGLAV
+                     LGILVELQVQDNPVFDVMVDNLDKARYKGNEVILPSLQPFSFLPHDIAQYYTYRGSLTT
+                     PGCFESVQWFVFNHTFPISQAQLDKFRDLFDSEKQDTKKLPLVDNYRPVQPLYGRSVSE
+                     ASNALLFPVARHQTKLWIAWDSLMTRQYFMKQQSICALYQPQ"
+ORIGIN
+        1 gtgggtctct gccattgcga tcagaagcca gggtgtggaa gaaagttggc atcgaaattt
+       61 acctgcacca agagcctcct ttgcagcgaa atcacgatga aactctccct atttatctct
+      121 tcgttacttg ccatgattgt cgcatgtcca aacttggcag aaagtgcagg atcctggact
+      181 taccgcgacc cggagggacc cgacacgtgg aaacatcact acaaggattg cgaaggtcac
+      241 gaacagtctc cgataaacat tgtaccaaaa gatacttttt tcgaaccggg acttgccgac
+      301 ttagttgtca actacgagaa aagcgtttct gctaagctat tcaataacgg acataccgtt
+      361 caggcgactt ttttaaccgg caagtccaat atttcgggtg gaaatytgac ttcgcatttt
+      421 cgcgctctgc aaatgcactt tcactggggc agcgagaatt ctcgcggttc agagcatcag
+      481 gtcggyggaa gaaaatttcc cttagagata cacattgtac actacaatgc ggaaaagtac
+      541 cctagcgtat cggaggctgt ggataaagga gatggcttgg cagttttggg aatattggtc
+      601 gaactgcaag tgcaagacaa cccggttttc gatgtgatgg tggataacct cgacaaagct
+      661 cgttataaag gcaacgaagt aattttgccy tctctacaac ctttttcatt cttaccacac
+      721 gacattgctc aatattacac ttacagaggc tcacttacta ctcctggatg ttttgaaagt
+      781 gtgcagtggt ttgttttcaa ccacacattt cctatatcgc aagctcaact ggataaattt
+      841 agagatcttt ttgacagtga aaaacaagac actaagaaat tgcccttagt tgacaattac
+      901 agacccgtcc agcctctata tgggagatct gtatccgaag cttccaacgc cctccttttc
+      961 cctgtggcaa gacatcaaac aaaactttgg attgcttggg attcgctgat gacaaggcag
+     1021 tattttatga agcaacagtc aatatgtgca ctctaccagc cacagtaacc ttaaaagttt
+     1081 ctcaaccaga gacctaattt ttattatgtt ggaacatttt acaaaagcgt caacccccct
+     1141 ttacaaatag gaaatcttga ttaatgcatt cactgtggaa atgcacacag acctaagtca
+     1201 gaacaatgag gaaacattgc gtgcctcaat tattcaagtt catccactgt ccacagagta
+     1261 caagaaagaa ctcgtaacag caaatttcaa ggaagaaaaa tgccaacttg gaagttgttc
+     1321 cctaatggaa gaggatggat ctatgtgtaa caggcactgg tgtgaacaca ttcctattgg
+     1381 cttcrgcaaa gatactcatt tcattggcgt gtcgtctacc ttccatgata tgtcaactga
+     1441 caatccttca gttgatgtta atttttatcg caataagact gggaaatggc atcgtactgc
+     1501 ctccgaaaaa tttaccaatg atgaggaaaa aaaaaaaaaa aa
+//

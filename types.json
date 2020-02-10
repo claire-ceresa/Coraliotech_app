@@ -1,0 +1,4 @@
+{
+  "mRNA collagen": "cds AND mRNA[Title] AND collagen[Title] NOT partial",
+  "mRNA complete cds": "mRNA[Title] AND complete[Title] AND cds[Title]"
+}
