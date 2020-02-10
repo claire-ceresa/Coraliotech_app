@@ -1,6 +1,6 @@
 from graphic.product_view import Ui_MainWindow
 from PyQt5.QtWidgets import QMainWindow
-from old_object.Protein import Protein
+from objects.NCBI_Product import NCBI_Product
 import sqlite3 as s
 
 class Product_Window(QMainWindow, Ui_MainWindow):
@@ -13,7 +13,7 @@ class Product_Window(QMainWindow, Ui_MainWindow):
             self.set_fiche()
 
         def set_fiche(self):
-            protein = Protein(self.id)
+            protein = NCBI_Product(self.id)
             protein.save_genbank_file()
             text = open('fiche.txt').read()
             self.edit_fiche.setPlainText(text)

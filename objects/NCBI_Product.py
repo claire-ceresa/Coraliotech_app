@@ -1,11 +1,11 @@
 from Bio import Entrez
 from Bio import SeqIO
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
-from old_object.Organism import Organism
-from old_object.CDS import CDS
+from objects.NCBI_Organism import NCBI_Organism
+from objects.NCBI_CDS import NCBI_CDS
 
 
-class Protein:
+class NCBI_Product:
 
     def __init__(self, id):
 
@@ -94,7 +94,7 @@ class Protein:
         """set the attribute species"""
         id = self.get_id_taxon()
         if id is not None:
-            self.species = Organism(id)
+            self.species = NCBI_Organism(id)
 
     def get_id_taxon(self):
         """:return the NCBI_Window id of the taxon"""
@@ -110,7 +110,7 @@ class Protein:
             stop = self.feature_cds.location.end
             offset = int(self.feature_cds.qualifiers["codon_start"][0])
             if start is not None and stop is not None :
-                self.cds = CDS(int(start+offset), int(stop), offset)
+                self.cds = NCBI_CDS(int(start+offset), int(stop), offset)
 
     def get_feature_by_type(self, type):
         """:param type: type of the feature you need (CDS, source, etc)

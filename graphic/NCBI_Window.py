@@ -1,12 +1,8 @@
-from itertools import product
-from os import listdir
-import json
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QPixmap
 from graphic.ncbi_view import *
-from old_object.Search import Search
-from old_object.Protein import Protein
 from database.functions_db import *
+from objects.NCBI_Search import NCBI_Search
+from objects.NCBI_Product import NCBI_Product
 
 
 class NCBI_Window(QMainWindow, Ui_MainWindow):
@@ -29,7 +25,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
     def button_go_clicked(self):
         request = self.edit_request.text()
-        search = Search(request)
+        search = NCBI_Search(request)
         list_id = search.get_list_ids()
 
         nb_product_saved = 0
@@ -37,7 +33,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
         if len(list_id) > 0:
             for id in list_id:
-                protein = Protein(id)
+                protein = NCBI_Product(id)
                 save = self.save_protein(protein)
                 if self.check_exceptions(protein) and save["commited"]:
                     nb_product_saved = nb_product_saved + 1

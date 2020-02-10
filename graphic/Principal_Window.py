@@ -3,7 +3,6 @@ from PyQt5.QtGui import QPixmap
 from graphic.principal_view import *
 from graphic.NCBI_Window import NCBI_Window
 from graphic.Product_Window import Product_Window
-from database.functions_db import *
 
 class Principal_Window(QMainWindow, Ui_MainWindow):
 
