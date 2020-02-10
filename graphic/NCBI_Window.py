@@ -9,10 +9,10 @@ from object.Protein import Protein
 from database.functions_db import *
 
 
-class NCBI(QMainWindow, Ui_MainWindow):
+class NCBI_Window(QMainWindow, Ui_MainWindow):
 
     def __init__(self, parent=None):
-        super(NCBI, self).__init__(parent)
+        super(NCBI_Window, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Telecharger")
 
@@ -51,6 +51,7 @@ class NCBI(QMainWindow, Ui_MainWindow):
         else:
             message = str(nb_product_saved) + " resultat enregistre dans la base de donnees"
         self.label_messages.setText(message)
+        self.button_go.setEnabled(False)
 
     def check_exceptions(self, protein):
         if protein.molecular_weight is None:
@@ -93,7 +94,7 @@ class NCBI(QMainWindow, Ui_MainWindow):
         datas_prod = {}
         datas_prod["id"] = "\"" + protein.id + "\""
         datas_prod["nom"] = "\"" + protein.name + "\""
-        datas_prod["source"] = "\"NCBI\""
+        datas_prod["source"] = "\"NCBI_Window\""
         datas_prod["note"] = "\"" + protein.note + "\"" if protein.note is not None else "NULL"
         datas_prod["espece"] = "\"" + protein.species.species + "\""
         datas_prod["id_cds"] = "\"cds_" + protein.id + "\""

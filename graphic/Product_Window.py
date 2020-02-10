@@ -3,10 +3,10 @@ from PyQt5.QtWidgets import QMainWindow
 from object.Protein import Protein
 import sqlite3 as s
 
-class Product(QMainWindow, Ui_MainWindow):
+class Product_Window(QMainWindow, Ui_MainWindow):
 
         def __init__(self, parent=None, id=None):
-            super(Product, self).__init__(parent)
+            super(Product_Window, self).__init__(parent)
             self.setupUi(self)
             self.id = id
             self.setWindowTitle(self.id)

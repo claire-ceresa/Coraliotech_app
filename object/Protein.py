@@ -97,7 +97,7 @@ class Protein:
             self.species = Organism(id)
 
     def get_id_taxon(self):
-        """:return the NCBI id of the taxon"""
+        """:return the NCBI_Window id of the taxon"""
         if self.feature_source is not None:
             id = self.feature_source.qualifiers["db_xref"][0].strip('taxon:')
             return int(id)

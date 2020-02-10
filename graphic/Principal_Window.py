@@ -1,18 +1,18 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import QPixmap
 from graphic.principal_view import *
-from graphic.NCBI import NCBI
-from graphic.Product import Product
+from graphic.NCBI_Window import NCBI_Window
+from graphic.Product_Window import Product_Window
 from database.functions_db import *
 
-class Principal(QMainWindow, Ui_MainWindow):
+class Principal_Window(QMainWindow, Ui_MainWindow):
 
     def __init__(self, parent=None):
-        super(Principal, self).__init__(parent)
+        super(Principal_Window, self).__init__(parent)
         self.setupUi(self)
         self.set_image()
-        self.window_download = NCBI()
-        self.window_complete = Product(id="EU159467.1")
+        self.window_download = NCBI_Window()
+        self.window_complete = Product_Window(id="EU159467.1")
 
     def set_image(self):
         """set the logo on the window"""
