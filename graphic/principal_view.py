@@ -166,17 +166,17 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label_download.setText(_translate("MainWindow", "TELECHARGER DES DONNEES"))
-        self.label_database.setText(_translate("MainWindow", "Base de données NCBI_Window :"))
+        self.label_database.setText(_translate("MainWindow", "Base de données NCBI :"))
         self.combobox_database.setItemText(0, _translate("MainWindow", "Nucleotide"))
         self.button_download.setText(_translate("MainWindow", "Accéder au moteur de recherche"))
         self.label_search.setText(_translate("MainWindow", "RECHERCHER DES DONNEES"))
         self.checkbox_search_org.setText(_translate("MainWindow", "Organisme"))
         self.checkbox_search_name.setText(_translate("MainWindow", "Nom du gène "))
-        self.checkbox_search_id.setText(_translate("MainWindow", "Identifiant NCBI_Window"))
+        self.checkbox_search_id.setText(_translate("MainWindow", "Identifiant NCBI"))
         self.button_search.setText(_translate("MainWindow", "Go"))
-        self.label_complete.setText(_translate("MainWindow", "COMPLETER DES DONNEES"))
+        self.label_complete.setText(_translate("MainWindow", "VISUALISER DES DONNEES"))
         self.button_complete_file.setText(_translate("MainWindow", "Traiter un fichier Excel"))
-        self.label_complete_product.setText(_translate("MainWindow", "Traiter un produit"))
+        self.label_complete_product.setText(_translate("MainWindow", "Visualiser un produit"))
         self.button_complete_product.setText(_translate("MainWindow", "Go"))
 
 

@@ -3,6 +3,7 @@ from Bio import SeqIO
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 from objects.NCBI_Organism import NCBI_Organism
 from objects.NCBI_CDS import NCBI_CDS
+from database.functions_db import *
 
 
 class NCBI_Product:
@@ -125,6 +126,47 @@ class NCBI_Product:
         if self.cds.offset is not None and self.cds.offset > 1:
             print(str(self.id) + " : codon start > 1 --> verifier la taille du cds pour confirmation formule")
 
+    def save_on_database(self):
+        organism_saved = self.save_organism()
+        cds_saved = self.save_cds()
+        product_saved = self.save_product()
+        return product_saved
 
+    def save_cds(self):
+        datas_cds = {}
+        datas_cds["id"] = "\"cds_" + self.id + "\""
+        datas_cds["debut"] = str(self.cds.start)
+        datas_cds["fin"] = str(self.cds.stop)
+        datas_cds["poids_moleculaire"] = str(self.molecular_weight)
+        datas_cds["complete"] = "0" if self.is_partial else "1"
+        query = get_query_insert("CDS", datas_cds)
+        commit = commit_query(query)
+        return commit
+
+    def save_organism(self):
+        datas_org = {}
+        datas_org["espece"] = "\"" + self.species.species + "\"" if self.species.species is not None else "NULL"
+        datas_org["genre"] = "\"" + self.species.genus + "\"" if self.species.genus is not None else "NULL"
+        datas_org["famille"] = "\"" + self.species.family + "\"" if self.species.family is not None else "NULL"
+        datas_org["ordre"] = "\"" + self.species.order + "\"" if self.species.order is not None else "NULL"
+        datas_org["sous_classe"] = "\"" + self.species.subclass + "\"" if self.species.subclass is not None else "NULL"
+        datas_org["classe"] = "\"" + self.species.classe + "\"" if self.species.classe is not None else "NULL"
+        datas_org["embranchement"] = "\"" + self.species.phylum + "\"" if self.species.phylum is not None else "NULL"
+        query = get_query_insert("Organisme", datas_org)
+        commit = commit_query(query)
+        return commit
+
+    def save_product(self):
+        datas_prod = {}
+        datas_prod["id"] = "\"" + self.id + "\""
+        datas_prod["nom"] = "\"" + self.name + "\""
+        datas_prod["source"] = "\"NCBI\""
+        datas_prod["note"] = "\"" + self.note + "\"" if self.note is not None else "NULL"
+        datas_prod["espece"] = "\"" + self.species.species + "\""
+        datas_prod["id_cds"] = "\"cds_" + self.id + "\""
+        datas_prod["predicted"] = "1" if self.is_predicted else "0"
+        query = get_query_insert("Produit", datas_prod)
+        commit = commit_query(query)
+        return commit
 
 
