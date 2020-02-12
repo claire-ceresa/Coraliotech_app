@@ -63,6 +63,23 @@ def get_product_by(id=None, name=None, species=None):
     return dict_result
 
 
+def get_cds_by(id_cds=None, id_product=None):
+    if id_product is not None:
+        id_cds = "cds_" + id_product
+    query = "SELECT * FROM CDS WHERE id = \"" + id_cds + "\""
+    result = execute_query(query)
+    dict_result = {}
+    if len(result) == 1:
+        dict_result["id"] = result[0][0]
+        dict_result["start"] = result[0][1]
+        dict_result["stop"] = result[0][2]
+        dict_result["mw"] = result[0][3]
+        dict_result["delete"] = result[0][4]
+        dict_result["complete"] = result[0][5]
+        dict_result["seqADN"] = result[0][6]
+    return dict_result
+
+
 
 
 

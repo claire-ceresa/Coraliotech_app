@@ -1,4 +1,5 @@
 from database.functions_db import *
+from objects.DB_CDS import DB_CDS
 
 class DB_Product:
 
@@ -9,20 +10,21 @@ class DB_Product:
         self.source = None
         self.note = None
         self.species = None
-        self.id_cds = None
         self.fonction = None
+        self.cds = None
 
         self.set_properties()
 
     def set_properties(self):
         datas = get_product_by(id=self.id)
-        print(datas)
-        ## TODO : a debugger a partir de la
         if datas["delete"] == 0:
-            self.name = self.datas["name"]
-            self.predicted = True if self.datas["predicted"] == 1 else False
-            self.source = self.datas["source"]
-            self.note = self.datas["note"]
-            self.species = self.datas["species"]
-            self.id_cds = self.datas["id_cds"]
-            self.fonction = self.datas["fonction"]
+            self.name = datas["name"]
+            self.predicted = True if datas["predicted"] == 1 else False
+            self.source = datas["source"]
+            self.note = datas["note"]
+            self.species = datas["species"]
+            self.fonction = datas["fonction"]
+            try:
+                self.cds = DB_CDS(id=datas["cds_id"])
+            except Exception as e:
+                print(e)

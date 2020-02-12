@@ -10,9 +10,9 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(Principal_Window, self).__init__(parent)
         self.setupUi(self)
+        self.setWindowTitle("Coraliotech")
         self.set_image()
         self.window_download = NCBI_Window()
-        #self.window_product = Product_Window()
 
     def set_image(self):
         """set the logo on the window"""
@@ -27,10 +27,15 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
         return
 
     def button_complete_product_clicked(self):
-        # TODO : ouvre la fiche produit modifiable, avec fiche GenBank + autre info complementaire
         id = self.edit_complete_product.text()
-        self.window_product = Product_Window(id=id)
-        self.window_product.show()
+        if len(id) == 0:
+            message = QMessageBox()
+            message.setText("Remplir le produit !")
+            message.setWindowTitle("Attention !")
+            message.exec()
+        else:
+            self.window_product = Product_Window(id=id)
+            self.window_product.show()
 
     def button_search_clicked(self):
         # TODO : ouvre la liste des resultats (seulement id et nom) et quand clique, ouvre la fiche produit
