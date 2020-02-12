@@ -34,11 +34,6 @@ def get_query_insert(table, datas):
     return query
 
 
-def get_applications_possibles():
-    query = "SELECT nom FROM Applications_possibles"
-    result = execute_query(query)
-    return result
-
 def get_product_by(id=None, name=None, species=None):
     if id is not None:
         query = "SELECT * FROM Produit WHERE id =\"" + id + "\""
@@ -78,6 +73,27 @@ def get_cds_by(id_cds=None, id_product=None):
         dict_result["complete"] = result[0][5]
         dict_result["seqADN"] = result[0][6]
     return dict_result
+
+
+def get_all_applications_possibles():
+    query = "SELECT nom FROM Applications_possibles WHERE is_delete = 0;"
+    result = execute_query(query)
+    return result
+
+def get_application_for_id(id=None):
+    if id is None:
+        return ValueError
+    else:
+        query = "SELECT nom_app, validite, remarques FROM Applications WHERE is_delete = 0 AND id_produit =\"" + id + "\""
+        results_temp = execute_query(query)
+        results = []
+        for temp in results_temp:
+            dict = {}
+            dict["nom_app"] = temp[0]
+            dict["validite"] = temp[1]
+            dict["remarque"] = temp[2]
+            results.append(dict)
+        return results
 
 
 

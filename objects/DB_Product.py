@@ -12,6 +12,7 @@ class DB_Product:
         self.species = None
         self.fonction = None
         self.cds = None
+        self.applications = []
 
         self.set_properties()
 
@@ -24,7 +25,5 @@ class DB_Product:
             self.note = datas["note"]
             self.species = datas["species"]
             self.fonction = datas["fonction"]
-            try:
-                self.cds = DB_CDS(id=datas["cds_id"])
-            except Exception as e:
-                print(e)
+            self.cds = DB_CDS(id=datas["cds_id"])
+            self.applications = get_application_for_id(self.id)
