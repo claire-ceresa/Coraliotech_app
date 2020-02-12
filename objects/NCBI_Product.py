@@ -110,8 +110,10 @@ class NCBI_Product:
             start = self.feature_cds.location.start
             stop = self.feature_cds.location.end
             offset = int(self.feature_cds.qualifiers["codon_start"][0])
+            seqTOT = self.fiche.seq
+            seqCDS = str(seqTOT[start:stop])
             if start is not None and stop is not None :
-                self.cds = NCBI_CDS(int(start+offset), int(stop), offset)
+                self.cds = NCBI_CDS(int(start+offset), int(stop), offset, seqCDS)
 
     def get_feature_by_type(self, type):
         """:param type: type of the feature you need (CDS, source, etc)
@@ -139,6 +141,7 @@ class NCBI_Product:
         datas_cds["fin"] = str(self.cds.stop)
         datas_cds["poids_moleculaire"] = str(self.molecular_weight)
         datas_cds["complete"] = "0" if self.is_partial else "1"
+        datas_cds["seqADN"] = "\"" + self.cds.seqADN + "\""
         query = get_query_insert("CDS", datas_cds)
         commit = commit_query(query)
         return commit

@@ -1,10 +1,11 @@
 class NCBI_CDS:
 
-    def __init__(self, start=None, stop=None, offset=None):
+    def __init__(self, start=None, stop=None, offset=None, seqADN=None):
         self.start = start
         self.stop = stop
         self.length = None
         self.offset = offset
+        self.seqADN = seqADN
 
         self.set_length()
 
