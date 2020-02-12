@@ -7,6 +7,7 @@ def commit_query(query):
     try:
         connection = s.connect(database)
         cursor = connection.cursor()
+        cursor.execute("pragma foreign_keys = ON")
         cursor.execute(query)
         connection.commit()
         connection.close()

@@ -45,11 +45,14 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         if len(list_id) > 0:
             for id in list_id:
                 product = NCBI_Product(id)
-                saved = product.save_on_database()
-                if self.check_exceptions(product) and saved["commited"]:
-                    nb_product_saved = nb_product_saved + 1
+                if self.check_exceptions(product):
+                    saved = product.save_on_database()
+                    if saved["commited"]:
+                        nb_product_saved = nb_product_saved + 1
+                    else:
+                        products_not_saved.append({'id':product.id, 'error':saved["error"]})
                 else:
-                    products_not_saved.append({'id':product.id, 'error':saved["error"]})
+                    products_not_saved.append({'id': product.id, 'error': "Exception non utilisable"})
 
         message = str(nb_product_saved) + " resultat enregistre dans la base de donnees"
         if len(products_not_saved) > 0:
@@ -57,10 +60,19 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
             for product in products_not_saved:
                 message = message + " - " + product["id"] + " : " + product["error"] + "\n"
 
+        self.set_widgets(message)
+
+    def set_widgets(self, message):
         self.label_messages.setText(message)
-        self.button_go.setEnabled(False)
         self.edit_request.setEnabled(False)
         self.edit_id.setEnabled(True)
+        self.edit_id.setText("")
+        self.edit_request.setText("")
+        self.edit_out.setText("")
+        self.edit_in.setText("")
+        self.edit_org.setText("")
+        self.edit_keys.setText("")
+
 
     def check_exceptions(self, protein):
         if protein.molecular_weight is None:
@@ -114,47 +126,3 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         request = beginning + and_terms + not_terms
         return request
 
-
-
-    # def save_protein(self, protein):
-    #     self.save_cds(protein)
-    #     self.save_organism(protein)
-    #     product = self.save_product(protein)
-    #     return product
-    #
-    # def save_cds(self, protein):
-    #     datas_cds = {}
-    #     datas_cds["id"] = "\"cds_" + protein.id + "\""
-    #     datas_cds["debut"] = str(protein.cds.start)
-    #     datas_cds["fin"] = str(protein.cds.stop)
-    #     datas_cds["poids_moleculaire"] = str(protein.molecular_weight)
-    #     datas_cds["complete"] = "0" if protein.is_partial else "1"
-    #     query = get_query_insert("CDS", datas_cds)
-    #     commit = commit_query(query)
-    #     return commit
-    #
-    # def save_organism(self, protein):
-    #     datas_org = {}
-    #     datas_org["espece"] = "\"" + protein.species.species + "\"" if protein.species.species is not None else "NULL"
-    #     datas_org["genre"] = "\"" + protein.species.genus + "\"" if protein.species.genus is not None else "NULL"
-    #     datas_org["famille"] = "\"" + protein.species.family + "\"" if protein.species.family is not None else "NULL"
-    #     datas_org["ordre"] = "\"" + protein.species.order + "\"" if protein.species.order is not None else "NULL"
-    #     datas_org["sous_classe"] = "\"" + protein.species.subclass + "\"" if protein.species.subclass is not None else "NULL"
-    #     datas_org["classe"] = "\"" + protein.species.classe + "\"" if protein.species.classe is not None else "NULL"
-    #     datas_org["embranchement"] = "\"" + protein.species.phylum + "\"" if protein.species.phylum is not None else "NULL"
-    #     query = get_query_insert("Organisme", datas_org)
-    #     commit = commit_query(query)
-    #     return commit
-    #
-    # def save_product(self, protein):
-    #     datas_prod = {}
-    #     datas_prod["id"] = "\"" + protein.id + "\""
-    #     datas_prod["nom"] = "\"" + protein.name + "\""
-    #     datas_prod["source"] = "\"NCBI\""
-    #     datas_prod["note"] = "\"" + protein.note + "\"" if protein.note is not None else "NULL"
-    #     datas_prod["espece"] = "\"" + protein.species.species + "\""
-    #     datas_prod["id_cds"] = "\"cds_" + protein.id + "\""
-    #     datas_prod["predicted"] = "1" if protein.is_predicted else "0"
-    #     query = get_query_insert("Produit", datas_prod)
-    #     commit = commit_query(query)
-    #     return commit
