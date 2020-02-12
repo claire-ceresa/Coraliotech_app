@@ -19,14 +19,26 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
             self.edit_request.setEnabled(True)
             self.edit_request.setText(request)
             self.button_go.setEnabled(True)
+            self.edit_id.setEnabled(False)
 
     def button_go_pressed(self):
         self.label_messages.setText("")
 
     def button_go_clicked(self):
-        request = self.edit_request.text()
+        if self.edit_request.isEnabled():
+            request = self.edit_request.text()
+        elif self.edit_id.isEnabled():
+            request = self.edit_id.text() + "[Accession]"
+        else:
+            print("probleme")
+
         search = NCBI_Search(request)
-        list_id = search.get_list_ids()
+
+        try:
+            list_id = search.get_list_ids()
+        except Exception as e:
+            print(e)
+
 
         nb_product_saved = 0
         product_not_saved = []
@@ -48,6 +60,8 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
             message = str(nb_product_saved) + " resultat enregistre dans la base de donnees"
         self.label_messages.setText(message)
         self.button_go.setEnabled(False)
+        self.edit_request.setEnabled(False)
+        self.edit_id.setEnabled(True)
 
     def check_exceptions(self, protein):
         if protein.molecular_weight is None:

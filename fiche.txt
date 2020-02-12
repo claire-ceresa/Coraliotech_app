@@ -1,61 +1,54 @@
-LOCUS       KU557763                 915 bp    mRNA    linear   INV 18-AUG-2016
-DEFINITION  Stylophora pistillata alpha carbonic anhydrase 16 (CA16) mRNA,
-            complete cds.
-ACCESSION   KU557763
-VERSION     KU557763.1
+LOCUS       DQ899732                 666 bp    mRNA    linear   INV 14-APR-2008
+DEFINITION  Corynactis californica green fluorescent protein mRNA, complete cds.
+ACCESSION   DQ899732
+VERSION     DQ899732.1
 KEYWORDS    .
-SOURCE      Stylophora pistillata
-  ORGANISM  Stylophora pistillata
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
-            Astrocoeniina; Pocilloporidae; Stylophora.
-REFERENCE   1  (bases 1 to 915)
-  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Caminiti-Segonds,N., Allemand,D.
-            and Tambutte,S.
-  TITLE     Carbonic Anhydrases in Cnidarians: Novel Perspectives from the
-            Octocorallian Corallium rubrum
-  JOURNAL   PLoS ONE 11 (8), E0160368 (2016)
-   PUBMED   27513959
-  REMARK    Publication Status: Online-Only
-REFERENCE   2  (bases 1 to 915)
-  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Allemand,D. and Tambutte,S.
+SOURCE      Corynactis californica
+  ORGANISM  Corynactis californica
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia;
+            Corallimorpharia; Corallimorphidae; Corynactis.
+REFERENCE   1  (bases 1 to 666)
+  AUTHORS   Schnitzler,C.E., Keenan,R.J., McCord,R., Matysik,A.,
+            Christianson,L.M. and Haddock,S.H.
+  TITLE     Spectral Diversity of Fluorescent Proteins from the Anthozoan
+            Corynactis californica
+  JOURNAL   Mar. Biotechnol. 10 (3), 328-342 (2008)
+   PUBMED   18330643
+REFERENCE   2  (bases 1 to 666)
+  AUTHORS   Schnitzler,C.E. and Haddock,S.H.D.
+  TITLE     Novel fluorescent proteins from Corynactis californica, a temperate
+            non-bioluminescent non-symbiotic anthozoan
+  JOURNAL   Unpublished
+REFERENCE   3  (bases 1 to 666)
+  AUTHORS   Schnitzler,C.E. and Haddock,S.H.D.
   TITLE     Direct Submission
-  JOURNAL   Submitted (19-JAN-2016) Centre Scientifique de Monaco, 8 Quai
-            Antoine 1er, Monaco 98000, Monaco
+  JOURNAL   Submitted (12-AUG-2006) MBARI, 7700 Sandholdt Road, Moss Landing, CA
+            95039, USA
 FEATURES             Location/Qualifiers
-     source          1..915
-                     /organism="Stylophora pistillata"
+     source          1..666
+                     /organism="Corynactis californica"
                      /mol_type="mRNA"
-                     /db_xref="taxon:50429"
-     gene            1..915
-                     /gene="CA16"
-     CDS             18..890
-                     /gene="CA16"
-                     /EC_number="4.2.1.1"
-                     /note="SpiCA16"
+                     /db_xref="taxon:44298"
+     CDS             1..666
+                     /note="ccalGFP3"
                      /codon_start=1
-                     /product="alpha carbonic anhydrase 16"
-                     /protein_id="ANJ59776.1"
-                     /translation="MLLLLLLLSAFGVAVGNQCEELQDGEFFSYGETTSEAPGPSDWYK
-                     KWRQCGGNRQSPINIDTSRVRHRHFRTLKIEFDRLGGLVSGELKNNGNAPTFFVDKHKG
-                     TARLKGSRLSDTYVLTNFHVHFGCENDRGSEHTRNGHRFAAEIHFVFEDSRGRFAVVAV
-                     WLRASKNENTILGRLANQMHKIIDVDESAKIRRAIGIRLMRLIPHKSRKHKTLVLSNYF
-                     HYVGSLTTPPCCEGVMWFVLRRTVPITDYQLSQFRVLEGRFPKDPPHMCDNFRPLQPLN
-                     RRYVFSVTN"
+                     /product="green fluorescent protein"
+                     /protein_id="ABI58282.1"
+                     /translation="MSLSKQVVKQDMNMTYHMDGCVNGHSFTIEGEGRGNPFKGQQTLK
+                     LRVTKGGPLPFAFDILSATFTYGNRCFCDYPEDMPDYFKQSLPEGYSWERTMMYEDGGC
+                     GTASAHISLNKTGFVHKSTFHGVNFPANGPVMQRKTVNWEPSTEKITACDGTLKGDVTM
+                     FLLLGGGYQQKCQFQTTYRTDKTVKMPPNHIIEHRLVRSEDGDAVQIQEHAVAKYFTV"
 ORIGIN
-        1 ccaaaatcga cctcggaatg ttgctgttac tgttgttgct atcagctttt ggtgtggcag
-       61 tgggcaacca atgcgaagaa ctgcaagatg gtgaattttt cagctacgga gaaactactt
-      121 cagaagctcc tggtccgtca gattggtata aaaaatggag gcaatgtggt ggtaatcggc
-      181 aatctccgat caacatcgac acgagtcggg tgaggcacag acatttccga actctgaaaa
-      241 tagaattcga cagactgggc ggcctggtca gtggggagtt aaaaaacaat ggaaacgctc
-      301 ccactttttt cgtagacaag cacaagggaa cagcgagact caaaggaagt cgtctttcag
-      361 acacatacgt gcttactaat ttccacgtgc atttcggatg tgaaaacgac cggggatcag
-      421 agcacactcg taatggccac cgttttgctg ctgagattca ttttgtgttt gaggattcaa
-      481 gaggacggtt tgcagtcgta gctgtatggc tcagggcttc taaaaatgaa aacactattc
-      541 tgggaaggtt ggcaaatcag atgcacaaga ttattgatgt tgacgagtct gcgaagataa
-      601 ggagggcgat cggaattcgc ttgatgcgcc ttataccaca caaaagtcgg aagcacaaga
-      661 cattggtact gtcaaattat ttccactacg ttggctccct cactactcct ccttgttgcg
-      721 aaggcgtgat gtggtttgtc ttgcgacgaa cagttcctat cacggactat cagctgtcgc
-      781 agttcagagt gttagagggt cgttttccca aggacccccc gcacatgtgt gacaacttca
-      841 gaccacttca gccgctcaat cgccgctatg tattttctgt tactaattaa tcggctgctg
-      901 agcgacaaaa caaac
+        1 atgtctctat caaagcaagt ggtcaaacaa gacatgaata tgacctatca tatggatggg
+       61 tgtgtcaacg ggcactcctt cacgattgag ggtgaaggaa ggggaaaccc attcaaagga
+      121 cagcagactt tgaaactgcg tgtcaccaag ggagggccac ttccgttcgc ctttgatata
+      181 ttgtccgcaa cgtttacgta tggaaacaga tgcttttgcg actatccaga ggacatgccc
+      241 gactatttca aacagtctct tcctgaagga tactcatggg agaggactat gatgtacgag
+      301 gacggagggt gtggcacagc cagtgcacac ataagcctta ataaaacagg ctttgtgcac
+      361 aaatctacat ttcatggcgt caattttcct gctaatggac ctgtgatgca aaggaaaaca
+      421 gtaaattggg aaccttccac tgagaaaata actgcctgtg atggaacact gaagggcgat
+      481 gttaccatgt ttctcctgct aggaggaggt tatcaacaga aatgtcagtt ccaaactact
+      541 tacaggacag acaagactgt caaaatgcca ccgaaccata tcatagaaca ccgtcttgtg
+      601 agaagcgaag atggcgacgc tgttcaaatc caagagcacg ctgttgcaaa atacttcaca
+      661 gtatga
 //
