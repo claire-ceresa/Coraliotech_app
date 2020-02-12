@@ -35,7 +35,20 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
             message.exec()
         else:
             self.window_product = Product_Window(id=id)
-            self.window_product.show()
+            if self.window_product.existed:
+                self.window_product.show()
+            else:
+                message = QMessageBox.question(self, "Attention" ,"Le produit n'est pas enregistre ! \nVoulez vous l'enregistrer ?", QMessageBox.Yes, QMessageBox.Cancel)
+                if message == QMessageBox.Yes:
+                    self.window_download.edit_keys.setEnabled(False)
+                    self.window_download.edit_org.setEnabled(False)
+                    self.window_download.edit_in.setEnabled(False)
+                    self.window_download.edit_out.setEnabled(False)
+                    self.window_download.button_write.setEnabled(False)
+                    self.window_download.button_go.setEnabled(True)
+                    self.window_download.edit_request.setEnabled(True)
+                    self.window_download.edit_request.setText(id)
+                    self.window_download.show()
 
     def button_search_clicked(self):
         # TODO : ouvre la liste des resultats (seulement id et nom) et quand clique, ouvre la fiche produit

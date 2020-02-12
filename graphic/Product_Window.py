@@ -14,7 +14,10 @@ class Product_Window(QMainWindow, Ui_MainWindow):
             self.app_checkboxes = []
             self.create_frame_app()
             self.product = DB_Product(id=self.id)
-            self.set_window()
+            self.existed = self.product.existed
+            if self.existed:
+                self.set_window()
+
 
         def create_frame_app(self):
             applications = get_all_applications_possibles()
