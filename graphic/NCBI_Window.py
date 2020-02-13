@@ -29,7 +29,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
     def button_go_pressed(self):
         """clean the previous messages"""
-        self.label_messages.setText("")
+        self.label_messages.setText("Chargement...")
 
     def button_go_clicked(self):
         """when button go is clicked, save on the DB the result of the request on NCBI"""
@@ -58,7 +58,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
                 else:
                     products_not_saved.append({'id': product.id, 'error': "Exception non utilisable"})
 
-        message = str(nb_product_saved) + " resultat enregistre dans la base de donnees"
+        message = str(nb_product_saved) + " resultats enregistres dans la base de donnees !"
         if len(products_not_saved) > 0:
             message = message + "\n" + str(len(products_not_saved)) + " non enregistres : \n"
             for product in products_not_saved:

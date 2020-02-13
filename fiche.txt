@@ -1,54 +1,68 @@
-LOCUS       DQ899732                 666 bp    mRNA    linear   INV 14-APR-2008
-DEFINITION  Corynactis californica green fluorescent protein mRNA, complete cds.
-ACCESSION   DQ899732
-VERSION     DQ899732.1
-KEYWORDS    .
-SOURCE      Corynactis californica
-  ORGANISM  Corynactis californica
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia;
-            Corallimorpharia; Corallimorphidae; Corynactis.
-REFERENCE   1  (bases 1 to 666)
-  AUTHORS   Schnitzler,C.E., Keenan,R.J., McCord,R., Matysik,A.,
-            Christianson,L.M. and Haddock,S.H.
-  TITLE     Spectral Diversity of Fluorescent Proteins from the Anthozoan
-            Corynactis californica
-  JOURNAL   Mar. Biotechnol. 10 (3), 328-342 (2008)
-   PUBMED   18330643
-REFERENCE   2  (bases 1 to 666)
-  AUTHORS   Schnitzler,C.E. and Haddock,S.H.D.
-  TITLE     Novel fluorescent proteins from Corynactis californica, a temperate
-            non-bioluminescent non-symbiotic anthozoan
-  JOURNAL   Unpublished
-REFERENCE   3  (bases 1 to 666)
-  AUTHORS   Schnitzler,C.E. and Haddock,S.H.D.
-  TITLE     Direct Submission
-  JOURNAL   Submitted (12-AUG-2006) MBARI, 7700 Sandholdt Road, Moss Landing, CA
-            95039, USA
+LOCUS       XM_028558195             432 bp    mRNA    linear   INV 29-MAR-2019
+DEFINITION  PREDICTED: Dendronephthya gigantea collagen alpha-1(XIV) chain-like
+            (LOC114536857), mRNA.
+ACCESSION   XM_028558195
+VERSION     XM_028558195.1
+DBLINK      BioProject: PRJNA529494
+KEYWORDS    RefSeq; includes ab initio.
+SOURCE      Dendronephthya gigantea
+  ORGANISM  Dendronephthya gigantea
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Octocorallia; Alcyonacea;
+            Alcyoniina; Nephtheidae; Dendronephthya.
+COMMENT     ##Genome-Annotation-Data-START##
+            Annotation Provider         :: NCBI
+            Annotation Status           :: Full annotation
+            Annotation Name :: Dendronephthya gigantea Annotation Release 100
+            Annotation Version          :: 100
+            Annotation Pipeline :: NCBI eukaryotic genome annotation pipeline
+            Annotation Software Version :: 8.2
+            Annotation Method           :: Best-placed RefSeq; Gnomon
+            Features Annotated          :: Gene; mRNA; CDS; ncRNA
+            ##Genome-Annotation-Data-END##
+            ##RefSeq-Attributes-START##
+            ab initio                   :: 19% of CDS bases
+            ##RefSeq-Attributes-END##
+            MODEL REFSEQ:  This record is predicted by automated computational
+            analysis. This record is derived from a genomic sequence
+            (NW_021163159.1) annotated using gene prediction method: Gnomon.
+            Also see:
+            Documentation of NCBI's Annotation Process
 FEATURES             Location/Qualifiers
-     source          1..666
-                     /organism="Corynactis californica"
+     source          1..432
+                     /organism="Dendronephthya gigantea"
                      /mol_type="mRNA"
-                     /db_xref="taxon:44298"
-     CDS             1..666
-                     /note="ccalGFP3"
+                     /isolate="DGI-Jeju-01"
+                     /isolation_source="individual from underwater near
+                     Seogwipo"
+                     /db_xref="taxon:151771"
+                     /chromosome="Unknown"
+                     /tissue_type="Adult whole colony"
+                     /country="South Korea: Jeju Island"
+                     /collection_date="22-May-2015"
+     gene            1..432
+                     /gene="LOC114536857"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Gnomon. Supporting evidence
+                     includes similarity to: 80% coverage of the annotated
+                     genomic feature by RNAseq alignments, including 2 samples
+                     with support for all annotated introns"
+                     /db_xref="GeneID:114536857"
+     CDS             1..432
+                     /gene="LOC114536857"
                      /codon_start=1
-                     /product="green fluorescent protein"
-                     /protein_id="ABI58282.1"
-                     /translation="MSLSKQVVKQDMNMTYHMDGCVNGHSFTIEGEGRGNPFKGQQTLK
-                     LRVTKGGPLPFAFDILSATFTYGNRCFCDYPEDMPDYFKQSLPEGYSWERTMMYEDGGC
-                     GTASAHISLNKTGFVHKSTFHGVNFPANGPVMQRKTVNWEPSTEKITACDGTLKGDVTM
-                     FLLLGGGYQQKCQFQTTYRTDKTVKMPPNHIIEHRLVRSEDGDAVQIQEHAVAKYFTV"
+                     /product="collagen alpha-1(XIV) chain-like"
+                     /protein_id="XP_028413996.1"
+                     /db_xref="GeneID:114536857"
+                     /translation="MQFSTVEKTEHLFQLQKHTLPEELNAIINMQYHSGRNTMLGDALS
+                     QINNEVFNGQAGDRSTVENVLVIFSDGRAHDISRAYREAGYMKEKDVRIIATAVSDSGY
+                     IPEELRRLATHRKDVLAIDLSNSAHYAKELASMICKANA"
 ORIGIN
-        1 atgtctctat caaagcaagt ggtcaaacaa gacatgaata tgacctatca tatggatggg
-       61 tgtgtcaacg ggcactcctt cacgattgag ggtgaaggaa ggggaaaccc attcaaagga
-      121 cagcagactt tgaaactgcg tgtcaccaag ggagggccac ttccgttcgc ctttgatata
-      181 ttgtccgcaa cgtttacgta tggaaacaga tgcttttgcg actatccaga ggacatgccc
-      241 gactatttca aacagtctct tcctgaagga tactcatggg agaggactat gatgtacgag
-      301 gacggagggt gtggcacagc cagtgcacac ataagcctta ataaaacagg ctttgtgcac
-      361 aaatctacat ttcatggcgt caattttcct gctaatggac ctgtgatgca aaggaaaaca
-      421 gtaaattggg aaccttccac tgagaaaata actgcctgtg atggaacact gaagggcgat
-      481 gttaccatgt ttctcctgct aggaggaggt tatcaacaga aatgtcagtt ccaaactact
-      541 tacaggacag acaagactgt caaaatgcca ccgaaccata tcatagaaca ccgtcttgtg
-      601 agaagcgaag atggcgacgc tgttcaaatc caagagcacg ctgttgcaaa atacttcaca
-      661 gtatga
+        1 atgcagttca gtacggtcga gaaaacagaa catttattcc aacttcaaaa acacaccttg
+       61 cctgaagaac tgaacgcaat tattaatatg caatatcact ctggaagaaa tacaatgttg
+      121 ggagacgctt tgagccagat aaataacgag gtgttcaacg gacaagctgg tgatcgttcc
+      181 accgtggaaa atgttctcgt catcttcagt gacggtcgag cacacgatat ctcgcgggca
+      241 taccgagagg caggctacat gaaagaaaaa gatgtgcgaa tcatagccac ggctgtgagc
+      301 gactctggct atatccccga ggagctgaga aggcttgcga cgcatcgtaa agacgtattg
+      361 gccattgatc tgagcaactc tgcgcactat gccaaggaac tcgcgtcgat gatttgcaag
+      421 gctaacgcgt ga
 //

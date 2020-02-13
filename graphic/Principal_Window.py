@@ -15,7 +15,6 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Coraliotech")
         self.set_image()
-        self.window_download = None
         self.window_product = None
 
     def set_image(self):
@@ -44,8 +43,12 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
             else:
                 message = QMessageBox.question(self, "Attention" ,"Le produit n'est pas enregistre ! \nVoulez vous l'enregistrer ?", QMessageBox.Yes, QMessageBox.Cancel)
                 if message == QMessageBox.Yes:
-                    self.window_download.edit_id.setText(id)
-                    self.window_download.show()
+                    try:
+                        self.window_download = NCBI_Window()
+                        self.window_download.edit_id.setText(id)
+                        self.window_download.show()
+                    except Exception as e:
+                        print(e)
 
     def button_search_clicked(self):
         # TODO : ouvre la liste des resultats (seulement id et nom) et quand clique, ouvre la fiche produit
