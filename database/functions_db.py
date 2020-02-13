@@ -104,6 +104,14 @@ def get_application_for_id(id=None):
             results.append(dict)
         return results
 
+def get_column_names(table):
+    query = "PRAGMA table_info(" + table + ")"
+    results = execute_query(query)
+    names = []
+    for result in results:
+        names.append(result[1])
+    return names
+
 
 
 
