@@ -2,6 +2,9 @@ from Bio import Entrez
 
 
 class NCBI_Organism:
+    """
+    Organism object, issued from the GenBank databas
+    """
 
     def __init__(self, id=None):
         self.id = id
@@ -15,22 +18,24 @@ class NCBI_Organism:
         self.classe = None
         self.phylum = None
 
-        self.set_taxonomy()
-        self.set_lineage()
+        self._set_taxonomy()
+        self._set_lineage()
         if self.taxonomy is not None and len(self.taxonomy) > 0:
-            self.set_properties()
+            self._set_properties()
 
-    def set_taxonomy(self):
+    def _set_taxonomy(self):
         """set the attribute taxonomy"""
         if self.id is not None:
             get_taxonomy = Entrez.efetch(db="Taxonomy", id=self.id, retmode="xml")
             self.taxonomy = Entrez.read(get_taxonomy)
 
-    def set_lineage(self):
+    def _set_lineage(self):
+        """set the attribute lineage"""
         if self.taxonomy is not None:
             self.lineage = self.taxonomy[0]["LineageEx"]
 
-    def set_properties(self):
+    def _set_properties(self):
+        """set all the variables with the values"""
         self.species = self.taxonomy[0]["ScientificName"]
         genus = next((item for item in self.lineage if item["Rank"] == "genus"), None)
         self.genus = genus["ScientificName"] if genus is not None else None

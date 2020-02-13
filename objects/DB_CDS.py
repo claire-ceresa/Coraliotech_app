@@ -2,6 +2,9 @@ from database.functions_db import *
 
 
 class DB_CDS:
+    """
+    CDS object, issued of the local database
+    """
 
     def __init__(self, id=None):
         self.id = id
@@ -12,9 +15,10 @@ class DB_CDS:
         self.complete = None
         self.seqADN = None
 
-        self.set_properties()
+        self._set_properties()
 
-    def set_properties(self):
+    def _set_properties(self):
+        """set all the variables with the values"""
         cds = get_cds_by(id_cds=self.id)
         if cds["delete"] == 0:
             self.start = cds["start"]

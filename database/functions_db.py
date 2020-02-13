@@ -1,9 +1,10 @@
 import sqlite3 as s
 
-database = "database\coraliotech_test_db.db"
+database = "database\coraliotech_test_db.db" # the name of the local database
 
 
 def commit_query(query):
+    """commiting a query on the local database"""
     try:
         connection = s.connect(database)
         cursor = connection.cursor()
@@ -17,6 +18,7 @@ def commit_query(query):
 
 
 def execute_query(query):
+    """executing a query on the local database"""
     connection = s.connect(database)
     cursor = connection.cursor()
     cursor.execute(query)
@@ -26,6 +28,7 @@ def execute_query(query):
 
 
 def get_query_insert(table, datas):
+    """creating a query, type INSERT INTO"""
     begin = "INSERT INTO " + table + " ( "
     keys = (" , ").join(datas.keys())
     middle = " ) VALUES ( "
@@ -36,6 +39,7 @@ def get_query_insert(table, datas):
 
 
 def get_product_by(id=None, name=None, species=None):
+    """:return a dict, with all the value for a product, find by the id"""
     if id is not None:
         query = "SELECT * FROM Produit WHERE id =\"" + id + "\""
     elif name is not None:
@@ -60,6 +64,7 @@ def get_product_by(id=None, name=None, species=None):
 
 
 def get_cds_by(id_cds=None, id_product=None):
+    """:return a dict with all the value for a cds, find by id"""
     if id_product is not None:
         id_cds = "cds_" + id_product
     query = "SELECT * FROM CDS WHERE id = \"" + id_cds + "\""
@@ -77,11 +82,14 @@ def get_cds_by(id_cds=None, id_product=None):
 
 
 def get_all_applications_possibles():
+    """:return all the value of the variable 'name' of the table Applications_possibles"""
     query = "SELECT nom FROM Applications_possibles WHERE is_delete = 0;"
     result = execute_query(query)
     return result
 
+
 def get_application_for_id(id=None):
+    """:return a dict, with all the application for a product"""
     if id is None:
         return ValueError
     else:

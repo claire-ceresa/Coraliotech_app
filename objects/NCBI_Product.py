@@ -7,6 +7,9 @@ from database.functions_db import *
 
 
 class NCBI_Product:
+    """
+    Product object issued from the GenBank fiche
+    """
 
     def __init__(self, id):
 
@@ -23,6 +26,12 @@ class NCBI_Product:
         self.species = None
         self.cds = None
 
+        self.set_properties()
+        self._check_exception()
+
+    # SETTER METHODS #
+
+    def set_properties(self):
         self.set_fiche()
         self.set_features()
         self.set_name()
@@ -33,11 +42,6 @@ class NCBI_Product:
         self.set_species()
         self.set_cds()
 
-        self._check_exception()
-
-    def save_genbank_file(self):
-        SeqIO.write(self.fiche, "fiche.txt", "genbank")
-
     def set_fiche(self):
         """set the attribute sequence with a SeqRecord old_object"""
         try:
@@ -46,16 +50,6 @@ class NCBI_Product:
             print(str(id) + " inconnu dans la base de donnees")
         else:
             self.fiche = SeqIO.read(fiche, "genbank")
-
-    def set_is_predicted(self):
-        """set the boolean is_predicted"""
-        if self.fiche is not None:
-            self.is_predicted = "PREDICTED" in self.fiche.description
-
-    def set_is_partial(self):
-        """set the boolean is_partial"""
-        if self.fiche is not None:
-            self.is_partial = "partial" in self.fiche.description
 
     def set_features(self):
         """set the attributes concerning features"""
@@ -68,6 +62,16 @@ class NCBI_Product:
         """set the attribute name"""
         if self.feature_cds is not None and 'product' in self.feature_cds.qualifiers:
             self.name = self.feature_cds.qualifiers["product"][0]
+
+    def set_is_predicted(self):
+        """set the boolean is_predicted"""
+        if self.fiche is not None:
+            self.is_predicted = "PREDICTED" in self.fiche.description
+
+    def set_is_partial(self):
+        """set the boolean is_partial"""
+        if self.fiche is not None:
+            self.is_partial = "partial" in self.fiche.description
 
     def set_notes(self):
         """set the attribute note"""
@@ -84,25 +88,11 @@ class NCBI_Product:
             except Exception as e:
                 return False
 
-    def get_translation(self):
-        """:return the translation of the protein"""
-        if self.feature_cds is not None and len(self.feature_cds.qualifiers["translation"]) > 0:
-            translation = self.feature_cds.qualifiers["translation"][0]
-            return translation
-        return None
-
     def set_species(self):
         """set the attribute species"""
         id = self.get_id_taxon()
         if id is not None:
             self.species = NCBI_Organism(id)
-
-    def get_id_taxon(self):
-        """:return the NCBI_Window id of the taxon"""
-        if self.feature_source is not None:
-            id = self.feature_source.qualifiers["db_xref"][0].strip('taxon:')
-            return int(id)
-        return None
 
     def set_cds(self):
         """set the attribute cds with a CDS Object"""
@@ -114,6 +104,25 @@ class NCBI_Product:
             seqCDS = str(seqTOT[start:stop])
             if start is not None and stop is not None :
                 self.cds = NCBI_CDS(int(start+offset), int(stop), offset, seqCDS)
+
+    # ACCESSIBLE METHODS #
+
+    def save_genbank_file(self):
+        SeqIO.write(self.fiche, "fiche.txt", "genbank")
+
+    def get_translation(self):
+        """:return the translation of the protein"""
+        if self.feature_cds is not None and len(self.feature_cds.qualifiers["translation"]) > 0:
+            translation = self.feature_cds.qualifiers["translation"][0]
+            return translation
+        return None
+
+    def get_id_taxon(self):
+        """:return the NCBI_Window id of the taxon"""
+        if self.feature_source is not None:
+            id = self.feature_source.qualifiers["db_xref"][0].strip('taxon:')
+            return int(id)
+        return None
 
     def get_feature_by_type(self, type):
         """:param type: type of the feature you need (CDS, source, etc)
@@ -127,6 +136,8 @@ class NCBI_Product:
         """check some precise exception and print a message if needed"""
         if self.cds.offset is not None and self.cds.offset > 1:
             print(str(self.id) + " : codon start > 1 --> verifier la taille du cds pour confirmation formule")
+
+    # METHODS DEALING WITH THE LOCAL DATABASE#
 
     def save_on_database(self):
         organism_saved = self.save_organism()

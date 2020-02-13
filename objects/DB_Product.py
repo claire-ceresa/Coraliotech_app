@@ -4,6 +4,10 @@ from objects.DB_CDS import DB_CDS
 class DB_Product:
 
     def __init__(self, id):
+        """
+        Product object, issued from the local database
+        :param id: GenBank id of the product
+        """
         self.id = id
         self.existed = True
         self.name = None
@@ -15,9 +19,10 @@ class DB_Product:
         self.cds = None
         self.applications = []
 
-        self.set_properties()
+        self._set_properties()
 
-    def set_properties(self):
+    def _set_properties(self):
+        """set all the variables with the values"""
         datas = get_product_by(id=self.id)
         if len(datas) > 0:
             if datas["delete"] == 0:

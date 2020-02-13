@@ -7,14 +7,18 @@ from graphic.graphics_functions import *
 
 
 class NCBI_Window(QMainWindow, Ui_MainWindow):
-
+    """
+    controlling class for ncbi_view
+    """
     def __init__(self, parent=None):
         super(NCBI_Window, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle("Telecharger")
 
+    # METHOD OF THE CLASS #
+
     def button_write_clicked(self):
-        """when button write is clicked, write the good request"""
+        """when button write is clicked, fill in the edit request"""
         if self.organism_written():
             terms = self.get_request_terms()
             request = self.create_request(terms)
@@ -60,9 +64,12 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
             for product in products_not_saved:
                 message = message + " - " + product["id"] + " : " + product["error"] + "\n"
 
-        self.set_widgets(message)
+        self.clean_widgets(message)
 
-    def set_widgets(self, message):
+    # GRAPHIC METHODS #
+
+    def clean_widgets(self, message):
+        """clean all the widgets after a research is done"""
         self.label_messages.setText(message)
         self.edit_request.setEnabled(False)
         self.edit_id.setEnabled(True)
@@ -73,21 +80,8 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         self.edit_org.setText("")
         self.edit_keys.setText("")
 
-
-    def check_exceptions(self, protein):
-        if protein.molecular_weight is None:
-            return False
-        if protein.name is None:
-            return False
-        return True
-
-    def organism_written(self):
-        if len(self.edit_org.text()) == 0:
-            create_messageBox(title="Attention", text="Remplir un organisme !")
-            return False
-        return True
-
     def get_request_terms(self):
+        """:return the value of the edits to build the request"""
         terms = dict()
         terms["organism"] = self.edit_org.text()
         keys = self.edit_keys.text()
@@ -111,7 +105,10 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
         return terms
 
+    # GENERAL METHODS#
+
     def create_request(self, terms):
+        """:return the request, created thanks to the terms written"""
         beginning = terms["organism"]
         and_terms = ""
         not_terms = ""
@@ -125,4 +122,19 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
         request = beginning + and_terms + not_terms
         return request
+
+    def organism_written(self):
+        """:return boolean if an organism is written for the research"""
+        if len(self.edit_org.text()) == 0:
+            create_messageBox(title="Attention", text="Remplir un organisme !")
+            return False
+        return True
+
+    def check_exceptions(self, protein):
+        """:return boolean is the data is valid"""
+        if protein.molecular_weight is None:
+            return False
+        if protein.name is None:
+            return False
+        return True
 

@@ -3,6 +3,10 @@ from Bio import Entrez
 class NCBI_Search:
 
     def __init__(self, request):
+        """
+        object dealing with the NCBI research
+        :param request:
+        """
         self.request = request
 
     def get_list_ids(self):
