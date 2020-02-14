@@ -3,6 +3,7 @@ from PyQt5.QtGui import QPixmap
 from graphic.principal_view import *
 from graphic.NCBI_Window import NCBI_Window
 from graphic.Product_Window import Product_Window
+from graphic.Search_Window import Search_Window
 from graphic.graphics_functions import *
 from database.functions_db import *
 from objects.DB_Search import *
@@ -17,6 +18,7 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowTitle("Coraliotech")
         self.window_product = None
+        self.window_search = None
         self._set_image()
         self._set_combobox_org()
 
@@ -80,8 +82,11 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
             create_messageBox("Attention !", "Choisir un champs !")
 
         search = DB_Search(terms)
-        print(search.query)
-
+        try:
+            self.window_search = Search_Window(search=search)
+        except Exception as e:
+            print(e)
+        self.window_search.show()
 
     def button_treate_file_clicked(self):
         # TODO : a voir si utile. Si oui, voir pour gérer un template Excel ou systeme de creation

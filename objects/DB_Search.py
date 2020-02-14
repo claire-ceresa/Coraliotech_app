@@ -6,6 +6,7 @@ class DB_Search:
     def __init__(self, terms):
         self.terms = terms
         self.query = self.create_query()
+        self.results = self.get_results()
 
     def create_query(self):
         variables_selected = ["P.id", "P.nom", "P.espece", "P.source", "P.predicted"]
@@ -26,3 +27,14 @@ class DB_Search:
 
         query = query_select + query_from + query_where + " AND P.is_delete = 0"
         return query
+
+    def get_results(self):
+        results = execute_query(self.query)
+        dict_result = []
+        for result in results:
+            dict_result.append({'id':result[0],
+                                'nom':result[1],
+                                'espece':result[2],
+                                'source':result[3],
+                                'predicted':result[4]})
+        return dict_result

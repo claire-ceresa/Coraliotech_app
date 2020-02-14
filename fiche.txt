@@ -1,85 +1,122 @@
-LOCUS       JX891654                2342 bp    mRNA    linear   INV 02-MAY-2013
-DEFINITION  Stylophora pistillata hypothetical protein mRNA, complete cds.
-ACCESSION   JX891654
-VERSION     JX891654.1
-KEYWORDS    .
-SOURCE      Stylophora pistillata
-  ORGANISM  Stylophora pistillata
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
-            Astrocoeniina; Pocilloporidae; Stylophora.
-REFERENCE   1  (bases 1 to 2342)
-  AUTHORS   Drake,J.L., Mass,T., Haramaty,L., Zelzion,E., Bhattacharya,D. and
-            Falkowski,P.G.
-  TITLE     Proteomic analysis of skeletal organic matrix from the stony coral
-            Stylophora pistillata
-  JOURNAL   Proc. Natl. Acad. Sci. U.S.A. 110 (10), 3788-3793 (2013)
-   PUBMED   23431140
-REFERENCE   2  (bases 1 to 2342)
-  AUTHORS   Drake,J.L., Mass,T., Haramaty,L., Zelzion,E., Bhattacharya,D. and
-            Falkowski,P.G.
-  TITLE     Direct Submission
-  JOURNAL   Submitted (02-OCT-2012) Institute of Marine and Coastal Sciences,
-            Rutgers University, 71 Dudley Road, Room 318B, New Brunswick, NJ
-            08901, USA
-COMMENT     ##Assembly-Data-START##
-            Assembly Method       :: CLC Genomics Workbench v. 4.7
-            Assembly Name         :: OA Spistillata v1
-            Coverage              :: 40
-            Sequencing Technology :: Illumina
-            ##Assembly-Data-END##
+LOCUS       XM_028538201            3011 bp    mRNA    linear   INV 29-MAR-2019
+DEFINITION  PREDICTED: Dendronephthya gigantea collagen alpha-5(VI) chain-like
+            (LOC114518238), mRNA.
+ACCESSION   XM_028538201
+VERSION     XM_028538201.1
+DBLINK      BioProject: PRJNA529494
+KEYWORDS    RefSeq.
+SOURCE      Dendronephthya gigantea
+  ORGANISM  Dendronephthya gigantea
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Octocorallia; Alcyonacea;
+            Alcyoniina; Nephtheidae; Dendronephthya.
+COMMENT     ##Genome-Annotation-Data-START##
+            Annotation Provider         :: NCBI
+            Annotation Status           :: Full annotation
+            Annotation Name :: Dendronephthya gigantea Annotation Release 100
+            Annotation Version          :: 100
+            Annotation Pipeline :: NCBI eukaryotic genome annotation pipeline
+            Annotation Software Version :: 8.2
+            Annotation Method           :: Best-placed RefSeq; Gnomon
+            Features Annotated          :: Gene; mRNA; CDS; ncRNA
+            ##Genome-Annotation-Data-END##
+            MODEL REFSEQ:  This record is predicted by automated computational
+            analysis. This record is derived from a genomic sequence
+            (NW_021163020.1) annotated using gene prediction method: Gnomon.
+            Also see:
+            Documentation of NCBI's Annotation Process
 FEATURES             Location/Qualifiers
-     source          1..2342
-                     /organism="Stylophora pistillata"
+     source          1..3011
+                     /organism="Dendronephthya gigantea"
                      /mol_type="mRNA"
-                     /db_xref="taxon:50429"
-     CDS             213..863
-                     /note="STPnv1"
+                     /isolate="DGI-Jeju-01"
+                     /isolation_source="individual from underwater near
+                     Seogwipo"
+                     /db_xref="taxon:151771"
+                     /chromosome="Unknown"
+                     /tissue_type="Adult whole colony"
+                     /country="South Korea: Jeju Island"
+                     /collection_date="22-May-2015"
+     gene            1..3011
+                     /gene="LOC114518238"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Gnomon. Supporting evidence
+                     includes similarity to: 8 Proteins, and 100% coverage of
+                     the annotated genomic feature by RNAseq alignments,
+                     including 1 sample with support for all annotated introns"
+                     /db_xref="GeneID:114518238"
+     CDS             42..2909
+                     /gene="LOC114518238"
                      /codon_start=1
-                     /product="hypothetical protein"
-                     /protein_id="AGC24391.1"
-                     /translation="MFIFRHYQKVLLLISQLPLLTLQDETENKCSQTTITEAKDHLRLN
-                     GGGPLGTYNENYMAFTLDEVRTNFKNLLTLQPGNFSALAAWAPLSFPATLESGACVKDS
-                     GNCEGCPVVKDLGANYYPRFLNEVNCKSSGQICGQGLGECRTSVKSQRFFRDPSTDLST
-                     CNKDLEEYYYDMEMCCQCMLLLDGKWSRDSSNRLCRVRTSPVFLPAILHNFVP"
+                     /product="collagen alpha-5(VI) chain-like"
+                     /protein_id="XP_028394002.1"
+                     /db_xref="GeneID:114518238"
+                     /translation="MVRDNYTISEPGTHVGIVEYSDEPSIKLRLNETFDENSINNRIDE
+                     MRPSEGESANLDKALEKSVDEMFSVELGGRPSAKKILVVIAASNTTAKEALKKAAKPLK
+                     ERGVRIYVIALDDADPEVLSELVPDKKKIKKVKDKKKLPKLHEEISKLIEEDLIKKRKE
+                     KEMVDFVFAFGSTGRDAIILFEKEKDAAKVMIDNEKEKDILYSTIVYGQDATLNSKFND
+                     TSDKAKVKKFIDTLTWKDEGQKLDHALVEIDNVFQNYGRPKARKITVVFVTGEADATTS
+                     ELKRAAKKLNDNEVKIIVVKLGTDPDDEQLKVITPEKNIVKKKKTVKPKELAGFIEEVV
+                     KKDPCAAVDCEHGAKCSAQADDSTLCQCNEKCPTTSDPVCGSNEVSYDNECEMKRDMCL
+                     KQKPISVKRKGSCKLVVDLVIALDGSENLAEKGFDKIKDLVKAIIENQTISETETHIGV
+                     VEFSDEAHVILPLNELFEPTAIHDKVQRIIPSGGKNRVTDEALRKSADNVFDAKSGGRP
+                     GASKVLIIVTDGKSTGKEPPKRAVKPVKEKGVRVYVVNIGEDADKDELKDIVPTEKNIY
+                     HVKDSDKVPDIAPKLVEDIEKDIKKRLPKKLVDVIFVMGSADPNGRNTLTKEKIIVNDI
+                     IEKPNDAFVTYGVVQLNETDPVKVPLGDYNDEKELKEKVKKLPFKEGKSLDEGIKKAGK
+                     ELGKNGRPKARKVIVVFVDGNDDVTEEQLKKVAEPLKKKKVKIIPVVLGENVDEEKLKP
+                     LLGKKKKPKKEKDLKKLAEEVAEEAFNDQCFAAECKDCAANPDDSTTCDLGEIIDLVFA
+                     IEGTTKMKVDGFNEAKDFVKNMVRDNYTISEPGTHVGIVEYSDEPSIKLRLNETFDEIS
+                     INNKIDEMRPSEGESANLDKALEKSVDEMFSVELGGRPSAKKILVVIAASNTTAKEALK
+                     KAAKPLKERGVRIYVIALDNADQKF"
 ORIGIN
-        1 tcgatcgcat ctacgacccg atgattaata caaaggttgc tagggttttt cacgttgaag
-       61 atcgagttgc acaaacttaa ttggataact cacgaggtat ttcatattgg tattttgcta
-      121 tgctggccag ttgccagttg aacctcccca tgcaaacatc ttctggtgtc ctgagagtta
-      181 ttcgcctaaa aaattacctc tgagtaagag cgatgtttat cttccgacat taccaaaagg
-      241 tcctactcct tatctctcaa ctgccattgc tcacgttaca ggacgagacg gaaaataagt
-      301 gctcacagac cactataact gaagcaaagg accatctaag gctaaatggt ggtggacctt
-      361 tgggtacata taacgaaaac tacatggcct ttacgttaga cgaagtgcga acaaacttta
-      421 aaaacctgct caccctgcag ccaggaaact tctccgcttt ggccgcttgg gcaccgttaa
-      481 gttttcccgc tactctggag tcaggagcat gcgtaaaaga ttcgggaaac tgtgaagggt
-      541 gtcccgttgt gaaagacctc ggcgcgaact attatccgcg cttcctaaac gaggtcaact
-      601 gcaagagttc aggtcaaatt tgcgggcagg gtcttggaga atgcagaaca tcagttaaga
-      661 gccagaggtt cttcagagat ccctccacgg atctgtcgac ctgtaataag gatttggaag
-      721 aatactacta tgacatggaa atgtgttgtc aatgcatgct gctccttgat ggcaagtggt
-      781 cacgtgactc ttccaatcga ctttgtcgag tgcgaacttc tccagttttt ttgcctgcaa
-      841 ttcttcataa ctttgtaccg taaagtcagt gataaaatta agtcgccagt cttttgcgta
-      901 cataatgatt agttatacat gtctatcact ttcctaacca gtcctctcac gtctaagcaa
-      961 aggaaaacac ttgggtggga aactaagccg agttgaaaat gaatattgtc attcattcag
-     1021 gttcaaataa atacggaatc tttaaaatct tttgctggaa ttttgatttc aatcactaac
-     1081 aaacgttaat gaccaagact gatgctttca gtcgaaacgt ttgttaatga ctgagatcaa
-     1141 aattccagaa aacgatttta agccgagttg aggtttacga gtatcacttc aacgtaaata
-     1201 cagcgtaaga aatgtcaacg ttatacaaag tactatttcc tcgtttgagc tgagattacg
-     1261 ctactaacga cggcttttgt ttggaatcta aacagcgaaa aaatctgatg atcatcattg
-     1321 aatagtgcaa cgtcatctct cgcatgaaat gcttcattga gtgtaaagcc tgattctcat
-     1381 gttgccgcag acctatctgg catagtcccc gggggcaatt gccgactccc ggcgacacag
-     1441 tccctgggag caactgaaga atattaaggc gagagcttgt ggaaagttct gcgactcatg
-     1501 ctcacgctca aagggtggac acgaccacta ttatgttttg ttcgtaggat tgcgacttgt
-     1561 gaacagaata attacggaat tgtggggaaa tggagtagtt caatccctga tttcttcgcc
-     1621 ggtcacccga gatgatgttc actttaaaaa atatattttg atcaccgata accgccggct
-     1681 tgcccgcgaa gttgaactga ggcggcgctc gatgcttggg acagattgcg agttggcgat
-     1741 caaaattttc tgcatatgcc gtaacgttgt cccaagacgt gcgtgtggcc acgtagcagg
-     1801 catacgagaa ccaggtttaa gtgttatccc agcatgattc actcctactt gatcgaaaaa
-     1861 atacgattta tatataatgc tatttaaaac aaaacaacat ttttaatcgg ctcaagttta
-     1921 aggcaattac aattaccctc ggaaacaatt tatcaaagtg aataacgtga caaagttatg
-     1981 aaataacatt gaccttcatc aggttataac aatggctgca caagagacaa ttctcttcat
-     2041 tcggcagatc tcttgaaact aattgagtgc agttttccgg ccacctccta aatgaatccg
-     2101 gtctcgaact gcaatgcata tatcaacaat tttgaccctt cacctccaag aagagattag
-     2161 aaaatatctc ctaattctca tttcaattcg ttacccagaa aatacgtcgt gagaattaac
-     2221 gatctcgcca ttaagagggg ccagctttga taagacatca aagtgtctca tttgatttaa
-     2281 agcaaaccaa gagaaaacta tgggtcccat aactttgttt tgaagaaaac cttaactcac
-     2341 tg
+        1 aggtagatgg ttttaatgaa gctaaagact tcgtgaagaa catggtgcgt gataattata
+       61 caatatctga acctggaaca cacgttggaa ttgttgagta cagcgacgag ccttcaatta
+      121 aacttcgtct gaacgaaacg tttgatgaaa actcgataaa caacaggata gatgaaatga
+      181 gaccatcaga gggagagagt gccaatctcg ataaagcact agaaaaatct gtcgatgaaa
+      241 tgtttagtgt tgaattggga ggtcgtccat cagctaaaaa gattcttgtt gttattgctg
+      301 cgagtaatac gactgctaaa gaagcgttga agaaagctgc taaaccattg aaagaacgag
+      361 gtgttcgaat ttacgtaatc gctcttgatg atgcagaccc agaagttctg agtgaactgg
+      421 ttcctgacaa gaaaaagata aagaaagtaa aagataaaaa gaaactacca aaactacatg
+      481 aagaaatttc taagcttatt gaagaagact tgatcaaaaa acgcaaagaa aaggagatgg
+      541 ttgattttgt gtttgcgttt ggttctactg gtagagatgc gataatatta ttcgaaaaag
+      601 aaaaagatgc agcaaaggtt atgatcgata atgagaaaga gaaagatatc ctctatagta
+      661 cgattgtcta tgggcaagat gctacgttaa attcgaagtt caatgataca agcgacaagg
+      721 ctaaagttaa gaagtttatt gatacactga catggaagga cgagggtcag aaattagatc
+      781 atgcactggt cgaaatagac aatgtcttcc agaactatgg tcgacctaaa gctcgtaaaa
+      841 taacggttgt cttcgttact ggcgaggcag atgctacaac aagtgaactg aagagagcgg
+      901 caaagaaatt aaatgataat gaagtgaaaa taatcgtagt gaagctagga acagatccgg
+      961 atgatgaaca gttgaaagta ataacaccag agaaaaatat cgtgaagaag aaaaagacag
+     1021 ttaaaccgaa agagttagcc ggatttattg aagaagttgt caaaaaagat ccttgtgctg
+     1081 cagttgactg tgaacatggc gcaaaatgtt cagctcaagc tgatgattca actctttgtc
+     1141 aatgcaatga aaaatgtcca actacgagtg atccagtatg cggttcaaat gaagtgtctt
+     1201 atgataacga atgtgaaatg aaacgtgata tgtgtttgaa gcaaaagcca attagtgtaa
+     1261 agaggaaagg atcttgtaaa ctggttgttg accttgtgat cgcattggat ggatcagaga
+     1321 atctggctga gaaaggattt gataaaataa aagatctcgt caaagcgata atagaaaatc
+     1381 aaaccatctc ggaaactgaa acccatattg gtgttgtaga gttcagcgat gaagcccatg
+     1441 ttattcttcc acttaatgag ctatttgaac caactgcaat ccacgataaa gtccaacgta
+     1501 tcattccatc tggtggtaaa aacagggtca ctgacgaagc cttacgaaag tctgctgata
+     1561 atgtgtttga cgcaaagtca ggaggtagac ctggagcttc aaaagttcta ataatagtta
+     1621 cagatggcaa atcaacaggc aaagaaccac ctaaacgtgc tgtaaaacct gtgaaagaaa
+     1681 agggagttcg agtttacgtt gtaaatattg gagaagatgc tgacaaggac gaactgaagg
+     1741 atatcgttcc tactgaaaag aatatctatc atgtaaaaga ttctgataaa gttccagata
+     1801 ttgctccgaa actggttgag gatattgaga aagatattaa gaaaagactt ccaaagaagt
+     1861 tggttgatgt aatcttcgtc atgggttctg ctgatccaaa tggtcgaaat actttgacta
+     1921 aagaaaagat tatcgttaat gacatcattg aaaaaccaaa cgatgcattt gtcacgtacg
+     1981 gcgttgttca actcaacgaa actgatccag tgaaagtacc tcttggcgat tataacgatg
+     2041 agaaagaatt gaaagaaaag gtaaagaaac taccgtttaa agaaggaaag tctctggatg
+     2101 aaggaataaa gaaagcggga aaagaattag ggaagaacgg gcggccaaaa gcacgaaagg
+     2161 tgattgttgt atttgtcgat ggaaatgacg atgttactga agaacaatta aagaaggtag
+     2221 ctgagccatt gaagaagaag aaagtcaaga tcataccggt cgtgttgggt gaaaatgtgg
+     2281 atgaagagaa actgaaacct ttgttaggga aaaagaagaa accaaagaag gagaaagatc
+     2341 ttaagaagct ggcagaggaa gtcgctgaag aagcattcaa tgatcaatgc tttgctgcag
+     2401 aatgtaaaga ttgtgctgcc aatcctgacg attccacgac ttgtgatctt ggtgagatca
+     2461 ttgatctggt gtttgcaatc gagggaacaa cgaaaatgaa ggtagatggt tttaatgaag
+     2521 ctaaagactt cgtgaagaac atggtgcgtg ataattatac aatatctgaa cctggaacac
+     2581 acgttggaat tgttgagtac agcgacgagc cttcaattaa acttcgtctg aacgaaacgt
+     2641 ttgatgaaat ctcgataaac aacaagatag atgaaatgag accatcagag ggagagagtg
+     2701 ccaatctcga taaagcacta gaaaaatctg tcgatgaaat gtttagtgtt gaattgggag
+     2761 gtcgtccatc agctaaaaag attcttgttg ttattgctgc gagtaatacg actgctaaag
+     2821 aagcgttgaa gaaagctgct aaaccattga aggaacgagg tgttcgaatt tacgtaatcg
+     2881 ctcttgataa tgcagaccag aagttctgag tgaacttgtt cctgacaaga aaaagataaa
+     2941 gaaagtaaaa gataaaaaga aactaccaaa actacatgaa gaaatttcta agcttattga
+     3001 agaagacttg a
 //
