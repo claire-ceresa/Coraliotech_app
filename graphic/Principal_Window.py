@@ -82,10 +82,11 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
             create_messageBox("Attention !", "Choisir un champs !")
 
         search = DB_Search(terms)
-        try:
-            self.window_search = Search_Window(search=search)
-        except Exception as e:
-            print(e)
+        # try:
+        #     self.window_search = Search_Window(search=search)
+        # except Exception as e:
+        #     print(e)
+        self.window_search = Search_Window(search=search)
         self.window_search.show()
 
     def button_treate_file_clicked(self):

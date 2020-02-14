@@ -1,8 +1,8 @@
-LOCUS       XM_028538201            3011 bp    mRNA    linear   INV 29-MAR-2019
-DEFINITION  PREDICTED: Dendronephthya gigantea collagen alpha-5(VI) chain-like
-            (LOC114518238), mRNA.
-ACCESSION   XM_028538201
-VERSION     XM_028538201.1
+LOCUS       XM_028559945             725 bp    mRNA    linear   INV 29-MAR-2019
+DEFINITION  PREDICTED: Dendronephthya gigantea cuticle collagen 2-like
+            (LOC114539318), mRNA.
+ACCESSION   XM_028559945
+VERSION     XM_028559945.1
 DBLINK      BioProject: PRJNA529494
 KEYWORDS    RefSeq.
 SOURCE      Dendronephthya gigantea
@@ -21,11 +21,11 @@ COMMENT     ##Genome-Annotation-Data-START##
             ##Genome-Annotation-Data-END##
             MODEL REFSEQ:  This record is predicted by automated computational
             analysis. This record is derived from a genomic sequence
-            (NW_021163020.1) annotated using gene prediction method: Gnomon.
+            (NW_021163209.1) annotated using gene prediction method: Gnomon.
             Also see:
             Documentation of NCBI's Annotation Process
 FEATURES             Location/Qualifiers
-     source          1..3011
+     source          1..725
                      /organism="Dendronephthya gigantea"
                      /mol_type="mRNA"
                      /isolate="DGI-Jeju-01"
@@ -36,87 +36,36 @@ FEATURES             Location/Qualifiers
                      /tissue_type="Adult whole colony"
                      /country="South Korea: Jeju Island"
                      /collection_date="22-May-2015"
-     gene            1..3011
-                     /gene="LOC114518238"
+     gene            1..725
+                     /gene="LOC114539318"
                      /note="Derived by automated computational analysis using
                      gene prediction method: Gnomon. Supporting evidence
-                     includes similarity to: 8 Proteins, and 100% coverage of
+                     includes similarity to: 3 Proteins, and 100% coverage of
                      the annotated genomic feature by RNAseq alignments,
-                     including 1 sample with support for all annotated introns"
-                     /db_xref="GeneID:114518238"
-     CDS             42..2909
-                     /gene="LOC114518238"
+                     including 2 samples with support for all annotated introns"
+                     /db_xref="GeneID:114539318"
+     CDS             106..612
+                     /gene="LOC114539318"
                      /codon_start=1
-                     /product="collagen alpha-5(VI) chain-like"
-                     /protein_id="XP_028394002.1"
-                     /db_xref="GeneID:114518238"
-                     /translation="MVRDNYTISEPGTHVGIVEYSDEPSIKLRLNETFDENSINNRIDE
-                     MRPSEGESANLDKALEKSVDEMFSVELGGRPSAKKILVVIAASNTTAKEALKKAAKPLK
-                     ERGVRIYVIALDDADPEVLSELVPDKKKIKKVKDKKKLPKLHEEISKLIEEDLIKKRKE
-                     KEMVDFVFAFGSTGRDAIILFEKEKDAAKVMIDNEKEKDILYSTIVYGQDATLNSKFND
-                     TSDKAKVKKFIDTLTWKDEGQKLDHALVEIDNVFQNYGRPKARKITVVFVTGEADATTS
-                     ELKRAAKKLNDNEVKIIVVKLGTDPDDEQLKVITPEKNIVKKKKTVKPKELAGFIEEVV
-                     KKDPCAAVDCEHGAKCSAQADDSTLCQCNEKCPTTSDPVCGSNEVSYDNECEMKRDMCL
-                     KQKPISVKRKGSCKLVVDLVIALDGSENLAEKGFDKIKDLVKAIIENQTISETETHIGV
-                     VEFSDEAHVILPLNELFEPTAIHDKVQRIIPSGGKNRVTDEALRKSADNVFDAKSGGRP
-                     GASKVLIIVTDGKSTGKEPPKRAVKPVKEKGVRVYVVNIGEDADKDELKDIVPTEKNIY
-                     HVKDSDKVPDIAPKLVEDIEKDIKKRLPKKLVDVIFVMGSADPNGRNTLTKEKIIVNDI
-                     IEKPNDAFVTYGVVQLNETDPVKVPLGDYNDEKELKEKVKKLPFKEGKSLDEGIKKAGK
-                     ELGKNGRPKARKVIVVFVDGNDDVTEEQLKKVAEPLKKKKVKIIPVVLGENVDEEKLKP
-                     LLGKKKKPKKEKDLKKLAEEVAEEAFNDQCFAAECKDCAANPDDSTTCDLGEIIDLVFA
-                     IEGTTKMKVDGFNEAKDFVKNMVRDNYTISEPGTHVGIVEYSDEPSIKLRLNETFDEIS
-                     INNKIDEMRPSEGESANLDKALEKSVDEMFSVELGGRPSAKKILVVIAASNTTAKEALK
-                     KAAKPLKERGVRIYVIALDNADQKF"
+                     /product="cuticle collagen 2-like"
+                     /protein_id="XP_028415746.1"
+                     /db_xref="GeneID:114539318"
+                     /translation="MDLRVLVSTLLLIVAFTDAKPNKSALKRTIGTCQSACPQICAPAC
+                     TPVCCARPAPPAPPGPPGLDGPMGLPGAPGPDGPKGPLGMPGPPGPPGPAGPPGAPAGP
+                     PGNDGPPGPMGSPGNQGPPGDPGPQGPMGLPGPQGPPGLASPCAPVCARTCVRSCPATC
+                     CHGMK"
 ORIGIN
-        1 aggtagatgg ttttaatgaa gctaaagact tcgtgaagaa catggtgcgt gataattata
-       61 caatatctga acctggaaca cacgttggaa ttgttgagta cagcgacgag ccttcaatta
-      121 aacttcgtct gaacgaaacg tttgatgaaa actcgataaa caacaggata gatgaaatga
-      181 gaccatcaga gggagagagt gccaatctcg ataaagcact agaaaaatct gtcgatgaaa
-      241 tgtttagtgt tgaattggga ggtcgtccat cagctaaaaa gattcttgtt gttattgctg
-      301 cgagtaatac gactgctaaa gaagcgttga agaaagctgc taaaccattg aaagaacgag
-      361 gtgttcgaat ttacgtaatc gctcttgatg atgcagaccc agaagttctg agtgaactgg
-      421 ttcctgacaa gaaaaagata aagaaagtaa aagataaaaa gaaactacca aaactacatg
-      481 aagaaatttc taagcttatt gaagaagact tgatcaaaaa acgcaaagaa aaggagatgg
-      541 ttgattttgt gtttgcgttt ggttctactg gtagagatgc gataatatta ttcgaaaaag
-      601 aaaaagatgc agcaaaggtt atgatcgata atgagaaaga gaaagatatc ctctatagta
-      661 cgattgtcta tgggcaagat gctacgttaa attcgaagtt caatgataca agcgacaagg
-      721 ctaaagttaa gaagtttatt gatacactga catggaagga cgagggtcag aaattagatc
-      781 atgcactggt cgaaatagac aatgtcttcc agaactatgg tcgacctaaa gctcgtaaaa
-      841 taacggttgt cttcgttact ggcgaggcag atgctacaac aagtgaactg aagagagcgg
-      901 caaagaaatt aaatgataat gaagtgaaaa taatcgtagt gaagctagga acagatccgg
-      961 atgatgaaca gttgaaagta ataacaccag agaaaaatat cgtgaagaag aaaaagacag
-     1021 ttaaaccgaa agagttagcc ggatttattg aagaagttgt caaaaaagat ccttgtgctg
-     1081 cagttgactg tgaacatggc gcaaaatgtt cagctcaagc tgatgattca actctttgtc
-     1141 aatgcaatga aaaatgtcca actacgagtg atccagtatg cggttcaaat gaagtgtctt
-     1201 atgataacga atgtgaaatg aaacgtgata tgtgtttgaa gcaaaagcca attagtgtaa
-     1261 agaggaaagg atcttgtaaa ctggttgttg accttgtgat cgcattggat ggatcagaga
-     1321 atctggctga gaaaggattt gataaaataa aagatctcgt caaagcgata atagaaaatc
-     1381 aaaccatctc ggaaactgaa acccatattg gtgttgtaga gttcagcgat gaagcccatg
-     1441 ttattcttcc acttaatgag ctatttgaac caactgcaat ccacgataaa gtccaacgta
-     1501 tcattccatc tggtggtaaa aacagggtca ctgacgaagc cttacgaaag tctgctgata
-     1561 atgtgtttga cgcaaagtca ggaggtagac ctggagcttc aaaagttcta ataatagtta
-     1621 cagatggcaa atcaacaggc aaagaaccac ctaaacgtgc tgtaaaacct gtgaaagaaa
-     1681 agggagttcg agtttacgtt gtaaatattg gagaagatgc tgacaaggac gaactgaagg
-     1741 atatcgttcc tactgaaaag aatatctatc atgtaaaaga ttctgataaa gttccagata
-     1801 ttgctccgaa actggttgag gatattgaga aagatattaa gaaaagactt ccaaagaagt
-     1861 tggttgatgt aatcttcgtc atgggttctg ctgatccaaa tggtcgaaat actttgacta
-     1921 aagaaaagat tatcgttaat gacatcattg aaaaaccaaa cgatgcattt gtcacgtacg
-     1981 gcgttgttca actcaacgaa actgatccag tgaaagtacc tcttggcgat tataacgatg
-     2041 agaaagaatt gaaagaaaag gtaaagaaac taccgtttaa agaaggaaag tctctggatg
-     2101 aaggaataaa gaaagcggga aaagaattag ggaagaacgg gcggccaaaa gcacgaaagg
-     2161 tgattgttgt atttgtcgat ggaaatgacg atgttactga agaacaatta aagaaggtag
-     2221 ctgagccatt gaagaagaag aaagtcaaga tcataccggt cgtgttgggt gaaaatgtgg
-     2281 atgaagagaa actgaaacct ttgttaggga aaaagaagaa accaaagaag gagaaagatc
-     2341 ttaagaagct ggcagaggaa gtcgctgaag aagcattcaa tgatcaatgc tttgctgcag
-     2401 aatgtaaaga ttgtgctgcc aatcctgacg attccacgac ttgtgatctt ggtgagatca
-     2461 ttgatctggt gtttgcaatc gagggaacaa cgaaaatgaa ggtagatggt tttaatgaag
-     2521 ctaaagactt cgtgaagaac atggtgcgtg ataattatac aatatctgaa cctggaacac
-     2581 acgttggaat tgttgagtac agcgacgagc cttcaattaa acttcgtctg aacgaaacgt
-     2641 ttgatgaaat ctcgataaac aacaagatag atgaaatgag accatcagag ggagagagtg
-     2701 ccaatctcga taaagcacta gaaaaatctg tcgatgaaat gtttagtgtt gaattgggag
-     2761 gtcgtccatc agctaaaaag attcttgttg ttattgctgc gagtaatacg actgctaaag
-     2821 aagcgttgaa gaaagctgct aaaccattga aggaacgagg tgttcgaatt tacgtaatcg
-     2881 ctcttgataa tgcagaccag aagttctgag tgaacttgtt cctgacaaga aaaagataaa
-     2941 gaaagtaaaa gataaaaaga aactaccaaa actacatgaa gaaatttcta agcttattga
-     3001 agaagacttg a
+        1 gcagttttaa aagggtagtt tcaaaagaga cggaaaccta ttttgcccac tccagagaga
+       61 agaaaggaag tacagaaatc tatcttgcta cacaaaccgt acaaaatgga tttgagagtt
+      121 ctagtctcaa cgttgctact catagtggct tttactgacg caaaaccgaa taagtcagct
+      181 ttgaaaagaa ctataggcac ctgccaaagc gcctgtccac aaatatgtgc accagcctgc
+      241 acacccgttt gttgtgcccg gcctgcacct ccagctccac ctggtccccc tggcctcgat
+      301 ggtcctatgg gtcttcctgg tgctccagga ccagatggtc ccaaaggccc acttggaatg
+      361 ccaggaccac caggtccgcc aggtcctgca ggaccgcccg gtgcaccagc agggccacca
+      421 ggaaacgatg gtccacctgg gccaatgggt tctcctggta atcaaggtcc cccaggtgat
+      481 ccaggtccac aaggtccaat gggcctacca ggtccacaag gtcccccagg actggcttca
+      541 ccatgcgccc cggtatgtgc gaggacatgc gtcaggtcat gtcctgcgac atgttgccac
+      601 ggaatgaaat aatcatatgg ataagaacgg ttatatagtg ttgaatttat caaagcattt
+      661 gacacggcaa ttacattcat gtcatgtgta actatttcgt tataattcgc tatcttgtag
+      721 tactg
 //

@@ -25,7 +25,7 @@ class DB_Product:
         """set all the variables with the values"""
         datas = get_product_by(id=self.id)
         if len(datas) > 0:
-            if datas["delete"] == 0:
+            if datas["is_delete"] == 0:
                 self.name = datas["name"]
                 self.predicted = True if datas["predicted"] == 1 else False
                 self.source = datas["source"]
@@ -35,6 +35,6 @@ class DB_Product:
                 self.cds = DB_CDS(id=datas["cds_id"])
                 self.applications = get_application_for_id(self.id)
             else:
-                self.existed =False
+                self.existed = False
         else:
             self.existed = False

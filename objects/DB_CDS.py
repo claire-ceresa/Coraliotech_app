@@ -20,7 +20,7 @@ class DB_CDS:
     def _set_properties(self):
         """set all the variables with the values"""
         cds = get_cds_by(id_cds=self.id)
-        if cds["delete"] == 0:
+        if cds["is_delete"] == 0:
             self.start = cds["start"]
             self.stop = cds["stop"]
             self.length = self.stop - self.start + 1

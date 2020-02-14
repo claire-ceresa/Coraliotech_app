@@ -1,11 +1,18 @@
+import sys
 from Bio import Entrez
-from objects.NCBI_Product import *
+from graphic.Search_Window import *
+from objects.DB_Search import *
 
 Entrez.email = "claire.ceresa@hotmail.fr"
 
-id = "EU159467.1"
-product = NCBI_Product(id)
-start = product.cds.start
-stop = product.cds.stop
-sequence = product.fiche.seq
-print(sequence[start-1:stop])
+# TODO : VIDER LA BASE DE DONNEES !!
+# TODO : FINIR D'IMPLEMENTER LA FENETRE SEARCH
+
+terms = {'organism': {'checked': False, 'variable': '', 'value': ''},
+         'name': {'checked': True, 'variable': 'nom', 'value': 'collagen'}}
+search = DB_Search(terms)
+
+app = QApplication(sys.argv)
+form = Search_Window(search=search)
+form.show()
+app.exec()
