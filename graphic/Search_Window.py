@@ -2,6 +2,7 @@ import xlsxwriter as x
 from PyQt5.QtWidgets import *
 from graphic.search_view import *
 from graphic.Product_Window import Product_Window
+from objects.Excel import Excel
 
 
 class Search_Window(QMainWindow, Ui_MainWindow):
@@ -11,7 +12,7 @@ class Search_Window(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None, search=None):
         super(Search_Window, self).__init__(parent)
         self.setupUi(self)
-        self.setWindowTitle("Resultat de la recherche")
+        self.setWindowTitle("Resultats de la recherche")
         self.search = search
         self.window_product = None
         self.columns = [{"name":"Identifiant", "attribute":"id"},
@@ -31,8 +32,30 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         self.window_product.show()
 
     def button_export_clicked(self):
-        name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xls *.xlsx)")
-        print(name[0])
+        name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
+        file = Excel(name[0])
+        worksheet = file.add_worksheet()
+        file.add_QTableWidget(self.table_result, worksheet)
+
+        # headers = []
+        # for column in range(self.table_result.columnCount()):
+        #     header = self.table_result.horizontalHeaderItem(column)
+        #     if header is not None:
+        #         headers.append(header.text())
+        #     else:
+        #         headers.append("Column " + str(column))
+        # worksheet.write_row(0, 0, headers)
+        # for row in range(self.table_result.rowCount()):
+        #     rowdata = []
+        #     for column in range(self.table_result.columnCount()):
+        #         item = self.table_result.item(row, column)
+        #         if item is not None:
+        #             rowdata.append(item.text())
+        #         else:
+        #             rowdata.append('')
+        #     worksheet.write_row(row+1, 0, rowdata)
+
+        file.close()
 
     def _set_window(self):
         nb_result = str(len(self.search.results))
