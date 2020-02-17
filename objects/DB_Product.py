@@ -4,7 +4,7 @@ from objects.DB_Organism import DB_Organism
 
 class DB_Product:
 
-    def __init__(self, id):
+    def __init__(self, id=None):
         """
         Product object, issued from the local database
         :param id: GenBank id of the product
@@ -15,15 +15,20 @@ class DB_Product:
         self.predicted = None
         self.source = None
         self.note = None
-        self.organism = None
         self.fonction = None
-        self.cds = None
         self.applications = []
 
-        self._set_properties()
+        if id is not None:
+            self._set_properties()
 
     def get_attributes(self):
-        dict = self.__dict__.keys()
+        dict = list(self.__dict__.keys())
+        attributes_org = DB_Organism().get_attributes()
+        for org in attributes_org:
+            dict.append("organism." + org)
+        attributes_cds = DB_CDS().get_attributes()
+        for cds in attributes_cds:
+            dict.append("cds." + cds)
         return list(dict)
 
     def _set_properties(self):

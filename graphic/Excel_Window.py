@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import *
 from graphic.excel_view import *
-from objects.Excel import Excel
+from objects.DB_Product import DB_Product
 
 
 class Excel_Window(QMainWindow, Ui_MainWindow):
@@ -19,5 +19,9 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         self._create_cell_combobox(column=count)
 
     def _create_cell_combobox(self, column):
+        attributes = DB_Product("EU159467.1").get_attributes()
         combo = QComboBox()
+        for attribute in attributes:
+            combo.addItem(attribute)
         self.table.setCellWidget(0,column,combo)
+

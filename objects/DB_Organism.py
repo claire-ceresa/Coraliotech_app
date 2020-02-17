@@ -16,7 +16,8 @@ class DB_Organism:
         self.phylum = None
         self.statut = None
 
-        self._set_properties()
+        if species is not None:
+            self._set_properties()
 
     def get_attributes(self):
         dict = self.__dict__.keys()
@@ -24,7 +25,7 @@ class DB_Organism:
 
 
     def _set_properties(self):
-        organism = get_organism_by_species(self.species)
+        organism = get_organism_by_species(species=self.species)
         self.genus = organism["genus"]
         self.family = organism["family"]
         self.order = organism["order"]

@@ -15,7 +15,8 @@ class DB_CDS:
         self.complete = None
         self.seqADN = None
 
-        self._set_properties()
+        if self.id is not None:
+            self._set_properties()
 
     def get_attributes(self):
         dict = self.__dict__.keys()
