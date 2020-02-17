@@ -36,25 +36,6 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         file = Excel(name[0])
         worksheet = file.add_worksheet()
         file.add_QTableWidget(self.table_result, worksheet)
-
-        # headers = []
-        # for column in range(self.table_result.columnCount()):
-        #     header = self.table_result.horizontalHeaderItem(column)
-        #     if header is not None:
-        #         headers.append(header.text())
-        #     else:
-        #         headers.append("Column " + str(column))
-        # worksheet.write_row(0, 0, headers)
-        # for row in range(self.table_result.rowCount()):
-        #     rowdata = []
-        #     for column in range(self.table_result.columnCount()):
-        #         item = self.table_result.item(row, column)
-        #         if item is not None:
-        #             rowdata.append(item.text())
-        #         else:
-        #             rowdata.append('')
-        #     worksheet.write_row(row+1, 0, rowdata)
-
         file.close()
 
     def _set_window(self):
