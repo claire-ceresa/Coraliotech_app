@@ -42,11 +42,15 @@ class Ui_MainWindow(object):
         self.button_export = QtWidgets.QPushButton(self.centralwidget)
         self.button_export.setObjectName("button_export")
         self.verticalLayout.addWidget(self.button_export)
+        self.button_personnalise = QtWidgets.QPushButton(self.centralwidget)
+        self.button_personnalise.setObjectName("button_personnalise")
+        self.verticalLayout.addWidget(self.button_personnalise)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
         self.table_result.itemDoubleClicked['QTableWidgetItem*'].connect(MainWindow.table_item_clicked)
         self.button_export.clicked.connect(MainWindow.button_export_clicked)
+        self.button_personnalise.clicked.connect(MainWindow.button_personnalise_clicked)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -54,6 +58,7 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.table_result.setSortingEnabled(True)
         self.button_export.setText(_translate("MainWindow", "Exporter en csv"))
+        self.button_personnalise.setText(_translate("MainWindow", "Creer un fichier Excel personnalise"))
 
 
 if __name__ == "__main__":

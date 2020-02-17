@@ -19,9 +19,9 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         self._create_cell_combobox(column=count)
 
     def _create_cell_combobox(self, column):
-        attributes = DB_Product("EU159467.1").get_attributes()
+        attributes = DB_Product().get_attributes()
         combo = QComboBox()
         for attribute in attributes:
             combo.addItem(attribute)
-        self.table.setCellWidget(0,column,combo)
-
+        self.table.setCellWidget(0, column, combo)
+        self.table.resizeColumnsToContents()

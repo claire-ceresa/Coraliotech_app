@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import *
 from graphic.search_view import *
 from graphic.Product_Window import Product_Window
+from graphic.Excel_Window import Excel_Window
 from objects.Excel import Excel
 
 
@@ -14,6 +15,7 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         self.setWindowTitle("Resultats de la recherche")
         self.search = search
         self.window_product = None
+        self.window_personnalise = None
         self.columns = [{"name":"Identifiant", "attribute":"id"},
                         {"name":"Nom", "attribute":"name"},
                         {"name":"Espece", "attribute":"organism"},
@@ -36,6 +38,10 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         worksheet = file.add_worksheet()
         file.add_QTableWidget(self.table_result, worksheet)
         file.close()
+
+    def button_personnalise_clicked(self):
+        self.window_personnalise = Excel_Window()
+        self.window_personnalise.show()
 
     def _set_window(self):
         nb_result = str(len(self.search.results))
