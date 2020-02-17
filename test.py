@@ -1,15 +1,12 @@
 import sys
 from Bio import Entrez
-from graphic.Search_Window import *
-from objects.DB_Search import *
+from graphic.Excel_Window import *
+from objects.DB_Organism import *
 
 Entrez.email = "claire.ceresa@hotmail.fr"
 
-terms = {'organism': {'checked': True, 'variable': 'genre', 'value': 'Pocillopora'},
-         'name': {'checked': False, 'variable': 'nom', 'value': ''}}
-search = DB_Search(terms)
-
 app = QApplication(sys.argv)
-form = Search_Window(search=search)
+form = Excel_Window()
 form.show()
 app.exec()
+

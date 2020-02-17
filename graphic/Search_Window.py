@@ -1,4 +1,3 @@
-import xlsxwriter as x
 from PyQt5.QtWidgets import *
 from graphic.search_view import *
 from graphic.Product_Window import Product_Window
@@ -17,7 +16,7 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         self.window_product = None
         self.columns = [{"name":"Identifiant", "attribute":"id"},
                         {"name":"Nom", "attribute":"name"},
-                        {"name":"Espece", "attribute":"species"},
+                        {"name":"Espece", "attribute":"organism"},
                         {"name":"Source", "attribute":"source"},
                         {"name":"Predicted", "attribute":"predicted"}]
         self._set_window()
@@ -52,7 +51,11 @@ class Search_Window(QMainWindow, Ui_MainWindow):
     def _fill_in_table(self):
         for num_line, product in enumerate(self.search.results):
             for num_col, column in enumerate(self.columns):
-                value = getattr(product, column['attribute'])
+                if column['attribute'] == 'organism':
+                    organism = getattr(product, column['attribute'])
+                    value = getattr(organism, 'species')
+                else:
+                    value = getattr(product, column['attribute'])
                 item = QTableWidgetItem(str(value))
                 self.table_result.setItem(num_line, num_col, item)
 

@@ -1,5 +1,6 @@
 from database.functions_db import *
 from objects.DB_CDS import DB_CDS
+from objects.DB_Organism import DB_Organism
 
 class DB_Product:
 
@@ -14,7 +15,7 @@ class DB_Product:
         self.predicted = None
         self.source = None
         self.note = None
-        self.species = None
+        self.organism = None
         self.fonction = None
         self.cds = None
         self.applications = []
@@ -30,8 +31,8 @@ class DB_Product:
                 self.predicted = True if datas["predicted"] == 1 else False
                 self.source = datas["source"]
                 self.note = datas["note"]
-                self.species = datas["species"]
                 self.fonction = datas["fonction"]
+                self.organism = DB_Organism(datas["species"])
                 self.cds = DB_CDS(id=datas["cds_id"])
                 self.applications = get_application_for_id(self.id)
             else:

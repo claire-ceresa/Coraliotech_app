@@ -67,7 +67,7 @@ def get_cds_by(id_cds=None, id_product=None):
     """:return a dict with all the value for a cds, find by id"""
     if id_product is not None:
         id_cds = "cds_" + id_product
-    query = "SELECT * FROM CDS WHERE id = \"" + id_cds + "\""
+    query = "SELECT * FROM CDS WHERE id = \"" + id_cds + "\" AND is_delete = 0"
     result = execute_query(query)
     dict_result = {}
     if len(result) == 1:
@@ -75,7 +75,6 @@ def get_cds_by(id_cds=None, id_product=None):
         dict_result["start"] = result[0][1]
         dict_result["stop"] = result[0][2]
         dict_result["mw"] = result[0][3]
-        dict_result["is_delete"] = result[0][4]
         dict_result["complete"] = result[0][5]
         dict_result["seqADN"] = result[0][6]
     return dict_result
@@ -112,7 +111,19 @@ def get_column_names(table):
         names.append(result[1])
     return names
 
-
-
+def get_organism_by_species(species):
+    query = "SELECT * FROM Organisme WHERE espece = \"" + species + "\" AND is_delete = 0"
+    results = execute_query(query)
+    dict_result = {}
+    if len(results) == 1:
+        dict_result["species"] = results[0][0]
+        dict_result["genus"] = results[0][1]
+        dict_result["family"] = results[0][2]
+        dict_result["order"] = results[0][3]
+        dict_result["subclass"] = results[0][4]
+        dict_result["classe"] = results[0][5]
+        dict_result["phylum"] = results[0][6]
+        dict_result["statut"] = results[0][7]
+    return dict_result
 
 
