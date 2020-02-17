@@ -14,6 +14,11 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         self.setWindowTitle("Resultat de la recherche")
         self.search = search
         self.window_product = None
+        self.columns = [{"name":"Identifiant", "attribute":"id"},
+                        {"name":"Nom", "attribute":"name"},
+                        {"name":"Espece", "attribute":"species"},
+                        {"name":"Source", "attribute":"source"},
+                        {"name":"Predicted", "attribute":"predicted"}]
         self._set_window()
         if len(self.search.results) > 0:
             self._set_table()
@@ -30,24 +35,24 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         print(name[0])
 
     def _set_window(self):
-        print("ok set")
         nb_result = str(len(self.search.results))
         text = nb_result + " resultats trouves !"
         self.label_result.setText(text)
-        print("finish")
 
     def _set_table(self):
         self.table_result.setRowCount(len(self.search.results))
         self.table_result.setColumnCount(5)
         self._set_headers()
-        # for product in self.search.results:
-        #     print(product)
-        #     for column, value in enumerate(result.values()):
-        #         item = QTableWidgetItem(str(value))
-        #         self.table_result.setItem(line, column, item)
+        self._fill_in_table()
+
+    def _fill_in_table(self):
+        for num_line, product in enumerate(self.search.results):
+            for num_col, column in enumerate(self.columns):
+                value = getattr(product, column['attribute'])
+                item = QTableWidgetItem(str(value))
+                self.table_result.setItem(num_line, num_col, item)
 
     def _set_headers(self):
-        column_names = ["Identifiant", "Nom", "Espece", "Source", "Predicted"]
-        for column, column_name in enumerate(column_names):
-            header = QTableWidgetItem(column_name)
-            self.table_result.setHorizontalHeaderItem(column, header)
+        for position, column in enumerate(self.columns):
+            header = QTableWidgetItem(column["name"])
+            self.table_result.setHorizontalHeaderItem(position, header)

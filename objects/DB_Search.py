@@ -8,7 +8,6 @@ class DB_Search:
         self.terms = terms
         self.query = self.create_query()
         self.results = self.get_results()
-        print(terms)
 
     def create_query(self):
         query_select = "SELECT P.id"

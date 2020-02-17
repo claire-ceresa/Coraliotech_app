@@ -1,71 +1,73 @@
-LOCUS       XM_028559945             725 bp    mRNA    linear   INV 29-MAR-2019
-DEFINITION  PREDICTED: Dendronephthya gigantea cuticle collagen 2-like
-            (LOC114539318), mRNA.
-ACCESSION   XM_028559945
-VERSION     XM_028559945.1
-DBLINK      BioProject: PRJNA529494
-KEYWORDS    RefSeq.
-SOURCE      Dendronephthya gigantea
-  ORGANISM  Dendronephthya gigantea
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Octocorallia; Alcyonacea;
-            Alcyoniina; Nephtheidae; Dendronephthya.
-COMMENT     ##Genome-Annotation-Data-START##
-            Annotation Provider         :: NCBI
-            Annotation Status           :: Full annotation
-            Annotation Name :: Dendronephthya gigantea Annotation Release 100
-            Annotation Version          :: 100
-            Annotation Pipeline :: NCBI eukaryotic genome annotation pipeline
-            Annotation Software Version :: 8.2
-            Annotation Method           :: Best-placed RefSeq; Gnomon
-            Features Annotated          :: Gene; mRNA; CDS; ncRNA
-            ##Genome-Annotation-Data-END##
-            MODEL REFSEQ:  This record is predicted by automated computational
-            analysis. This record is derived from a genomic sequence
-            (NW_021163209.1) annotated using gene prediction method: Gnomon.
-            Also see:
-            Documentation of NCBI's Annotation Process
+LOCUS       KY853038                1542 bp    mRNA    linear   INV 10-OCT-2017
+DEFINITION  Pocillopora damicornis clone 3RACEv7c3 soluble adenylyl cyclase
+            mRNA, complete cds.
+ACCESSION   KY853038
+VERSION     KY853038.1
+KEYWORDS    .
+SOURCE      Pocillopora damicornis
+  ORGANISM  Pocillopora damicornis
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
+            Astrocoeniina; Pocilloporidae; Pocillopora.
+REFERENCE   1  (bases 1 to 1542)
+  AUTHORS   Barron,M.E., Barott,K.L. and Tresguerres,M.
+  TITLE     Identification of a molecular sensor of pH in coral cells
+  JOURNAL   Unpublished
+REFERENCE   2  (bases 1 to 1542)
+  AUTHORS   Barron,M.E., Barott,K.L. and Tresguerres,M.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (29-MAR-2017) Scripps Institution of Oceanography - Marine
+            Biology, The University of California, San Diego, 9500 Gilman Dr.,
+            La Jolla, CA 92093, USA
+COMMENT     ##Assembly-Data-START##
+            Sequencing Technology :: Sanger dideoxy sequencing
+            ##Assembly-Data-END##
 FEATURES             Location/Qualifiers
-     source          1..725
-                     /organism="Dendronephthya gigantea"
+     source          1..1542
+                     /organism="Pocillopora damicornis"
                      /mol_type="mRNA"
-                     /isolate="DGI-Jeju-01"
-                     /isolation_source="individual from underwater near
-                     Seogwipo"
-                     /db_xref="taxon:151771"
-                     /chromosome="Unknown"
-                     /tissue_type="Adult whole colony"
-                     /country="South Korea: Jeju Island"
-                     /collection_date="22-May-2015"
-     gene            1..725
-                     /gene="LOC114539318"
-                     /note="Derived by automated computational analysis using
-                     gene prediction method: Gnomon. Supporting evidence
-                     includes similarity to: 3 Proteins, and 100% coverage of
-                     the annotated genomic feature by RNAseq alignments,
-                     including 2 samples with support for all annotated introns"
-                     /db_xref="GeneID:114539318"
-     CDS             106..612
-                     /gene="LOC114539318"
+                     /db_xref="taxon:46731"
+                     /clone="3RACEv7c3"
+                     /PCR_primers="fwd_name: Pdam3RACEGSP4, fwd_seq:
+                     ccctcaaagctggacacagaata, rev_name: Abridged Universal
+                     Amplification Primer, rev_seq: ggccacgcgtcgactagtac"
+     CDS             24..1337
+                     /note="sAC"
                      /codon_start=1
-                     /product="cuticle collagen 2-like"
-                     /protein_id="XP_028415746.1"
-                     /db_xref="GeneID:114539318"
-                     /translation="MDLRVLVSTLLLIVAFTDAKPNKSALKRTIGTCQSACPQICAPAC
-                     TPVCCARPAPPAPPGPPGLDGPMGLPGAPGPDGPKGPLGMPGPPGPPGPAGPPGAPAGP
-                     PGNDGPPGPMGSPGNQGPPGDPGPQGPMGLPGPQGPPGLASPCAPVCARTCVRSCPATC
-                     CHGMK"
+                     /product="soluble adenylyl cyclase"
+                     /protein_id="ATI09487.1"
+                     /translation="MDSLHQIMDITNESIGVTTGRAFCGVVGHRDRHEYTVIGRKVNMA
+                     ARLMVNYPGTLSCDDDTYRSGKSKLKKEDFMVLPFIKLKGVADPGTVREYNNHHDRGEE
+                     EEEYDYPILGRGKEIEEMKMLLHAIKCDDTRVSGSRRVVVIEGEGGVGKTRLLEAFMDI
+                     AEEEDFKVDYVEADMAHAYTPYHVVKTLIENLLELEACRTASEKENTLMEHITDQKLRE
+                     KMFLLNDLLGTHIPPNADFARMDLDKVTTQFHTLLFEIVHQFVVSQPCLFTVDNAQFID
+                     QESWDFIEDLSADSHAILVLSLRPFSSSNPPCEAAIRLTGHETTKKVKLGGLEASYMSD
+                     LACQFMDVMYIPNELDGILREKSHGIASWCEQLIKDMLTSNVIQVVNESQAFLNKESSL
+                     DLLSFGGSTTTTISLCQNRKEINFFFSTLWRIVKSRFH"
 ORIGIN
-        1 gcagttttaa aagggtagtt tcaaaagaga cggaaaccta ttttgcccac tccagagaga
-       61 agaaaggaag tacagaaatc tatcttgcta cacaaaccgt acaaaatgga tttgagagtt
-      121 ctagtctcaa cgttgctact catagtggct tttactgacg caaaaccgaa taagtcagct
-      181 ttgaaaagaa ctataggcac ctgccaaagc gcctgtccac aaatatgtgc accagcctgc
-      241 acacccgttt gttgtgcccg gcctgcacct ccagctccac ctggtccccc tggcctcgat
-      301 ggtcctatgg gtcttcctgg tgctccagga ccagatggtc ccaaaggccc acttggaatg
-      361 ccaggaccac caggtccgcc aggtcctgca ggaccgcccg gtgcaccagc agggccacca
-      421 ggaaacgatg gtccacctgg gccaatgggt tctcctggta atcaaggtcc cccaggtgat
-      481 ccaggtccac aaggtccaat gggcctacca ggtccacaag gtcccccagg actggcttca
-      541 ccatgcgccc cggtatgtgc gaggacatgc gtcaggtcat gtcctgcgac atgttgccac
-      601 ggaatgaaat aatcatatgg ataagaacgg ttatatagtg ttgaatttat caaagcattt
-      661 gacacggcaa ttacattcat gtcatgtgta actatttcgt tataattcgc tatcttgtag
-      721 tactg
+        1 ccctcaaagc tggacacaga ataatggaca gtcttcacca gattatggat atcactaacg
+       61 agtccatcgg tgtaactaca ggacgtgcgt tctgtggtgt ggttggtcac agagacagac
+      121 acgagtatac agtcattggc cgtaaagtca acatggctgc caggctaatg gtgaactatc
+      181 caggaaccct gtcgtgtgat gacgacactt acagatcagg gaagtctaag ttgaagaaag
+      241 aggatttcat ggtcttgcct ttcataaaat tgaaaggtgt ggctgatcct ggaacagtcc
+      301 gagaatacaa taatcatcac gaccgaggag aagaagaaga ggaatatgat tacccaatcc
+      361 tcggacgagg caaagagata gaggagatga aaatgcttct tcatgccatt aaatgtgacg
+      421 atacccgtgt aagtggcagc aggagagttg tggtgatcga aggtgaagga ggagttggaa
+      481 aaacaagatt gctcgaggca tttatggaca ttgcagagga ggaagacttt aaggtggatt
+      541 acgtcgaggc tgacatggca catgcctaca ctccttatca cgttgttaag actcttattg
+      601 agaacctatt ggaactggaa gcctgccgca cggcttcaga aaaggaaaat actctcatgg
+      661 agcacattac tgatcaaaag ctgcgagaaa agatgtttct gttgaatgac ctacttggca
+      721 cacacatacc accgaatgct gacttcgctc gtatggactt agataaagta actacacaat
+      781 ttcacaccct tctgtttgaa attgtccatc agtttgtagt gagtcagccg tgtctgttta
+      841 ccgtggacaa cgctcagttt atagatcagg aatcttggga ctttattgaa gatttatcag
+      901 cggattcaca cgctatattg gtgctgtcac tcaggccttt ctcatcatcc aacccaccgt
+      961 gtgaggcggc catcagactc actggacatg aaaccactaa gaaagtcaaa cttggtggct
+     1021 tggaagcctc ttacatgagt gacttagcct gtcagttcat ggacgtcatg tacattccta
+     1081 atgaactgga cggaatctta cgtgagaaga gtcacggcat tgcttcttgg tgtgaacagc
+     1141 ttattaaaga catgctgacg agtaatgtta tacaggttgt caacgagagt caagcttttc
+     1201 tcaacaaaga gtctagcttg gacttactct ccttcggtgg ctctaccacg accactattt
+     1261 cactttgcca aaaccgaaaa gagattaatt tttttttttc tactctttgg cgaatcgtta
+     1321 aaagtcgttt tcactgacct ctaatcgttg ttatgataac caagacattt gattttgcgt
+     1381 tttatttgat tgttgaagaa aattaatgaa cttgactgtt cagtaagaat tcaaaattaa
+     1441 aaggaaaaaa aaggaataga tactctatgc aaatacaact tttacctgta gatctggacc
+     1501 tctttgcgaa taaagtgatt gctattatca aaaaaaaaaa aa
 //
