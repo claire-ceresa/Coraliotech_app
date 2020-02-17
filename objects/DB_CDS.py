@@ -17,6 +17,10 @@ class DB_CDS:
 
         self._set_properties()
 
+    def get_attributes(self):
+        dict = self.__dict__.keys()
+        return list(dict)
+
     def _set_properties(self):
         """set all the variables with the values"""
         cds = get_cds_by(id_cds=self.id)

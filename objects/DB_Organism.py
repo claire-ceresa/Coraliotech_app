@@ -18,6 +18,11 @@ class DB_Organism:
 
         self._set_properties()
 
+    def get_attributes(self):
+        dict = self.__dict__.keys()
+        return list(dict)
+
+
     def _set_properties(self):
         organism = get_organism_by_species(self.species)
         self.genus = organism["genus"]
