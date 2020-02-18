@@ -8,6 +8,7 @@ class Excel:
         self.worksheets = []
 
     def add_worksheet(self):
+        """add a worksheet to the workbook"""
         worksheet = self.workbook.add_worksheet()
         self.worksheets.append(worksheet)
         return worksheet
@@ -17,6 +18,7 @@ class Excel:
         self.workbook.close()
 
     def add_QTableWidget(self, table, worksheet):
+        """adding a QTableWidget to a worksheet"""
         headers = []
 
         for column in range(table.columnCount()):
@@ -37,6 +39,9 @@ class Excel:
                     rowdata.append('')
             worksheet.write_row(row+1, 0, rowdata)
 
+    def add_data(self, worksheet, datas):
+        for row, row_data in enumerate(datas):
+            worksheet.write_row(row, 0, row_data)
 
     # def set_head(self, worksheet):
     #     """set all the format of the head of the worksheet"""

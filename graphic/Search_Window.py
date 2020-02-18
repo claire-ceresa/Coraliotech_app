@@ -40,7 +40,7 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         file.close()
 
     def button_personnalise_clicked(self):
-        self.window_personnalise = Excel_Window()
+        self.window_personnalise = Excel_Window(datas_raw=self.search.results)
         self.window_personnalise.show()
 
     def _set_window(self):
