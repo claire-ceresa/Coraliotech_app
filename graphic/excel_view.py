@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(544, 153)
+        MainWindow.resize(544, 195)
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(8)
@@ -46,6 +46,15 @@ class Ui_MainWindow(object):
         self.button_export = QtWidgets.QPushButton(self.centralwidget)
         self.button_export.setObjectName("button_export")
         self.verticalLayout.addWidget(self.button_export)
+        self.label_created = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_created.setFont(font)
+        self.label_created.setText("")
+        self.label_created.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_created.setObjectName("label_created")
+        self.verticalLayout.addWidget(self.label_created)
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)

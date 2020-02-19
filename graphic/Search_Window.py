@@ -16,16 +16,17 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         self.search = search
         self.window_product = None
         self.window_personnalise = None
-        self.columns = [{"name":"Identifiant", "attribute":"id"},
-                        {"name":"Nom", "attribute":"name"},
+        self.columns = [{"name":"Identifiant GenBank", "attribute":"id"},
+                        {"name":"Nom du produit", "attribute":"name"},
                         {"name":"Espece", "attribute":"organism"},
                         {"name":"Source", "attribute":"source"},
-                        {"name":"Predicted", "attribute":"predicted"}]
+                        {"name":"Predit", "attribute":"predicted"}]
         self._set_window()
         if len(self.search.results) > 0:
             self._set_table()
 
     def table_item_clicked(self):
+        """open the Product window"""
         row = self.table_result.currentRow()
         item = self.table_result.item(row, 0)
         id = item.text()
@@ -33,6 +34,7 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         self.window_product.show()
 
     def button_export_clicked(self):
+        """export the table without modif"""
         name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
         file = Excel(name[0])
         worksheet = file.add_worksheet()
@@ -40,19 +42,27 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         file.close()
 
     def button_personnalise_clicked(self):
+        """open the window to export to a personnalised file"""
         self.window_personnalise = Excel_Window(datas_raw=self.search.results)
         self.window_personnalise.show()
 
     def _set_window(self):
+        """print the number of results"""
         nb_result = str(len(self.search.results))
         text = nb_result + " resultats trouves !"
         self.label_result.setText(text)
 
     def _set_table(self):
+        """set the QTableWidget"""
         self.table_result.setRowCount(len(self.search.results))
         self.table_result.setColumnCount(5)
         self._set_headers()
         self._fill_in_table()
+
+    def _set_headers(self):
+        for position, column in enumerate(self.columns):
+            header = QTableWidgetItem(column["name"])
+            self.table_result.setHorizontalHeaderItem(position, header)
 
     def _fill_in_table(self):
         for num_line, product in enumerate(self.search.results):
@@ -65,7 +75,3 @@ class Search_Window(QMainWindow, Ui_MainWindow):
                 item = QTableWidgetItem(str(value))
                 self.table_result.setItem(num_line, num_col, item)
 
-    def _set_headers(self):
-        for position, column in enumerate(self.columns):
-            header = QTableWidgetItem(column["name"])
-            self.table_result.setHorizontalHeaderItem(position, header)

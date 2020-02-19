@@ -1,66 +1,74 @@
-LOCUS       KU557756                1228 bp    mRNA    linear   INV 18-AUG-2016
-DEFINITION  Stylophora pistillata alpha carbonic anhydrase 9 (CA9) mRNA,
-            complete cds.
-ACCESSION   KU557756
-VERSION     KU557756.1
-KEYWORDS    .
-SOURCE      Stylophora pistillata
-  ORGANISM  Stylophora pistillata
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
-            Astrocoeniina; Pocilloporidae; Stylophora.
-REFERENCE   1  (bases 1 to 1228)
-  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Caminiti-Segonds,N., Allemand,D.
-            and Tambutte,S.
-  TITLE     Carbonic Anhydrases in Cnidarians: Novel Perspectives from the
-            Octocorallian Corallium rubrum
-  JOURNAL   PLoS ONE 11 (8), E0160368 (2016)
-   PUBMED   27513959
-  REMARK    Publication Status: Online-Only
-REFERENCE   2  (bases 1 to 1228)
-  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Allemand,D. and Tambutte,S.
-  TITLE     Direct Submission
-  JOURNAL   Submitted (19-JAN-2016) Centre Scientifique de Monaco, 8 Quai
-            Antoine 1er, Monaco 98000, Monaco
+LOCUS       XM_028561798             795 bp    mRNA    linear   INV 29-MAR-2019
+DEFINITION  PREDICTED: Dendronephthya gigantea collagen alpha-1(I) chain-like
+            (LOC114542050), mRNA.
+ACCESSION   XM_028561798
+VERSION     XM_028561798.1
+DBLINK      BioProject: PRJNA529494
+KEYWORDS    RefSeq; includes ab initio.
+SOURCE      Dendronephthya gigantea
+  ORGANISM  Dendronephthya gigantea
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Octocorallia; Alcyonacea;
+            Alcyoniina; Nephtheidae; Dendronephthya.
+COMMENT     ##Genome-Annotation-Data-START##
+            Annotation Provider         :: NCBI
+            Annotation Status           :: Full annotation
+            Annotation Name :: Dendronephthya gigantea Annotation Release 100
+            Annotation Version          :: 100
+            Annotation Pipeline :: NCBI eukaryotic genome annotation pipeline
+            Annotation Software Version :: 8.2
+            Annotation Method           :: Best-placed RefSeq; Gnomon
+            Features Annotated          :: Gene; mRNA; CDS; ncRNA
+            ##Genome-Annotation-Data-END##
+            ##RefSeq-Attributes-START##
+            ab initio                   :: 80% of CDS bases
+            ##RefSeq-Attributes-END##
+            MODEL REFSEQ:  This record is predicted by automated computational
+            analysis. This record is derived from a genomic sequence
+            (NW_021163340.1) annotated using gene prediction method: Gnomon.
+            Also see:
+            Documentation of NCBI's Annotation Process
 FEATURES             Location/Qualifiers
-     source          1..1228
-                     /organism="Stylophora pistillata"
+     source          1..795
+                     /organism="Dendronephthya gigantea"
                      /mol_type="mRNA"
-                     /db_xref="taxon:50429"
-     gene            1..1228
-                     /gene="CA9"
-     CDS             122..1030
-                     /gene="CA9"
-                     /EC_number="4.2.1.1"
-                     /note="SpiCA9"
+                     /isolate="DGI-Jeju-01"
+                     /isolation_source="individual from underwater near
+                     Seogwipo"
+                     /db_xref="taxon:151771"
+                     /chromosome="Unknown"
+                     /tissue_type="Adult whole colony"
+                     /country="South Korea: Jeju Island"
+                     /collection_date="22-May-2015"
+     gene            1..795
+                     /gene="LOC114542050"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Gnomon. Supporting evidence
+                     includes similarity to: 1 Protein"
+                     /db_xref="GeneID:114542050"
+     CDS             1..795
+                     /gene="LOC114542050"
                      /codon_start=1
-                     /product="alpha carbonic anhydrase 9"
-                     /protein_id="ANJ59769.1"
-                     /translation="MDCLIVAVLAVVFNNAFADEGGRQWGYKETEFGPADWGLAVPSCS
-                     GQFQSPIDIVTSLSQSNSSYGGLVPIFDNEDGTVSGVLSNNGHALTVTLDKTKGGLTLT
-                     AGPLGQNTFRLEQFRFHFGCESNVGSEHTVDGNSFASEMHLRFYNDIYGNFKDAVSKPD
-                     GLLVIGVFLQVNGGFNKWMENIALASTNVVTPNGDSYSLDGSVPLTQLVPDLMSKSAPY
-                     YTYKGSLTTPPCYESVQWILMKNPIPVTESQLELLRSLSSTSGDSLCNNFRPVKPLNGR
-                     KIFKWPGKEKLSGLLNVPFFH"
+                     /product="collagen alpha-1(I) chain-like"
+                     /protein_id="XP_028417599.1"
+                     /db_xref="GeneID:114542050"
+                     /translation="MKRGYPYSHGNLNFGYEYEYRPKSAKGGTGERGEIGPEGPKGDTG
+                     PKGDTGRVGPAGPPGRKGDQGPQGQGPQGVPGPPGPQGSQGLQGSKGAKGDQGLQGPPG
+                     PRGQDGAIGSQGLRGIKGDPGAKGDRGPPGQKGPKGDKGDKGPQGPTGPQGQPGSVAAK
+                     GDKGDKGDKGDKGDKGDKGDRGNEGSQGVRGPPGLVGPAGPTGPKGDVGNLSSADKREL
+                     LMVDKDFEKVSYEDDKGASKGSYETFTFNDSGSWKPVGRGKI"
 ORIGIN
-        1 ggttttggct ctaattgaaa taaattgtga tcaattattt actgtttgta gttgcataca
-       61 cttaagaaat attcatttag aaaagaagga agcaaaaagg tgaaaatatt tgtgcagcat
-      121 catggactgc ttaatcgtgg ctgttttggc ggtagttttc aacaatgcgt ttgctgacga
-      181 aggaggacgc cagtggggat acaaagaaac agagttcggt ccggcagact ggggtctagc
-      241 ggtgccttca tgcagtggtc agttccagtc ccccattgac attgtcacca gtctgtctca
-      301 gtcaaactct tcttatggtg gcctggtgcc gatctttgat aatgaggatg gaacagtgag
-      361 tggcgtcttg tcgaacaatg gtcacgccct tacagttacc ctggataaaa ccaaaggcgg
-      421 gctaaccctc acagcaggtc ctcttggtca aaacaccttt cgtctggaac agtttcgttt
-      481 tcattttgga tgtgaaagta atgttggctc tgaacatacc gtggatggaa actcttttgc
-      541 gtcagagatg cacttgaggt tttataatga catctatgga aatttcaagg acgccgtctc
-      601 caagcccgat gggttgttag ttattggagt gtttctgcag gtgaacggag gtttcaataa
-      661 atggatggag aacattgctc tggcatcaac caatgtcgta actcccaacg gcgacagcta
-      721 cagtcttgat ggcagtgtac cgctgacaca gcttgttcca gacctgatgt ccaaaagtgc
-      781 tccttactac acgtacaaag gttcccttac cacccctccc tgctacgaat ccgtgcaatg
-      841 gattttaatg aagaacccaa taccggtcac cgaatcccag ctggagttac tgcgatcgtt
-      901 atcctcgacc agcggcgact ccctgtgcaa caactttaga cctgtgaaac cgctgaatgg
-      961 tcgcaagatt ttcaaatggc ctggaaagga aaagctctct ggcctactga acgtcccctt
-     1021 ctttcactga cgatgcgata gtttcactaa gacatgatat ggtctgcata aagagcagtg
-     1081 gctactaacc ggatcacaat ttgggcttat tgttttggac ctttgtaaca aatatccacc
-     1141 tcaatataat ggtagctcat ggaaggctaa aacttttgtc ccaaaagtta ataaaaaatg
-     1201 ggttttgatc ataaactaag ttgtgaca
+        1 atgaagagag gatatcccta ttcgcacggt aatctcaatt ttggatatga atatgaatat
+       61 agacctaaaa gtgcaaaagg aggtactggt gagcgcggcg agattggacc tgaaggacct
+      121 aaaggagata caggacctaa aggagataca ggtcgtgtgg gacctgcagg tccaccagga
+      181 cgaaaaggag atcagggccc tcaagggcaa ggaccgcaag gagtccctgg acctcctgga
+      241 cctcagggat cccagggact tcaaggatca aaaggtgcaa aaggggatca aggtctgcaa
+      301 ggacctcccg gacctcgagg acaagacggt gctataggct ctcaaggtct tcgcggtatt
+      361 aagggagatc ccggcgcaaa aggggatcgg ggtcctcccg gtcaaaaagg acccaaggga
+      421 gataaggggg ataaaggacc gcaaggacct acgggaccgc aaggacaacc aggctctgtt
+      481 gcggcgaaag gcgataaggg tgataagggt gataaaggtg ataagggcga taagggtgat
+      541 aaaggcgata gaggtaatga gggaagtcag ggggtacgag gtcctccagg ccttgttgga
+      601 cctgcaggac ctacagggcc taaaggggat gtgggaaatt taagttcagc tgataaacgt
+      661 gaacttctaa tggtagataa ggatttcgag aaagtaagtt acgaggatga taagggagct
+      721 agtaagggta gttatgagac attcacattt aatgatagtg gatcgtggaa acctgttgga
+      781 cgaggaaaaa tctag
 //

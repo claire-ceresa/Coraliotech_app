@@ -31,6 +31,7 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         'cds.length' : 'Taille CDS (pb)',
         'cds.mw' : 'PM theorique (kD)',
         'cds.complete' : 'CDS complet',
+        'cds.seqADN' : 'Sequence'
     }
 
     def __init__(self, parent=None, datas_raw=None):
@@ -46,12 +47,16 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         self._create_cell_combobox(column=count)
 
     def button_export_clicked(self):
-        name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
-        file = Excel(name[0])
-        worksheet = file.add_worksheet()
-        datas = self._formate_datas()
-        file.add_data(worksheet=worksheet, datas=datas)
-        file.close()
+        try:
+            name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
+            file = Excel(name[0])
+            worksheet = file.add_worksheet()
+            datas = self._formate_datas()
+            file.add_data(worksheet=worksheet, datas=datas)
+            file.close()
+            self.label_created.setText("Le fichier a bien ete cree !")
+        except:
+            self.label_created.setText("Un probleme est survenu. Le fichier n'a pas ete cree !")
 
     def _formate_datas(self):
         datas = []
