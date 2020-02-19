@@ -1,6 +1,6 @@
 import sqlite3 as s
 
-database = "database\coraliotech_test_db.db" # the name of the local database
+database = "database\coraliotech_db.db" # the name of the local database
 
 
 def commit_query(query):

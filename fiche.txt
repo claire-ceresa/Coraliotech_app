@@ -1,74 +1,51 @@
-LOCUS       XM_028561798             795 bp    mRNA    linear   INV 29-MAR-2019
-DEFINITION  PREDICTED: Dendronephthya gigantea collagen alpha-1(I) chain-like
-            (LOC114542050), mRNA.
-ACCESSION   XM_028561798
-VERSION     XM_028561798.1
-DBLINK      BioProject: PRJNA529494
-KEYWORDS    RefSeq; includes ab initio.
-SOURCE      Dendronephthya gigantea
-  ORGANISM  Dendronephthya gigantea
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Octocorallia; Alcyonacea;
-            Alcyoniina; Nephtheidae; Dendronephthya.
-COMMENT     ##Genome-Annotation-Data-START##
-            Annotation Provider         :: NCBI
-            Annotation Status           :: Full annotation
-            Annotation Name :: Dendronephthya gigantea Annotation Release 100
-            Annotation Version          :: 100
-            Annotation Pipeline :: NCBI eukaryotic genome annotation pipeline
-            Annotation Software Version :: 8.2
-            Annotation Method           :: Best-placed RefSeq; Gnomon
-            Features Annotated          :: Gene; mRNA; CDS; ncRNA
-            ##Genome-Annotation-Data-END##
-            ##RefSeq-Attributes-START##
-            ab initio                   :: 80% of CDS bases
-            ##RefSeq-Attributes-END##
-            MODEL REFSEQ:  This record is predicted by automated computational
-            analysis. This record is derived from a genomic sequence
-            (NW_021163340.1) annotated using gene prediction method: Gnomon.
-            Also see:
-            Documentation of NCBI's Annotation Process
+LOCUS       BK008452                 432 bp    mRNA    linear   INV 16-NOV-2011
+DEFINITION  TPA_exp: Nematostella vectensis minicollagen 3 mRNA, complete cds.
+ACCESSION   BK008452
+VERSION     BK008452.1
+KEYWORDS    Third Party Data; TPA; TPA:experimental.
+SOURCE      Nematostella vectensis (starlet sea anemone)
+  ORGANISM  Nematostella vectensis
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Actiniaria;
+            Edwardsiidae; Nematostella.
+REFERENCE   1  (bases 1 to 432)
+  AUTHORS   Kurz,E.M., Holstein,T.W., Petri,B.M., Engel,J. and David,C.N.
+  TITLE     Mini-collagens in hydra nematocytes
+  JOURNAL   J. Cell Biol. 115 (4), 1159-1169 (1991)
+   PUBMED   1955459
+REFERENCE   2  (bases 1 to 432)
+  AUTHORS   David,C.N., Ozbek,S., Adamczyk,P., Meier,S., Pauly,B., Chapman,J.,
+            Hwang,J.S., Gojobori,T. and Holstein,T.W.
+  TITLE     Evolution of complex structures: minicollagens shape the cnidarian
+            nematocyst
+  JOURNAL   Trends Genet. 24 (9), 431-438 (2008)
+   PUBMED   18676050
+REFERENCE   3  (bases 1 to 432)
+  AUTHORS   David,C.N. and Hwang,J.S.
+  TITLE     Direct Submission
+  JOURNAL   Submitted (05-OCT-2011) Department Biologie II,
+            Ludwig-Maximillians-Universitat, Grossharderner Str. 2, Munich,
+            Martinsried 82152, Germany
 FEATURES             Location/Qualifiers
-     source          1..795
-                     /organism="Dendronephthya gigantea"
+     source          1..432
+                     /organism="Nematostella vectensis"
                      /mol_type="mRNA"
-                     /isolate="DGI-Jeju-01"
-                     /isolation_source="individual from underwater near
-                     Seogwipo"
-                     /db_xref="taxon:151771"
-                     /chromosome="Unknown"
-                     /tissue_type="Adult whole colony"
-                     /country="South Korea: Jeju Island"
-                     /collection_date="22-May-2015"
-     gene            1..795
-                     /gene="LOC114542050"
-                     /note="Derived by automated computational analysis using
-                     gene prediction method: Gnomon. Supporting evidence
-                     includes similarity to: 1 Protein"
-                     /db_xref="GeneID:114542050"
-     CDS             1..795
-                     /gene="LOC114542050"
+                     /db_xref="taxon:45351"
+     CDS             1..432
+                     /function="nematocyst capsule"
+                     /note="Ncol3"
                      /codon_start=1
-                     /product="collagen alpha-1(I) chain-like"
-                     /protein_id="XP_028417599.1"
-                     /db_xref="GeneID:114542050"
-                     /translation="MKRGYPYSHGNLNFGYEYEYRPKSAKGGTGERGEIGPEGPKGDTG
-                     PKGDTGRVGPAGPPGRKGDQGPQGQGPQGVPGPPGPQGSQGLQGSKGAKGDQGLQGPPG
-                     PRGQDGAIGSQGLRGIKGDPGAKGDRGPPGQKGPKGDKGDKGPQGPTGPQGQPGSVAAK
-                     GDKGDKGDKGDKGDKGDKGDRGNEGSQGVRGPPGLVGPAGPTGPKGDVGNLSSADKREL
-                     LMVDKDFEKVSYEDDKGASKGSYETFTFNDSGSWKPVGRGKI"
+                     /product="minicollagen 3"
+                     /protein_id="DAA34992.1"
+                     /translation="MASKLILGVLALMVVSTYARSTYKRSAKACPPGCPNYCAPACQVS
+                     CCLPPPPPPPPPPPPPPPPPEPARPGPPGPSGRQGPPGPVGPIGPMGEAGPPGPPGPQG
+                     PPGPPGEPAPPPPPPPPCPAICAHTCVPSCPSGCCAGRR"
 ORIGIN
-        1 atgaagagag gatatcccta ttcgcacggt aatctcaatt ttggatatga atatgaatat
-       61 agacctaaaa gtgcaaaagg aggtactggt gagcgcggcg agattggacc tgaaggacct
-      121 aaaggagata caggacctaa aggagataca ggtcgtgtgg gacctgcagg tccaccagga
-      181 cgaaaaggag atcagggccc tcaagggcaa ggaccgcaag gagtccctgg acctcctgga
-      241 cctcagggat cccagggact tcaaggatca aaaggtgcaa aaggggatca aggtctgcaa
-      301 ggacctcccg gacctcgagg acaagacggt gctataggct ctcaaggtct tcgcggtatt
-      361 aagggagatc ccggcgcaaa aggggatcgg ggtcctcccg gtcaaaaagg acccaaggga
-      421 gataaggggg ataaaggacc gcaaggacct acgggaccgc aaggacaacc aggctctgtt
-      481 gcggcgaaag gcgataaggg tgataagggt gataaaggtg ataagggcga taagggtgat
-      541 aaaggcgata gaggtaatga gggaagtcag ggggtacgag gtcctccagg ccttgttgga
-      601 cctgcaggac ctacagggcc taaaggggat gtgggaaatt taagttcagc tgataaacgt
-      661 gaacttctaa tggtagataa ggatttcgag aaagtaagtt acgaggatga taagggagct
-      721 agtaagggta gttatgagac attcacattt aatgatagtg gatcgtggaa acctgttgga
-      781 cgaggaaaaa tctag
+        1 atggcgtcga aactcatcct cggagttttg gccttgatgg tcgtctcaac atacgcccgg
+       61 agcacataca aacgcagcgc caaggcatgt ccaccgggat gccctaacta ctgcgcaccc
+      121 gcctgccagg tctcctgctg tctccctcct cctcctccac ccccaccacc accaccgcca
+      181 ccaccaccac caccagagcc agcacgcccc ggacccccag gaccctctgg aagacaagga
+      241 cctcccggac ctgtcggacc catcggacca atgggcgagg ctggaccacc aggaccccct
+      301 ggcccacagg gaccacccgg acctcccgga gagcctgctc caccaccacc acccccacca
+      361 ccatgcccag ctatctgcgc ccacacatgc gtgccaagct gcccctcggg atgctgcgct
+      421 ggcagaagat aa
 //

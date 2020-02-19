@@ -75,10 +75,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         self.edit_id.setEnabled(True)
         self.edit_id.setText("")
         self.edit_request.setText("")
-        self.edit_out.setText("")
-        self.edit_in.setText("")
         self.edit_org.setText("")
-        self.edit_keys.setText("")
 
     def get_request_terms(self):
         """:return the value of the edits to build the request"""
@@ -89,17 +86,17 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         out_terms = self.edit_out.text()
 
         if len(keys) > 0:
-            terms["keys"] = keys.split(" ")
+            terms["keys"] = keys.split(" , ")
         else:
             terms["keys"] = []
 
         if len(in_terms) > 0:
-            terms["in_terms"] = in_terms.split(" ")
+            terms["in_terms"] = in_terms.split(" , ")
         else:
             terms["in_terms"] = []
 
         if len(out_terms) > 0:
-            terms["out_terms"] = out_terms.split(" ")
+            terms["out_terms"] = out_terms.split(" , ")
         else:
             terms["out_terms"] = []
 
