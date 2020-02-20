@@ -1,51 +1,56 @@
-LOCUS       BK008452                 432 bp    mRNA    linear   INV 16-NOV-2011
-DEFINITION  TPA_exp: Nematostella vectensis minicollagen 3 mRNA, complete cds.
-ACCESSION   BK008452
-VERSION     BK008452.1
-KEYWORDS    Third Party Data; TPA; TPA:experimental.
-SOURCE      Nematostella vectensis (starlet sea anemone)
-  ORGANISM  Nematostella vectensis
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Actiniaria;
-            Edwardsiidae; Nematostella.
-REFERENCE   1  (bases 1 to 432)
-  AUTHORS   Kurz,E.M., Holstein,T.W., Petri,B.M., Engel,J. and David,C.N.
-  TITLE     Mini-collagens in hydra nematocytes
-  JOURNAL   J. Cell Biol. 115 (4), 1159-1169 (1991)
-   PUBMED   1955459
-REFERENCE   2  (bases 1 to 432)
-  AUTHORS   David,C.N., Ozbek,S., Adamczyk,P., Meier,S., Pauly,B., Chapman,J.,
-            Hwang,J.S., Gojobori,T. and Holstein,T.W.
-  TITLE     Evolution of complex structures: minicollagens shape the cnidarian
-            nematocyst
-  JOURNAL   Trends Genet. 24 (9), 431-438 (2008)
-   PUBMED   18676050
-REFERENCE   3  (bases 1 to 432)
-  AUTHORS   David,C.N. and Hwang,J.S.
+LOCUS       KR733079                1215 bp    mRNA    linear   PLN 27-OCT-2015
+DEFINITION  Zostera marina peroxidase mRNA, complete cds.
+ACCESSION   KR733079
+VERSION     KR733079.1
+KEYWORDS    .
+SOURCE      Zostera marina
+  ORGANISM  Zostera marina
+            Eukaryota; Viridiplantae; Streptophyta; Embryophyta; Tracheophyta;
+            Spermatophyta; Magnoliophyta; Liliopsida; Zosteraceae; Zostera.
+REFERENCE   1  (bases 1 to 1215)
+  AUTHORS   Zhou,B.
   TITLE     Direct Submission
-  JOURNAL   Submitted (05-OCT-2011) Department Biologie II,
-            Ludwig-Maximillians-Universitat, Grossharderner Str. 2, Munich,
-            Martinsried 82152, Germany
+  JOURNAL   Submitted (13-MAY-2015) College of Marine Life Science, Ocean
+            University of China, No. 5 Yushan Road, Qingdao, Shandong 266003,
+            China
+COMMENT     ##Assembly-Data-START##
+            Sequencing Technology :: Sanger dideoxy sequencing
+            ##Assembly-Data-END##
 FEATURES             Location/Qualifiers
-     source          1..432
-                     /organism="Nematostella vectensis"
+     source          1..1215
+                     /organism="Zostera marina"
                      /mol_type="mRNA"
-                     /db_xref="taxon:45351"
-     CDS             1..432
-                     /function="nematocyst capsule"
-                     /note="Ncol3"
+                     /db_xref="taxon:29655"
+     CDS             43..1038
                      /codon_start=1
-                     /product="minicollagen 3"
-                     /protein_id="DAA34992.1"
-                     /translation="MASKLILGVLALMVVSTYARSTYKRSAKACPPGCPNYCAPACQVS
-                     CCLPPPPPPPPPPPPPPPPPEPARPGPPGPSGRQGPPGPVGPIGPMGEAGPPGPPGPQG
-                     PPGPPGEPAPPPPPPPPCPAICAHTCVPSCPSGCCAGRR"
+                     /product="peroxidase"
+                     /protein_id="ALK24277.1"
+                     /translation="MGEICNLRNPATLFSLSLLFLLFISSAAEANGKLRLGYYSKSCPR
+                     AETIVKEQVLKLYHKHGNTAVSWVRSLFHDCMVESCDASLLLESTEESMSEQTARRNFG
+                     LRNFKYVTTIKDLLEEECPNTVSCADIIALSARDGAALLGGPKFDMKTGRRDSKVSFLK
+                     VLNDFIPDHNSSISVVLSRFEKIGIDTEKTVAILGAHSVGRVHCVNLVGRLYPTIDPTI
+                     NPEYGMYLRKRCPNDHPDPHAVLYSRNDRVTPMVLDNFYYKNLIQHKGLLGIDQGLLYD
+                     PRTLPYVKKMAADNTYFHQQFALGMVLLSENNPLTGSSGEIRKDCRFVNK"
 ORIGIN
-        1 atggcgtcga aactcatcct cggagttttg gccttgatgg tcgtctcaac atacgcccgg
-       61 agcacataca aacgcagcgc caaggcatgt ccaccgggat gccctaacta ctgcgcaccc
-      121 gcctgccagg tctcctgctg tctccctcct cctcctccac ccccaccacc accaccgcca
-      181 ccaccaccac caccagagcc agcacgcccc ggacccccag gaccctctgg aagacaagga
-      241 cctcccggac ctgtcggacc catcggacca atgggcgagg ctggaccacc aggaccccct
-      301 ggcccacagg gaccacccgg acctcccgga gagcctgctc caccaccacc acccccacca
-      361 ccatgcccag ctatctgcgc ccacacatgc gtgccaagct gcccctcggg atgctgcgct
-      421 ggcagaagat aa
+        1 gggggaagaa aataaaataa aagaacagaa aaaagaaaaa ccatgggaga gatctgtaat
+       61 ctgagaaacc cagcaacatt gttctctctt tctcttctat tcctcttgtt catttcatca
+      121 gcagctgaag caaatgggaa actcaggctt ggctactact ccaaaagttg tccgagggcg
+      181 gagactattg tgaaagaaca agtcctgaaa ctataccata agcatggaaa cacagccgtt
+      241 tcatgggtca ggagtctttt tcatgattgt atggttgagt catgcgatgc ctcgctgttg
+      301 ctggaatcaa cagaagaatc catgtcagaa cagacagcca gaagaaactt tgggttgcga
+      361 aacttcaagt atgtaactac catcaaagat ttgctcgagg aggagtgccc aaacactgtt
+      421 tcttgtgctg atatcatcgc attgtctgct agagacggtg ctgcactgct tggaggtccg
+      481 aaatttgaca tgaagacagg aagaagggat agtaaagtga gtttcttgaa ggttttaaac
+      541 gattttattc ccgaccacaa ttcctccatc tctgttgttc tctctcgttt cgaaaagatc
+      601 ggcatcgata cagagaaaac cgtcgcaatc ttaggtgctc attcggtagg aagagttcac
+      661 tgtgttaatc tagtgggcag actttatccc accatagatc caacaatcaa cccggagtat
+      721 gggatgtacc tgagaaagcg atgtcccaac gaccatcccg atccacacgc cgtcctatac
+      781 tcgaggaacg atagagtaac tccgatggtg ctcgacaact tttactataa gaatttgatc
+      841 caacacaaag gtttgttggg gattgatcaa gggctcctct atgatccaag aaccttaccc
+      901 tatgtcaaga agatggcggc agacaacacc tacttccacc aacagtttgc cttgggaatg
+      961 gtgttgttat cggagaacaa tccactcact ggttcttccg gcgagatcag aaaagactgc
+     1021 cgatttgtca ataagtagct atttggctac caaatatgcg atgatccagc acctttcaca
+     1081 cgtataacaa tcagtgataa ataatgcatg caaatatgca tgcaaatatg catccgtttg
+     1141 atttcatatc gtttttattc tgtaattatt tatgcgattt aagatttgca taatatcaaa
+     1201 aaaaaaaaaa aaaaa
 //
