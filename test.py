@@ -4,6 +4,15 @@ import operator
 
 Entrez.email = "claire.ceresa@hotmail.fr"
 
+def split_list_on_index(data_list, index_list):
+    all_index = (0,) + tuple(data + 1 for data in index_list) + (len(data_list),)
+    all_lists = []
+    for start, end in zip(all_index, all_index[1:]):
+        all_lists.append(results[start:end])
+    return all_lists
+
+
+
 terms = {'organism': {'checked': True, 'variable': 'genre', 'value': 'Zostera'},
          'name': {'checked': False, 'variable': 'nom', 'value': ''}
          }
@@ -32,17 +41,18 @@ for index, product in enumerate(sorted_results[:-1]):
 #idx_sorted_list = [index for index, product in enumerate(sorted_results[:-1]) if sorted_results[index].organism.species != sorted_results[index+1].organism.species ]
 #print(idx_sorted_list)
 
-all_index = (0,) + tuple(data+1 for data in idx_list) + (len(results),)
-print(all_index)
+# all_index = (0,) + tuple(data+1 for data in idx_list) + (len(results),)
+# print(all_index)
+# all_lists = []
+# for start, end in zip(all_index, all_index[1:]):
+#     all_lists.append(results[start:end])
 
-all_lists = []
-for start, end in zip(all_index, all_index[1:]):
-    all_lists.append(results[start:end])
-
-
-
+all_lists = split_list_on_index(results, idx_list)
 
 for index, list in enumerate(all_lists):
-    print('liste ' + str(index))
+    print('liste ' + str(index+1))
     for product in list:
         print(product.organism.species)
+
+
+
