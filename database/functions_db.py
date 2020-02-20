@@ -1,12 +1,24 @@
 import sqlite3 as s
+import urllib.request
 
-database = "database\coraliotech_db.db" # the name of the local database
+# local_database = "database\coraliotech_db.db" # the name of the local database
+local_database = "database\coraliotech_test_db.db" # the name of the local database
+ncbi_server = "https://www.ncbi.nlm.nih.gov/nucleotide/" # the URL of the NCBI database
+
+
+def connected_to_ncbi_server():
+    """check connection to Internet"""
+    try:
+        urllib.request.urlopen(ncbi_server)
+        return True
+    except:
+        return False
 
 
 def commit_query(query):
     """commiting a query on the local database"""
     try:
-        connection = s.connect(database)
+        connection = s.connect(local_database)
         cursor = connection.cursor()
         cursor.execute("pragma foreign_keys = ON")
         cursor.execute(query)
@@ -19,7 +31,7 @@ def commit_query(query):
 
 def execute_query(query):
     """executing a query on the local database"""
-    connection = s.connect(database)
+    connection = s.connect(local_database)
     cursor = connection.cursor()
     cursor.execute(query)
     result = cursor.fetchall()

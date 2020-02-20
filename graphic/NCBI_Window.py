@@ -33,38 +33,45 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
     def button_go_clicked(self):
         """when button go is clicked, save on the DB the result of the request on NCBI"""
-        if self.edit_request.isEnabled():
-            request = self.edit_request.text()
-        elif self.edit_id.isEnabled():
-            request = self.edit_id.text() + "[Accession]"
-        else:
-            create_messageBox(title="Attention !", text="Il y a un problème !")
 
-        search = NCBI_Search(request)
-        list_id = search.get_list_ids()
+        if connected_to_ncbi_server():
 
-        nb_product_saved = 0
-        products_not_saved = []
+            if self.edit_request.isEnabled():
+                request = self.edit_request.text()
+            elif self.edit_id.isEnabled():
+                request = self.edit_id.text() + "[Accession]"
+            else:
+                create_messageBox(title="Attention !", text="Il y a un problème !")
 
-        if len(list_id) > 0:
-            for id in list_id:
-                product = NCBI_Product(id)
-                if self.check_exceptions(product):
-                    saved = product.save_on_database()
-                    if saved["commited"]:
-                        nb_product_saved = nb_product_saved + 1
+            search = NCBI_Search(request)
+            list_id = search.get_list_ids()
+
+            nb_product_saved = 0
+            products_not_saved = []
+
+            if len(list_id) > 0:
+                for id in list_id:
+                    product = NCBI_Product(id)
+                    if self.check_exceptions(product):
+                        saved = product.save_on_database()
+                        if saved["commited"]:
+                            nb_product_saved = nb_product_saved + 1
+                        else:
+                            products_not_saved.append({'id':product.id, 'error':saved["error"]})
                     else:
-                        products_not_saved.append({'id':product.id, 'error':saved["error"]})
-                else:
-                    products_not_saved.append({'id': product.id, 'error': "Exception non utilisable"})
+                        products_not_saved.append({'id': product.id, 'error': "Exception non utilisable"})
 
-        message = str(nb_product_saved) + " resultats enregistres dans la base de donnees !"
-        if len(products_not_saved) > 0:
-            message = message + "\n" + str(len(products_not_saved)) + " non enregistres : \n"
-            for product in products_not_saved:
-                message = message + " - " + product["id"] + " : " + product["error"] + "\n"
+            message = str(nb_product_saved) + " resultats enregistres dans la base de donnees !"
+            if len(products_not_saved) > 0:
+                message = message + "\n" + str(len(products_not_saved)) + " non enregistres : \n"
+                for product in products_not_saved:
+                    message = message + " - " + product["id"] + " : " + product["error"] + "\n"
 
-        self.clean_widgets(message)
+            self.clean_widgets(message)
+
+        else:
+            create_messageBox("Attention", "Vous n'etes pas connecte a Internet !")
+            self.label_messages.setText("")
 
     # GRAPHIC METHODS #
 

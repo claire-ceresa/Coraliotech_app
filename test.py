@@ -1,19 +1,6 @@
-import sys
-import inspect
 from Bio import Entrez
-from graphic.Excel_Window import *
-from graphic.Search_Window import *
-from objects.DB_Search import *
-from objects.DB_Product import *
+from database.functions_db import *
 
 Entrez.email = "claire.ceresa@hotmail.fr"
 
-terms = {'organism': {'checked': True, 'variable': 'genre', 'value': 'Stylophora'},
-         'name': {'checked': False, 'variable': 'nom', 'value': ''}
-         }
-search = DB_Search(terms=terms)
-
-app = QApplication(sys.argv)
-form = Search_Window(search=search)
-form.show()
-app.exec()
+print("connected" if connected_to_ncbi_server() else "no internet!" )
