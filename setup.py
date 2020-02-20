@@ -5,7 +5,7 @@ base = None
 if sys.platform == "win32":
     base = "Win32GUI"
 
-executables = [Executable("main.py", base=base, targetName="Coraliotech.exe")]
+executables = [Executable("main.py", base=base, targetName="Coraliotech.exe", icon="icone.ico")]
 
 packages = ["os", "sqlite3", "Bio", "xlsxwriter"]
 excludes = ['tkinter']
