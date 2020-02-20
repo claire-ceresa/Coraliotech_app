@@ -93,6 +93,9 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         attributes = DB_Product().get_attributes()
         combo = QComboBox()
         for attribute in attributes:
-            combo.addItem(attribute)
+            if attribute in self.corresp_var_colname:
+                combo.addItem(self.corresp_var_colname[attribute])
+            else:
+                combo.addItem(attribute)
         self.table.setCellWidget(0, column, combo)
         self.table.resizeColumnsToContents()
