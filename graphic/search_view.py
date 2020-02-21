@@ -57,7 +57,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.table_result.setSortingEnabled(True)
-        self.button_export.setText(_translate("MainWindow", "Exporter en csv"))
+        self.button_export.setText(_translate("MainWindow", "Exporter le tableau vers un fichier Excel"))
         self.button_personnalise.setText(_translate("MainWindow", "Creer un fichier Excel personnalise"))
 
 

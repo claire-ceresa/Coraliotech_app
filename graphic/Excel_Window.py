@@ -51,28 +51,17 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         self._create_cell_combobox(column=count)
 
     def button_export_clicked(self):
-        if self.checkbox_worksheet.isChecked():
-            text = self.combobox_var_worksheet.currentText()
-            variable_chosen = get_key(self.corresp_var_colname, text)
-            datas_sorted = sorted(self.datas_raw, key=operator.attrgetter(variable_chosen))
-            datas_to_export = split_list_of_product(datas_sorted, variable_chosen)
-        else:
-            datas_to_export = [self.datas_raw]
+        datas_to_export = self._get_datas()
+        name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
+        filename = name[0]
 
-        try:
-            name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
-            file = Excel(name[0])
-            for data_to_export in datas_to_export:
-                worksheet = file.add_worksheet()
-                datas = self._formate_datas(data_to_export)
-                file.add_data(worksheet=worksheet, datas=datas)
-            file.close()
-            message = "Le fichier a bien ete cree !"
-        except Exception as e:
-            message = "Un probleme est survenu. Le fichier n'a pas ete cree !\n"
-            message = message + str(e)
-
-        self.label_created.setText(message)
+        if len(filename) > 0:
+            exportation = self._export_datas(filename, datas_to_export)
+            if exportation["done"]:
+                message = "Le fichier a bien ete cree !"
+            else:
+                message = "Un probleme est survenu. Le fichier n'a pas ete cree !\n" + str(exportation["error"])
+            self.label_created.setText(message)
 
     ## GRAPHIC METHODS ##
 
@@ -95,12 +84,23 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
 
     ## OTHER FUNCTIONS ##
 
-    def _formate_datas(self, datas):
-        datas_formatted = []
+    def _get_datas(self):
+        if self.checkbox_worksheet.isChecked():
+            text = self.combobox_var_worksheet.currentText()
+            variable_chosen = get_key(self.corresp_var_colname, text)
+            datas_sorted = sorted(self.datas_raw, key=operator.attrgetter(variable_chosen))
+            datas_to_export = split_list_of_product(datas_sorted, variable_chosen)
+        else:
+            datas_to_export = {"lists":[self.datas_raw], "values":None}
+        return datas_to_export
 
+    def _formate_datas(self, datas):
+        datas_formatted = {}
+        datas_formatted["rows"] = []
         variables = []
         headers = []
         nb_columns = self.table.columnCount()
+
         for column in range(0, nb_columns):
             item = self.table.cellWidget(0,column)
             variable_name = item.currentText()
@@ -110,8 +110,8 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
                 text = self.corresp_var_colname[variable]
             except KeyError:
                 text = variable
-            headers.append(text)
-        datas_formatted.append(headers)
+            headers.append(text.upper())
+        datas_formatted["column_names"] = headers
 
         for product in datas:
             row = []
@@ -123,8 +123,21 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
                     row.append(value)
                 else:
                     row.append(getattr(product, column))
-            datas_formatted.append(row)
+            datas_formatted["rows"].append(row)
 
         return datas_formatted
+
+    def _export_datas(self, filename, datas):
+        try:
+            file = Excel(filename)
+            for index, data_to_export in enumerate(datas["lists"]):
+                title = datas["values"][index]
+                worksheet = file.add_worksheet(title=title)
+                datas_formatted = self._formate_datas(data_to_export)
+                file.add_data(worksheet=worksheet, datas=datas_formatted)
+            file.close()
+            return {'done':True, 'error':None}
+        except Exception as e:
+            return {'done':False, 'error':str(e)}
 
 

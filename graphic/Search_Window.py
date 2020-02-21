@@ -36,10 +36,11 @@ class Search_Window(QMainWindow, Ui_MainWindow):
     def button_export_clicked(self):
         """export the table without modif"""
         name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
-        file = Excel(name[0])
-        worksheet = file.add_worksheet()
-        file.add_QTableWidget(self.table_result, worksheet)
-        file.close()
+        if len(name[0]) > 0:
+            file = Excel(name[0])
+            worksheet = file.add_worksheet()
+            file.add_QTableWidget(self.table_result, worksheet)
+            file.close()
 
     def button_personnalise_clicked(self):
         """open the window to export to a personnalised file"""
