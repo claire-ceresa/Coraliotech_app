@@ -13,7 +13,8 @@ excludes = ['tkinter']
 include_files = ["database",
                  "graphic",
                  "objects",
-                 "logo.png"]
+                 "logo.png",
+                 "useful_functions.py"]
 
 options =  {
     "build_exe":

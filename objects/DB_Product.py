@@ -21,15 +21,32 @@ class DB_Product:
         if id is not None:
             self._set_properties()
 
-    def get_attributes(self):
+    def get_all_attributes(self):
         dict = list(self.__dict__.keys())
-        attributes_org = DB_Organism().get_attributes()
+        attributes_org = DB_Organism().get_all_attributes()
         for org in attributes_org:
             dict.append("organism." + org)
-        attributes_cds = DB_CDS().get_attributes()
+        attributes_cds = DB_CDS().get_all_attributes()
         for cds in attributes_cds:
             dict.append("cds." + cds)
         return list(dict)
+
+
+    def get_value(self, attribute):
+        if "organism" in attribute:
+            attribute_split = attribute.split('.')
+            variable = attribute_split[1]
+            value = self.organism.get_value(variable)
+        elif "cds" in attribute:
+            attribute_split = attribute.split('.')
+            variable = attribute_split[1]
+            value = self.cds.get_value(variable)
+        else:
+            try:
+                value = getattr(self, attribute)
+            except AttributeError:
+                value = None
+        return value
 
     def _set_properties(self):
         """set all the variables with the values"""

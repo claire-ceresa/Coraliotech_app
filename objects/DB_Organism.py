@@ -19,10 +19,16 @@ class DB_Organism:
         if species is not None:
             self._set_properties()
 
-    def get_attributes(self):
+    def get_all_attributes(self):
         dict = self.__dict__.keys()
         return list(dict)
 
+    def get_value(self, attribute):
+        try:
+            value = getattr(self, attribute)
+        except AttributeError:
+            value = None
+        return value
 
     def _set_properties(self):
         organism = get_organism_by_species(species=self.species)

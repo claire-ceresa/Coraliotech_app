@@ -18,9 +18,16 @@ class DB_CDS:
         if self.id is not None:
             self._set_properties()
 
-    def get_attributes(self):
+    def get_all_attributes(self):
         dict = self.__dict__.keys()
         return list(dict)
+
+    def get_value(self, attribute):
+        try:
+            value = getattr(self, attribute)
+        except AttributeError:
+            value = None
+        return value
 
     def _set_properties(self):
         """set all the variables with the values"""

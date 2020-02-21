@@ -1,8 +1,8 @@
 import sqlite3 as s
 import urllib.request
 
-# local_database = "database\coraliotech_db.db" # the name of the local database
-local_database = "database\coraliotech_test_db.db" # the name of the local database
+local_database = "database\coraliotech_db.db" # the name of the local database
+# local_database = "database\coraliotech_test_db.db" # the name of the local database
 ncbi_server = "https://www.ncbi.nlm.nih.gov/nucleotide/" # the URL of the NCBI database
 
 
