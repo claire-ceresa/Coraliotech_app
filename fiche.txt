@@ -1,61 +1,64 @@
-LOCUS       KU557763                 915 bp    mRNA    linear   INV 18-AUG-2016
-DEFINITION  Stylophora pistillata alpha carbonic anhydrase 16 (CA16) mRNA,
-            complete cds.
-ACCESSION   KU557763
-VERSION     KU557763.1
-KEYWORDS    .
-SOURCE      Stylophora pistillata
-  ORGANISM  Stylophora pistillata
+LOCUS       XM_015901478             717 bp    mRNA    linear   INV 14-MAR-2016
+DEFINITION  PREDICTED: Acropora digitifera collagen alpha-1(II) chain-like
+            (LOC107336396), mRNA.
+ACCESSION   XM_015901478
+VERSION     XM_015901478.1
+DBLINK      BioProject: PRJNA314803
+KEYWORDS    RefSeq.
+SOURCE      Acropora digitifera
+  ORGANISM  Acropora digitifera
             Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
-            Astrocoeniina; Pocilloporidae; Stylophora.
-REFERENCE   1  (bases 1 to 915)
-  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Caminiti-Segonds,N., Allemand,D.
-            and Tambutte,S.
-  TITLE     Carbonic Anhydrases in Cnidarians: Novel Perspectives from the
-            Octocorallian Corallium rubrum
-  JOURNAL   PLoS ONE 11 (8), E0160368 (2016)
-   PUBMED   27513959
-  REMARK    Publication Status: Online-Only
-REFERENCE   2  (bases 1 to 915)
-  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Allemand,D. and Tambutte,S.
-  TITLE     Direct Submission
-  JOURNAL   Submitted (19-JAN-2016) Centre Scientifique de Monaco, 8 Quai
-            Antoine 1er, Monaco 98000, Monaco
+            Astrocoeniina; Acroporidae; Acropora.
+COMMENT     ##Genome-Annotation-Data-START##
+            Annotation Provider         :: NCBI
+            Annotation Status           :: Full annotation
+            Annotation Version :: Acropora digitifera Annotation Release 100
+            Annotation Pipeline :: NCBI eukaryotic genome annotation pipeline
+            Annotation Software Version :: 6.5
+            Annotation Method           :: Best-placed RefSeq; Gnomon
+            Features Annotated          :: Gene; mRNA; CDS; ncRNA
+            ##Genome-Annotation-Data-END##
+            MODEL REFSEQ:  This record is predicted by automated computational
+            analysis. This record is derived from a genomic sequence
+            (NW_015441141.1) annotated using gene prediction method: Gnomon,
+            supported by mRNA evidence.
+            Also see:
+            Documentation of NCBI's Annotation Process
 FEATURES             Location/Qualifiers
-     source          1..915
-                     /organism="Stylophora pistillata"
+     source          1..717
+                     /organism="Acropora digitifera"
                      /mol_type="mRNA"
-                     /db_xref="taxon:50429"
-     gene            1..915
-                     /gene="CA16"
-     CDS             18..890
-                     /gene="CA16"
-                     /EC_number="4.2.1.1"
-                     /note="SpiCA16"
+                     /db_xref="taxon:70779"
+                     /chromosome="Unknown"
+                     /country="Japan:Okinawa, Kunigami, Oku"
+     gene            1..717
+                     /gene="LOC107336396"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Gnomon. Supporting evidence
+                     includes similarity to: 1 mRNA, and 100% coverage of the
+                     annotated genomic feature by RNAseq alignments"
+                     /db_xref="GeneID:107336396"
+     CDS             124..702
+                     /gene="LOC107336396"
                      /codon_start=1
-                     /product="alpha carbonic anhydrase 16"
-                     /protein_id="ANJ59776.1"
-                     /translation="MLLLLLLLSAFGVAVGNQCEELQDGEFFSYGETTSEAPGPSDWYK
-                     KWRQCGGNRQSPINIDTSRVRHRHFRTLKIEFDRLGGLVSGELKNNGNAPTFFVDKHKG
-                     TARLKGSRLSDTYVLTNFHVHFGCENDRGSEHTRNGHRFAAEIHFVFEDSRGRFAVVAV
-                     WLRASKNENTILGRLANQMHKIIDVDESAKIRRAIGIRLMRLIPHKSRKHKTLVLSNYF
-                     HYVGSLTTPPCCEGVMWFVLRRTVPITDYQLSQFRVLEGRFPKDPPHMCDNFRPLQPLN
-                     RRYVFSVTN"
+                     /product="collagen alpha-1(II) chain-like"
+                     /protein_id="XP_015756964.1"
+                     /db_xref="GeneID:107336396"
+                     /translation="MGDPGPPGMPGPQGPPGQNLLNALDLGSADKGPLPGARLYSSKRA
+                     EHGIPAATEQTQDNTVQSQLMRIDALAKLVFNKITSYRAQNGTLEHPARSCRDIQLEHP
+                     EFQSGEYTIDPNEGCSSDAVRVYCDFEKQATCVDPKKARVVVGANETGPGRWTNEDEPV
+                     IQNIDNTPNVYRYIFSSLFISFCKIPKIP"
 ORIGIN
-        1 ccaaaatcga cctcggaatg ttgctgttac tgttgttgct atcagctttt ggtgtggcag
-       61 tgggcaacca atgcgaagaa ctgcaagatg gtgaattttt cagctacgga gaaactactt
-      121 cagaagctcc tggtccgtca gattggtata aaaaatggag gcaatgtggt ggtaatcggc
-      181 aatctccgat caacatcgac acgagtcggg tgaggcacag acatttccga actctgaaaa
-      241 tagaattcga cagactgggc ggcctggtca gtggggagtt aaaaaacaat ggaaacgctc
-      301 ccactttttt cgtagacaag cacaagggaa cagcgagact caaaggaagt cgtctttcag
-      361 acacatacgt gcttactaat ttccacgtgc atttcggatg tgaaaacgac cggggatcag
-      421 agcacactcg taatggccac cgttttgctg ctgagattca ttttgtgttt gaggattcaa
-      481 gaggacggtt tgcagtcgta gctgtatggc tcagggcttc taaaaatgaa aacactattc
-      541 tgggaaggtt ggcaaatcag atgcacaaga ttattgatgt tgacgagtct gcgaagataa
-      601 ggagggcgat cggaattcgc ttgatgcgcc ttataccaca caaaagtcgg aagcacaaga
-      661 cattggtact gtcaaattat ttccactacg ttggctccct cactactcct ccttgttgcg
-      721 aaggcgtgat gtggtttgtc ttgcgacgaa cagttcctat cacggactat cagctgtcgc
-      781 agttcagagt gttagagggt cgttttccca aggacccccc gcacatgtgt gacaacttca
-      841 gaccacttca gccgctcaat cgccgctatg tattttctgt tactaattaa tcggctgctg
-      901 agcgacaaaa caaac
+        1 ggtggctccg gatctgcagg tccttttggg atacaaggag gtcccggacc tgagggagca
+       61 aaaggacttc ggggtgacac tggaagacag ggcgaacgtg gtacctcggg tgacgatgga
+      121 ccaatgggag acccaggccc tcccgggatg ccaggacctc agggcccacc aggacaaaac
+      181 ctcttgaatg cgcttgatct aggatctgcc gacaaagggc ctttgcctgg tgcgagattg
+      241 tactcaagca agcgtgcaga gcatggaatc cctgcagcca cagaacaaac gcaggataac
+      301 acagtgcaaa gccagctcat gaggatcgac gccctcgcca aactcgtgtt caacaaaatt
+      361 acaagctaca gggctcaaaa tggtacactg gaacatcctg ccagatcgtg cagagacatt
+      421 cagctggaac acccagaatt tcagagtggt gagtacacca ttgatccaaa cgaaggatgt
+      481 agcagcgatg ctgtgagagt ttattgcgat tttgagaagc aggcaacttg tgtggaccca
+      541 aagaaggcca gggtcgtggt tggagctaac gaaactgggc caggacgctg gacaaacgaa
+      601 gacgaaccgg taatccaaaa tatcgataat actccaaacg tatatagata tattttctct
+      661 tctcttttca tttcgttttg taaaattcca aagattccat aaatatgtga aacaaaa
 //
