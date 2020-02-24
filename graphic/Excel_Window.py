@@ -91,7 +91,7 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
             datas_sorted = sorted(self.datas_raw, key=operator.attrgetter(variable_chosen))
             datas_to_export = split_list_of_product(datas_sorted, variable_chosen)
         else:
-            datas_to_export = {"lists":[self.datas_raw], "values":None}
+            datas_to_export = {"lists":[self.datas_raw], "values":[None]}
         return datas_to_export
 
     def _formate_datas(self, datas):
@@ -131,7 +131,7 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         try:
             file = Excel(filename)
             for index, data_to_export in enumerate(datas["lists"]):
-                title = datas["values"][index]
+                title = "  " if datas["values"][index] is None else datas["values"][index]
                 worksheet = file.add_worksheet(title=title)
                 datas_formatted = self._formate_datas(data_to_export)
                 file.add_data(worksheet=worksheet, datas=datas_formatted)

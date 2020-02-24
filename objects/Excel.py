@@ -7,7 +7,7 @@ class Excel:
         self.workbook = x.Workbook(self.title)
         self.worksheets = []
 
-    def add_worksheet(self, title):
+    def add_worksheet(self, title=None):
         """add a worksheet to the workbook"""
         worksheet = self.workbook.add_worksheet(title)
         self.worksheets.append(worksheet)
@@ -43,14 +43,12 @@ class Excel:
         title = worksheet.get_name()
         columns_name = datas["column_names"]
 
-        worksheet.merge_range(0, 0, 0, len(columns_name),title)
+        worksheet.merge_range(0, 0, 0, len(columns_name), title)
         format_columns_name = self.workbook.add_format({'bold':True, 'valign':'center'})
         worksheet.write_row(1, 0, columns_name)
 
-        try:
-            worksheet.set_row(0, None, format_columns_name)
-        except Exception as e:
-            print(e)
+        worksheet.set_row(0, None, format_columns_name)
+        worksheet.set_row(1, None, format_columns_name)
 
         for row, row_data in enumerate(datas["rows"]):
             worksheet.write_row(row+2, 0, row_data)

@@ -7,7 +7,7 @@ from objects.Excel import Excel
 
 class Search_Window(QMainWindow, Ui_MainWindow):
     """
-    controlling class for principal_view
+    controlling class for search_view
     """
     def __init__(self, parent=None, search=None):
         super(Search_Window, self).__init__(parent)
