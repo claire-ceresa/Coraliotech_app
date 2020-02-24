@@ -68,6 +68,7 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
     def _create_cell_combobox(self, column):
         attributes = DB_Product().get_all_attributes()
         combo = QComboBox()
+        combo.addItem("")
         for attribute in attributes:
             if attribute in self.corresp_var_colname:
                 combo.addItem(self.corresp_var_colname[attribute])
@@ -109,20 +110,23 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
             try:
                 text = self.corresp_var_colname[variable]
             except KeyError:
-                text = variable
+                text = variable if variable is not None else ""
             headers.append(text.upper())
         datas_formatted["column_names"] = headers
 
         for product in datas:
             row = []
             for column in variables:
-                attributes = column.split(".")
-                if len(attributes) > 1:
-                    object = getattr(product, attributes[0])
-                    value = getattr(object, attributes[1])
-                    row.append(value)
+                if column is None:
+                    row.append("")
                 else:
-                    row.append(getattr(product, column))
+                    attributes = column.split(".")
+                    if len(attributes) > 1:
+                        object = getattr(product, attributes[0])
+                        value = getattr(object, attributes[1])
+                        row.append(value)
+                    else:
+                        row.append(getattr(product, column))
             datas_formatted["rows"].append(row)
 
         return datas_formatted
