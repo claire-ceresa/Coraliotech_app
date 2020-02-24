@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import *
 from graphic.ncbi_view import *
-from database.functions_db import *
 from objects.NCBI_Search import NCBI_Search
 from objects.NCBI_Product import NCBI_Product
 from graphic.graphics_functions import *
+from useful_functions import *
 
 
 class NCBI_Window(QMainWindow, Ui_MainWindow):
@@ -34,7 +34,8 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
     def button_go_clicked(self):
         """when button go is clicked, save on the DB the result of the request on NCBI"""
 
-        if connected_to_ncbi_server():
+        url = "https://www.ncbi.nlm.nih.gov/nucleotide/"
+        if connected_to_internet(url):
 
             if self.edit_request.isEnabled():
                 request = self.edit_request.text()

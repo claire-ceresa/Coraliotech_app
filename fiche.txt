@@ -1,64 +1,87 @@
-LOCUS       XM_015901478             717 bp    mRNA    linear   INV 14-MAR-2016
-DEFINITION  PREDICTED: Acropora digitifera collagen alpha-1(II) chain-like
-            (LOC107336396), mRNA.
-ACCESSION   XM_015901478
-VERSION     XM_015901478.1
-DBLINK      BioProject: PRJNA314803
-KEYWORDS    RefSeq.
-SOURCE      Acropora digitifera
-  ORGANISM  Acropora digitifera
-            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
-            Astrocoeniina; Acroporidae; Acropora.
+LOCUS       XM_028659903            1544 bp    mRNA    linear   INV 17-APR-2019
+DEFINITION  PREDICTED: Exaiptasia pallida collagen alpha-1(I) chain
+            (LOC110241835), mRNA.
+ACCESSION   XM_028659903
+VERSION     XM_028659903.1
+DBLINK      BioProject: PRJNA386175
+KEYWORDS    RefSeq; includes ab initio.
+SOURCE      Exaiptasia pallida
+  ORGANISM  Exaiptasia pallida
+            Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Actiniaria;
+            Aiptasiidae; Exaiptasia.
 COMMENT     ##Genome-Annotation-Data-START##
             Annotation Provider         :: NCBI
             Annotation Status           :: Full annotation
-            Annotation Version :: Acropora digitifera Annotation Release 100
+            Annotation Name :: Exaiptasia pallida Annotation Release 101
+            Annotation Version          :: 101
             Annotation Pipeline :: NCBI eukaryotic genome annotation pipeline
-            Annotation Software Version :: 6.5
+            Annotation Software Version :: 8.2
             Annotation Method           :: Best-placed RefSeq; Gnomon
             Features Annotated          :: Gene; mRNA; CDS; ncRNA
             ##Genome-Annotation-Data-END##
+            ##RefSeq-Attributes-START##
+            ab initio                   :: 2% of CDS bases
+            ##RefSeq-Attributes-END##
             MODEL REFSEQ:  This record is predicted by automated computational
             analysis. This record is derived from a genomic sequence
-            (NW_015441141.1) annotated using gene prediction method: Gnomon,
-            supported by mRNA evidence.
+            (NW_018386055.1) annotated using gene prediction method: Gnomon.
             Also see:
             Documentation of NCBI's Annotation Process
 FEATURES             Location/Qualifiers
-     source          1..717
-                     /organism="Acropora digitifera"
+     source          1..1544
+                     /organism="Exaiptasia pallida"
                      /mol_type="mRNA"
-                     /db_xref="taxon:70779"
+                     /isolate="CC7"
+                     /isolation_source="whole animal"
+                     /db_xref="taxon:1720309"
                      /chromosome="Unknown"
-                     /country="Japan:Okinawa, Kunigami, Oku"
-     gene            1..717
-                     /gene="LOC107336396"
+                     /country="Saudi Arabia: KAUST"
+                     /collection_date="Mar-2014"
+     gene            1..1544
+                     /gene="LOC110241835"
                      /note="Derived by automated computational analysis using
                      gene prediction method: Gnomon. Supporting evidence
-                     includes similarity to: 1 mRNA, and 100% coverage of the
-                     annotated genomic feature by RNAseq alignments"
-                     /db_xref="GeneID:107336396"
-     CDS             124..702
-                     /gene="LOC107336396"
+                     includes similarity to: 27 Proteins, and 98% coverage of
+                     the annotated genomic feature by RNAseq alignments"
+                     /db_xref="GeneID:110241835"
+     CDS             109..1296
+                     /gene="LOC110241835"
                      /codon_start=1
-                     /product="collagen alpha-1(II) chain-like"
-                     /protein_id="XP_015756964.1"
-                     /db_xref="GeneID:107336396"
-                     /translation="MGDPGPPGMPGPQGPPGQNLLNALDLGSADKGPLPGARLYSSKRA
-                     EHGIPAATEQTQDNTVQSQLMRIDALAKLVFNKITSYRAQNGTLEHPARSCRDIQLEHP
-                     EFQSGEYTIDPNEGCSSDAVRVYCDFEKQATCVDPKKARVVVGANETGPGRWTNEDEPV
-                     IQNIDNTPNVYRYIFSSLFISFCKIPKIP"
+                     /product="collagen alpha-1(I) chain"
+                     /protein_id="XP_028515704.1"
+                     /db_xref="GeneID:110241835"
+                     /translation="MDYRLLFGSLVVLIVAVSGKSTSKGLVSKRSPNPCPPGCPGACAP
+                     ACTAVCCSPPPPPPLPPLPPALPPPPPPAPGPPGPDGPMGMPGPSGPDGPKGPPGPPGL
+                     PGPPGLPGLPGAPAGPPGRDGPMGPPGPAGNQGPPGDMGPMGPPGLPGNPGPPAPPGPP
+                     PPCPPVCVHTCIKACSPACCGHGKKRSALMQMRLQVPILVFVLYVGLAASASVKNKNSK
+                     APPKILADNKRSQQDACDITVCATPCAESCPPSCCPPPPPPPPPPPPPFYPEIPPPPPP
+                     PPVAGPPGPDGPPGMPGPQGPDGPKGPPGPPGPPGPPGLPGLPGAPAGNPGRDGPMGPP
+                     GPPGNPGPPGDMGLPGPPGPPGPAGQPAPPGPSTPCPSICAHTCLSQCPSSCCHY"
 ORIGIN
-        1 ggtggctccg gatctgcagg tccttttggg atacaaggag gtcccggacc tgagggagca
-       61 aaaggacttc ggggtgacac tggaagacag ggcgaacgtg gtacctcggg tgacgatgga
-      121 ccaatgggag acccaggccc tcccgggatg ccaggacctc agggcccacc aggacaaaac
-      181 ctcttgaatg cgcttgatct aggatctgcc gacaaagggc ctttgcctgg tgcgagattg
-      241 tactcaagca agcgtgcaga gcatggaatc cctgcagcca cagaacaaac gcaggataac
-      301 acagtgcaaa gccagctcat gaggatcgac gccctcgcca aactcgtgtt caacaaaatt
-      361 acaagctaca gggctcaaaa tggtacactg gaacatcctg ccagatcgtg cagagacatt
-      421 cagctggaac acccagaatt tcagagtggt gagtacacca ttgatccaaa cgaaggatgt
-      481 agcagcgatg ctgtgagagt ttattgcgat tttgagaagc aggcaacttg tgtggaccca
-      541 aagaaggcca gggtcgtggt tggagctaac gaaactgggc caggacgctg gacaaacgaa
-      601 gacgaaccgg taatccaaaa tatcgataat actccaaacg tatatagata tattttctct
-      661 tctcttttca tttcgttttg taaaattcca aagattccat aaatatgtga aacaaaa
+        1 aagaaccttt gaataattga cgttcaaccc tcacatataa ctgaattcaa aacacttttg
+       61 gcactcagtc agtaaggttg atcggatcac agacataatc cgagagccat ggattacagg
+      121 cttttatttg gctctctagt cgtcttgatt gttgccgttt cgggcaaatc gacaagcaaa
+      181 ggactcgttt ccaaacgtag cccaaatcct tgtcctcccg gatgtcctgg cgcttgcgca
+      241 ccagcatgta ccgctgtatg ttgttcacca ccaccaccac caccacttcc cccactccca
+      301 ccagcactcc caccaccacc tccaccagca ccaggcccac caggtccaga cggacccatg
+      361 ggaatgccag gaccatcagg acccgacgga cctaaaggac ccccaggacc acccggactt
+      421 ccaggaccac caggtctgcc tggtctccca ggtgccccag caggaccacc aggacgtgat
+      481 ggaccaatgg gacctccagg accagctgga aaccaaggac caccaggaga tatgggacca
+      541 atgggaccac caggacttcc aggaaaccca ggcccaccag caccaccagg cccaccacca
+      601 ccatgtccac cagtttgygt gcatacttgt atcaaggctt gttctccagc ttgttgtggt
+      661 cacggcaaga agagatctgc tcttatgcaa atgcgtttac aggtccctat attagtgttt
+      721 gtgttatatg ttggccttgc tgccagcgca agtgtcaaaa ataaaaattc aaaggcaccg
+      781 cccaagatat tagccgataa taagcgaagt caacaagacg cttgcgatat cacagtttgc
+      841 gcgacgccat gcgctgagtc gtgtccacct tcttgttgtc ctccaccgcc gcctcctccg
+      901 cctccaccac cacctccttt ttatcctgaa attccacctc ctccaccgcc accaccagtt
+      961 gcaggaccac cgggcccaga cggaccccct ggaatgcccg gtccccaagg acctgatgga
+     1021 cctaagggac caccaggacc tcctggtcca cctggacctc caggacttcc tggccttcct
+     1081 ggcgcaccag caggaaaccc tggtcgcgat ggaccaatgg gtccccccgg acctccagga
+     1141 aacccgggac ccccaggcga tatgggactt cctggacctc caggaccacc cggtccagct
+     1201 ggccaacctg ctcctccagg accctcaacg ccctgcccta gtatttgcgc tcatacctgc
+     1261 ctatctcagt gcccttcaag ctgttgccat tactgatata caattgcaaa gtgacaaaag
+     1321 cagcaacagt cgacatataa agcgtgaaga attcaagatc gattcaggcc agattttagt
+     1381 tgctacgata ttagttttgt cgtttctagt tttctagtcg gcgacatatt tcatacgttg
+     1441 ttttgcttat atatattttt gtgaattttg tgaatttgaa atcttatgta catgttattt
+     1501 atgacaagcc attgctaaca aataaacatt gttttgaaat actc
 //

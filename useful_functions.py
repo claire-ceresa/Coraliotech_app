@@ -1,3 +1,5 @@
+import urllib
+
 def get_key(dict, item):
     for key, value in dict.items():
         if value == item:
@@ -25,3 +27,13 @@ def split_list_of_product(list, attribute):
     list_of_lists["lists"] = split_list_on_index(list, index_list)
     list_of_lists["values"] = values_of_attribute
     return list_of_lists
+
+
+def connected_to_internet(url):
+    """check connection to Internet"""
+    try:
+        urllib.request.urlopen(url)
+        return True
+    except:
+        return False
+

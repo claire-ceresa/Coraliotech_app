@@ -1,10 +1,13 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
+from PyQt5.QtWebEngineWidgets import *
 from objects.NCBI_Product import NCBI_Product
 from objects.DB_Product import DB_Product
 from graphic.product_view import Ui_MainWindow
 from graphic.Application_Window import Application_Window
 from database.functions_db import *
+from useful_functions import *
+from graphic.graphics_functions import *
 
 
 
@@ -22,6 +25,7 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.app_checkboxes = []
         self.create_frame_app()
         self.window_application = None
+        self.species_web_page = QWebEngineView()
         if self.existed:
             self.set_window()
             self.set_url()
@@ -33,8 +37,12 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.window_application.show()
 
     def esp_button_open_clicked(self):
-        self.species_web_page.load(self.url)
-        self.species_web_page.showMaximized()
+        if connected_to_internet(self.url):
+            self.species_web_page.load(self.url)
+            self.species_web_page.showMaximized()
+        else:
+            create_messageBox("Attention", "Pas de connexion a Internet !")
+
 
 
     # GRAPHIC METHODS #
