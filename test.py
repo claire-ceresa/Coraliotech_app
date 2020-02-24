@@ -1,17 +1,13 @@
-#from Bio import Entrez
-#Entrez.email = "claire.ceresa@hotmail.fr"
-
-# !/usr/bin/python
-
+from Bio import Entrez
+from PyQt5.QtWidgets import *
 import sys
-from PyQt5.QtCore import *
-from PyQt5.QtWebEngineWidgets import *
-from PyQt5.QtWidgets import QApplication
+from graphic.Product_Window import Product_Window
+
+
+Entrez.email = "claire.ceresa@hotmail.fr"
+
 
 app = QApplication(sys.argv)
 
-web = QWebEngineView()
-web.load(QUrl("https://www.iucnredlist.org/search?query=pocillopora%20damicornis&searchType=species"))
-web.show()
-
+window = Product_Window(id= "EU159467.1")
 sys.exit(app.exec_())

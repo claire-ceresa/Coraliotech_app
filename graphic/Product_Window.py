@@ -1,10 +1,12 @@
-from graphic.product_view import Ui_MainWindow
-from database.functions_db import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
-from PyQt5.QtWebEngineWidgets import *
 from objects.NCBI_Product import NCBI_Product
 from objects.DB_Product import DB_Product
+from graphic.product_view import Ui_MainWindow
+from graphic.Application_Window import Application_Window
+from database.functions_db import *
+
+
 
 class Product_Window(QMainWindow, Ui_MainWindow):
     """
@@ -14,12 +16,12 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         super(Product_Window, self).__init__(parent)
         self.setupUi(self)
         self.setWindowTitle(id)
-        self.species_web_page = QWebEngineView()
         self.id = id
-        self.app_checkboxes = []
-        self.create_frame_app()
         self.product = DB_Product(id=self.id)
         self.existed = self.product.existed
+        self.app_checkboxes = []
+        self.create_frame_app()
+        self.window_application = None
         if self.existed:
             self.set_window()
             self.set_url()
@@ -27,8 +29,8 @@ class Product_Window(QMainWindow, Ui_MainWindow):
     # METHODS OF THE CLASS #
 
     def app_button_modif_clicked(self):
-        # TODO : creer modification des applications
-        return
+        self.window_application = Application_Window()
+        self.window_application.show()
 
     def esp_button_open_clicked(self):
         self.species_web_page.load(self.url)
@@ -92,5 +94,6 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.edit_fiche.setPlainText(text)
 
     def set_url(self):
+        """initialize the url of the website IUCN Red List"""
         species = self.product.organism.species.replace(" ", "%20")
         self.url = QUrl("https://www.iucnredlist.org/search?query=" + species.lower() + "&searchType=species")

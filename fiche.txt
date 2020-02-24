@@ -1,69 +1,61 @@
-LOCUS       HM147127                1386 bp    mRNA    linear   INV 22-AUG-2010
-DEFINITION  Seriatopora hystrix cytoplasmic actin (actb) mRNA, complete cds.
-ACCESSION   HM147127
-VERSION     HM147127.1
+LOCUS       KU557763                 915 bp    mRNA    linear   INV 18-AUG-2016
+DEFINITION  Stylophora pistillata alpha carbonic anhydrase 16 (CA16) mRNA,
+            complete cds.
+ACCESSION   KU557763
+VERSION     KU557763.1
 KEYWORDS    .
-SOURCE      Seriatopora hystrix (bird's nest coral)
-  ORGANISM  Seriatopora hystrix
+SOURCE      Stylophora pistillata
+  ORGANISM  Stylophora pistillata
             Eukaryota; Metazoa; Cnidaria; Anthozoa; Hexacorallia; Scleractinia;
-            Astrocoeniina; Pocilloporidae; Seriatopora.
-REFERENCE   1  (bases 1 to 1386)
-  AUTHORS   Mayfield,A.B., Hsiao,Y.Y., Fan,T.Y., Chen,C.S. and Gates,R.D.
-  TITLE     Evaluating the temporal stability of stress-activated protein kinase
-            and cytoskeleton gene expression in the Pacific reef corals
-            Pocillopora damicornis and Seriatopora hystrix
-  JOURNAL   Unpublished
-REFERENCE   2  (bases 1 to 1386)
-  AUTHORS   Wang,L.H., Mayfield,A.B., Hsiao,Y.Y. and Chen,C.S.
+            Astrocoeniina; Pocilloporidae; Stylophora.
+REFERENCE   1  (bases 1 to 915)
+  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Caminiti-Segonds,N., Allemand,D.
+            and Tambutte,S.
+  TITLE     Carbonic Anhydrases in Cnidarians: Novel Perspectives from the
+            Octocorallian Corallium rubrum
+  JOURNAL   PLoS ONE 11 (8), E0160368 (2016)
+   PUBMED   27513959
+  REMARK    Publication Status: Online-Only
+REFERENCE   2  (bases 1 to 915)
+  AUTHORS   Le Goff,C., Ganot,P., Zoccola,D., Allemand,D. and Tambutte,S.
   TITLE     Direct Submission
-  JOURNAL   Submitted (23-APR-2010) National Museum of Marine Biology and
-            Aquarium, 2 Houwan Rd., Checheng, Pingtung 94450, Taiwan
+  JOURNAL   Submitted (19-JAN-2016) Centre Scientifique de Monaco, 8 Quai
+            Antoine 1er, Monaco 98000, Monaco
 FEATURES             Location/Qualifiers
-     source          1..1386
-                     /organism="Seriatopora hystrix"
+     source          1..915
+                     /organism="Stylophora pistillata"
                      /mol_type="mRNA"
-                     /db_xref="taxon:51070"
-     gene            1..1386
-                     /gene="actb"
-     5'UTR           1..58
-                     /gene="actb"
-     CDS             59..1189
-                     /gene="actb"
+                     /db_xref="taxon:50429"
+     gene            1..915
+                     /gene="CA16"
+     CDS             18..890
+                     /gene="CA16"
+                     /EC_number="4.2.1.1"
+                     /note="SpiCA16"
                      /codon_start=1
-                     /product="cytoplasmic actin"
-                     /protein_id="ADM13664.1"
-                     /translation="MADEDVAALVVDNGSGMCKAGFAGDDAPRAVFPSIVGRPRHQGVM
-                     VGMGQKDSYVGDEAQSKRGILTLKYPIEHGIVTNWDDMEKIWHHTFYNELRVAPEEHPV
-                     LLTEAPLNPKANREKMTQIMFETFNSPAMYVAIQAVLSLYASGRTTGIVFDSGDGVSHT
-                     VPIYEGYALPHAILRLDLAGRDLTDYLMKILTERGYSFTTTAEREIVRDIKEKLCYVAL
-                     EFDQEMQTAASSSSLEKSYELPDGQVITIGNERFRAPEAMFQPSFLGMESAGIHETTYN
-                     SIMKCDVDIRKDLYANTVLSGGSTMFPGIADRMQKEITALAPPTMKIKIIAPPERKYSV
-                     WIGGSILASLSTFQQMWISKQEYDESGPSIVHRKCF"
-     3'UTR           1190..1386
-                     /gene="actb"
+                     /product="alpha carbonic anhydrase 16"
+                     /protein_id="ANJ59776.1"
+                     /translation="MLLLLLLLSAFGVAVGNQCEELQDGEFFSYGETTSEAPGPSDWYK
+                     KWRQCGGNRQSPINIDTSRVRHRHFRTLKIEFDRLGGLVSGELKNNGNAPTFFVDKHKG
+                     TARLKGSRLSDTYVLTNFHVHFGCENDRGSEHTRNGHRFAAEIHFVFEDSRGRFAVVAV
+                     WLRASKNENTILGRLANQMHKIIDVDESAKIRRAIGIRLMRLIPHKSRKHKTLVLSNYF
+                     HYVGSLTTPPCCEGVMWFVLRRTVPITDYQLSQFRVLEGRFPKDPPHMCDNFRPLQPLN
+                     RRYVFSVTN"
 ORIGIN
-        1 cgatcaagtt gtattaagtt tggagtctgc atagtaaatt tttactactt tttataaaat
-       61 ggctgacgag gacgttgctg ccttggttgt ggacaatggc tctggtatgt gcaaggccgg
-      121 ttttgcaggg gacgatgctc ctcgtgcagt gtttccctcc atcgtcggtc gcccaagaca
-      181 tcagggtgtg atggttggta tgggtcagaa agactcgtat gtcggtgatg aagctcagag
-      241 caagcgaggt attctgactc tgaagtatcc cattgaacac ggcatcgtaa ccaactggga
-      301 tgacatggaa aagatctggc atcacacctt ctacaacgag cttcgtgtag cgcccgagga
-      361 acacccagtt ctactgaccg aggctcctct caacccaaaa gccaacagag aaaaaatgac
-      421 acagattatg ttcgagactt tcaactcccc agccatgtat gtagctatcc aggctgtgtt
-      481 gtctctctac gcctctggtc gaacaactgg tatcgtcttt gacagcggag atggtgtcag
-      541 tcacacagtt cccatctatg aaggttacgc tcttccccat gccatccttc gtctcgattt
-      601 ggccggcagg gacttgactg attacctgat gaagattctg accgagcgtg ggtactcatt
-      661 cactaccaca gctgagcgcg agattgtgcg tgacatcaaa gagaagctct gttatgttgc
-      721 tcttgagttt gatcaagaaa tgcagactgc tgcatccagc tctagtctgg agaagagcta
-      781 cgagcttcct gatggccagg ttatcaccat tggaaacgaa cgattccgtg caccagaggc
-      841 catgttccaa ccctctttcc ttggaatgga atccgctggc atccacgaga ccacatacaa
-      901 ctctatcatg aagtgtgatg tggatatccg taaggacttg tatgccaaca cagtgttgtc
-      961 tggtggctcc actatgttcc caggaattgc tgacagaatg cagaaggaaa tcactgccct
-     1021 ggctccaccc acgatgaaga tcaagatcat tgctcctcct gagcgtaaat actctgtgtg
-     1081 gatcggagga tcgattttgg cttcactgtc caccttccaa cagatgtgga tttccaagca
-     1141 agaatatgat gaatctggtc cctcgattgt tcaccgaaag tgcttctaga caggagcacg
-     1201 tgtcgtcttt cgtgaagaca aaaaaaaacg tacagacttt gaactgaccc ggagaattgc
-     1261 aataatattt cttaaaagac tcttttcttt tttctattat gtgtacacgt tgtgatagct
-     1321 tttataagaa tatttacaat aaaattttct caagtcaaaa gttaaacaat taaaaaaaaa
-     1381 aaaaaa
+        1 ccaaaatcga cctcggaatg ttgctgttac tgttgttgct atcagctttt ggtgtggcag
+       61 tgggcaacca atgcgaagaa ctgcaagatg gtgaattttt cagctacgga gaaactactt
+      121 cagaagctcc tggtccgtca gattggtata aaaaatggag gcaatgtggt ggtaatcggc
+      181 aatctccgat caacatcgac acgagtcggg tgaggcacag acatttccga actctgaaaa
+      241 tagaattcga cagactgggc ggcctggtca gtggggagtt aaaaaacaat ggaaacgctc
+      301 ccactttttt cgtagacaag cacaagggaa cagcgagact caaaggaagt cgtctttcag
+      361 acacatacgt gcttactaat ttccacgtgc atttcggatg tgaaaacgac cggggatcag
+      421 agcacactcg taatggccac cgttttgctg ctgagattca ttttgtgttt gaggattcaa
+      481 gaggacggtt tgcagtcgta gctgtatggc tcagggcttc taaaaatgaa aacactattc
+      541 tgggaaggtt ggcaaatcag atgcacaaga ttattgatgt tgacgagtct gcgaagataa
+      601 ggagggcgat cggaattcgc ttgatgcgcc ttataccaca caaaagtcgg aagcacaaga
+      661 cattggtact gtcaaattat ttccactacg ttggctccct cactactcct ccttgttgcg
+      721 aaggcgtgat gtggtttgtc ttgcgacgaa cagttcctat cacggactat cagctgtcgc
+      781 agttcagagt gttagagggt cgttttccca aggacccccc gcacatgtgt gacaacttca
+      841 gaccacttca gccgctcaat cgccgctatg tattttctgt tactaattaa tcggctgctg
+      901 agcgacaaaa caaac
 //
