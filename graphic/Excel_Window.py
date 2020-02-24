@@ -28,13 +28,14 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         'organism.classe':'Classe',
         'organism.phylum':'Embranchement',
         'organism.statut': 'Statut IUCN',
-        'cds.id' : 'Identifiant CDS',
-        'cds.start' : 'Debut CDS',
-        'cds.stop' : 'Fin CDS',
-        'cds.length' : 'Taille CDS (pb)',
-        'cds.mw' : 'PM theorique (kD)',
-        'cds.complete' : 'CDS complet',
-        'cds.seqADN' : 'Sequence'
+        'cds.id': 'Identifiant CDS',
+        'cds.start': 'Debut CDS',
+        'cds.stop': 'Fin CDS',
+        'cds.length': 'Taille CDS (pb)',
+        'cds.mw': 'PM theorique (kD)',
+        'cds.complete': 'CDS complet',
+        'cds.seqADN': 'Sequence',
+        'url': 'URL'
     }
 
     def __init__(self, parent=None, datas_raw=None):
@@ -69,11 +70,14 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
         attributes = DB_Product().get_all_attributes()
         combo = QComboBox()
         combo.addItem("")
+
         for attribute in attributes:
             if attribute in self.corresp_var_colname:
                 combo.addItem(self.corresp_var_colname[attribute])
             else:
                 combo.addItem(attribute)
+
+        combo.addItem("URL")
         self.table.setCellWidget(0, column, combo)
         self.table.resizeColumnsToContents()
 
@@ -119,6 +123,10 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
             for column in variables:
                 if column is None:
                     row.append("")
+                elif column == "url":
+                    organism = getattr(product, "organism")
+                    species = getattr(organism, "species")
+                    row.append("https://www.iucnredlist.org/search?query=" + species.replace(" ", "%20").lower() + "&searchType=species")
                 else:
                     attributes = column.split(".")
                     if len(attributes) > 1:
