@@ -1,6 +1,6 @@
 import operator
 from PyQt5.QtWidgets import *
-from useful_functions import *
+from other_files.useful_functions import *
 from graphic.excel_view import *
 from objects.DB_Product import DB_Product
 from objects.DB_Organism import DB_Organism

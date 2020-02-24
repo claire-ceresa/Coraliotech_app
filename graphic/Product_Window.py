@@ -6,7 +6,7 @@ from objects.DB_Product import DB_Product
 from graphic.product_view import Ui_MainWindow
 from graphic.Application_Window import Application_Window
 from database.functions_db import *
-from useful_functions import *
+from other_files.useful_functions import *
 from graphic.graphics_functions import *
 
 

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'newmainwindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.1
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -157,6 +157,16 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.button_treate_file)
         self.verticalLayout_5.addWidget(self.frame_complete)
         MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 616, 21))
+        self.menubar.setObjectName("menubar")
+        self.menu_phylogenie = QtWidgets.QMenu(self.menubar)
+        self.menu_phylogenie.setObjectName("menu_phylogenie")
+        MainWindow.setMenuBar(self.menubar)
+        self.action_coraux = QtWidgets.QAction(MainWindow)
+        self.action_coraux.setObjectName("action_coraux")
+        self.menu_phylogenie.addAction(self.action_coraux)
+        self.menubar.addAction(self.menu_phylogenie.menuAction())
 
         self.retranslateUi(MainWindow)
         self.checkbox_search_org.toggled['bool'].connect(self.edit_search_org.setEnabled)
@@ -168,6 +178,7 @@ class Ui_MainWindow(object):
         self.button_visualise_product.clicked.connect(MainWindow.button_visualise_product_clicked)
         self.button_treate_file.clicked.connect(MainWindow.button_treate_file_clicked)
         self.checkbox_search_org.toggled['bool'].connect(self.combobox_search_org.setEnabled)
+        self.menubar.triggered['QAction*'].connect(MainWindow.menu_phylogeny_clicked)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -185,6 +196,8 @@ class Ui_MainWindow(object):
         self.button_visualise_product.setText(_translate("MainWindow", "Go"))
         self.label_complete_3.setText(_translate("MainWindow", "COMPLETER LES DONNEES"))
         self.button_treate_file.setText(_translate("MainWindow", "Traiter un fichier Excel"))
+        self.menu_phylogenie.setTitle(_translate("MainWindow", "Phylogenie"))
+        self.action_coraux.setText(_translate("MainWindow", "Coraux"))
 
 
 if __name__ == "__main__":

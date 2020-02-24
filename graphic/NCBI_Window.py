@@ -3,7 +3,7 @@ from graphic.ncbi_view import *
 from objects.NCBI_Search import NCBI_Search
 from objects.NCBI_Product import NCBI_Product
 from graphic.graphics_functions import *
-from useful_functions import *
+from other_files.useful_functions import *
 
 
 class NCBI_Window(QMainWindow, Ui_MainWindow):
