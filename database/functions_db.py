@@ -128,3 +128,12 @@ def get_organism_by_species(species):
     return dict_result
 
 
+def get_all_families():
+    """:return all the value of the variable 'famille' of the table Organisme"""
+    query = "SELECT DISTINCT famille FROM Organisme"
+    results = execute_query(query)
+    families = []
+    for result in results:
+        families.append(result[0])
+    return families
+

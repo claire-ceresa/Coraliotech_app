@@ -19,11 +19,11 @@ class Ui_MainWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.treeWidget = QtWidgets.QTreeWidget(self.centralwidget)
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        font.setPointSize(10)
+        self.treeWidget.setFont(font)
         self.treeWidget.setObjectName("treeWidget")
-        item_0 = QtWidgets.QTreeWidgetItem(self.treeWidget)
-        item_1 = QtWidgets.QTreeWidgetItem(item_0)
-        item_2 = QtWidgets.QTreeWidgetItem(item_1)
-        item_3 = QtWidgets.QTreeWidgetItem(item_2)
         self.verticalLayout.addWidget(self.treeWidget)
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -35,17 +35,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.treeWidget.headerItem().setText(0, _translate("MainWindow", "Nom"))
         self.treeWidget.headerItem().setText(1, _translate("MainWindow", "Rang"))
-        __sortingEnabled = self.treeWidget.isSortingEnabled()
-        self.treeWidget.setSortingEnabled(False)
-        self.treeWidget.topLevelItem(0).setText(0, _translate("MainWindow", "Anthozoa"))
-        self.treeWidget.topLevelItem(0).setText(1, _translate("MainWindow", "Classe"))
-        self.treeWidget.topLevelItem(0).child(0).setText(0, _translate("MainWindow", "Hexacorallia"))
-        self.treeWidget.topLevelItem(0).child(0).setText(1, _translate("MainWindow", "Sous classe"))
-        self.treeWidget.topLevelItem(0).child(0).child(0).setText(0, _translate("MainWindow", "Scleractinia"))
-        self.treeWidget.topLevelItem(0).child(0).child(0).setText(1, _translate("MainWindow", "Ordre"))
-        self.treeWidget.topLevelItem(0).child(0).child(0).child(0).setText(0, _translate("MainWindow", "Pocilloporidae"))
-        self.treeWidget.topLevelItem(0).child(0).child(0).child(0).setText(1, _translate("MainWindow", "Famille"))
-        self.treeWidget.setSortingEnabled(__sortingEnabled)
 
 
 if __name__ == "__main__":
