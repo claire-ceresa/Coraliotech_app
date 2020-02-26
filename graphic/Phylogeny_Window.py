@@ -20,7 +20,6 @@ class Phylogeny_Window(QMainWindow, Ui_MainWindow):
 
     def fill_in_tree(self):
         datas = self.read_file()
-        saved_families = get_all_families()
 
         ref_items = [self.treeWidget, None, None, None]
         ref_col = 0
@@ -28,6 +27,8 @@ class Phylogeny_Window(QMainWindow, Ui_MainWindow):
         for row, row_data in datas.iterrows():
             if row == 0:
                 rangs = row_data
+                smallest = row_data[len(row_data)-1]
+                saved = get_all("Organisme", smallest)
             else:
                 for column, data in enumerate(row_data):
                     if data is not None:
@@ -47,7 +48,7 @@ class Phylogeny_Window(QMainWindow, Ui_MainWindow):
                         item.setText(0, data)
                         item.setText(1, rangs[column])
 
-                        if data in saved_families:
+                        if data in saved:
                             font = QtGui.QFont()
                             font.setBold(True)
                             item.setFont(0,font)

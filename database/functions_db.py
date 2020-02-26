@@ -128,9 +128,9 @@ def get_organism_by_species(species):
     return dict_result
 
 
-def get_all_families():
+def get_all(table, attribute):
     """:return all the value of the variable 'famille' of the table Organisme"""
-    query = "SELECT DISTINCT famille FROM Organisme"
+    query = "SELECT DISTINCT " + attribute + " FROM " + table
     results = execute_query(query)
     families = []
     for result in results:

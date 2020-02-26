@@ -87,8 +87,8 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
         self.window_search = Search_Window(search=search)
         self.window_search.show()
 
-    def menu_phylogeny_clicked(self):
-        group = self.action_coraux.text()
+    def menu_phylogeny_clicked(self, action):
+        group = action.text()
         self.window_phylogeny = Phylogeny_Window(group=group)
         self.window_phylogeny.show()
 

@@ -165,7 +165,10 @@ class Ui_MainWindow(object):
         MainWindow.setMenuBar(self.menubar)
         self.action_coraux = QtWidgets.QAction(MainWindow)
         self.action_coraux.setObjectName("action_coraux")
+        self.actionHerbiers = QtWidgets.QAction(MainWindow)
+        self.actionHerbiers.setObjectName("actionHerbiers")
         self.menu_phylogenie.addAction(self.action_coraux)
+        self.menu_phylogenie.addAction(self.actionHerbiers)
         self.menubar.addAction(self.menu_phylogenie.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -198,6 +201,7 @@ class Ui_MainWindow(object):
         self.button_treate_file.setText(_translate("MainWindow", "Traiter un fichier Excel"))
         self.menu_phylogenie.setTitle(_translate("MainWindow", "Phylogenie"))
         self.action_coraux.setText(_translate("MainWindow", "Coraux"))
+        self.actionHerbiers.setText(_translate("MainWindow", "Herbiers"))
 
 
 if __name__ == "__main__":
