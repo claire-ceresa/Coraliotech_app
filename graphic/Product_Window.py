@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import *
-from PyQt5.QtCore import *
+from PyQt5.QtCore import QUrl
 from PyQt5.QtWebEngineWidgets import *
 from objects.NCBI_Product import NCBI_Product
 from objects.DB_Product import DB_Product
@@ -37,12 +37,8 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.window_application.show()
 
     def esp_button_open_clicked(self):
-        if connected_to_internet(self.url):
-            self.species_web_page.load(self.url)
-            self.species_web_page.showMaximized()
-        else:
-            create_messageBox("Attention", "Pas de connexion a Internet !")
-
+        self.species_web_page.setUrl(self.url)
+        self.species_web_page.showMaximized()
 
 
     # GRAPHIC METHODS #
@@ -103,5 +99,7 @@ class Product_Window(QMainWindow, Ui_MainWindow):
 
     def set_url(self):
         """initialize the url of the website IUCN Red List"""
-        species = self.product.organism.species.replace(" ", "%20")
-        self.url = QUrl("https://www.iucnredlist.org/search?query=" + species.lower() + "&searchType=species")
+        species = self.product.organism.species.replace(" ", "%20").lower()
+        url_text = 'https://www.iucnredlist.org/search?query={0}&searchType=species'.format(str(species))
+        self.url = QUrl(url_text)
+

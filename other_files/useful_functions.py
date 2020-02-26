@@ -1,4 +1,4 @@
-import urllib
+import urllib.request
 
 def get_key(dict, item):
     for key, value in dict.items():
@@ -33,7 +33,7 @@ def connected_to_internet(url):
     """check connection to Internet"""
     try:
         urllib.request.urlopen(url)
-        return True
-    except:
-        return False
+        return {'connected':True, 'error':None}
+    except Exception as e:
+        return {'connected':False, 'error':str(e)}
 

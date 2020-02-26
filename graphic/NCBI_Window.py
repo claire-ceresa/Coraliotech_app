@@ -35,7 +35,8 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         """when button go is clicked, save on the DB the result of the request on NCBI"""
 
         url = "https://www.ncbi.nlm.nih.gov/nucleotide/"
-        if connected_to_internet(url):
+        connexion = connected_to_internet(url)
+        if connexion["connected"]:
 
             if self.edit_request.isEnabled():
                 request = self.edit_request.text()
@@ -71,7 +72,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
             self.clean_widgets(message)
 
         else:
-            create_messageBox("Attention", "Vous n'etes pas connecte a Internet !")
+            create_messageBox("Attention", "Vous n'etes pas connecte a Internet !\n" + connexion["error"])
             self.label_messages.setText("")
 
     # GRAPHIC METHODS #
