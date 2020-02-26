@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'excel_window.ui'
 #
-# Created by: PyQt5 UI code generator 5.13.1
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(544, 265)
+        MainWindow.resize(544, 343)
         font = QtGui.QFont()
         font.setFamily("Comic Sans MS")
         font.setPointSize(8)
@@ -24,9 +24,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.layout_worksheet = QtWidgets.QHBoxLayout()
         self.layout_worksheet.setObjectName("layout_worksheet")
-        self.checkbox_worksheet = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkbox_worksheet.setObjectName("checkbox_worksheet")
-        self.layout_worksheet.addWidget(self.checkbox_worksheet)
+        self.checkbox_organism = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkbox_organism.setObjectName("checkbox_organism")
+        self.layout_worksheet.addWidget(self.checkbox_organism)
         self.label_worksheet = QtWidgets.QLabel(self.centralwidget)
         self.label_worksheet.setObjectName("label_worksheet")
         self.layout_worksheet.addWidget(self.label_worksheet)
@@ -37,6 +37,9 @@ class Ui_MainWindow(object):
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.layout_worksheet.addItem(spacerItem)
         self.verticalLayout.addLayout(self.layout_worksheet)
+        self.checkbox_product = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkbox_product.setObjectName("checkbox_product")
+        self.verticalLayout.addWidget(self.checkbox_product)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.button_add = QtWidgets.QToolButton(self.centralwidget)
@@ -75,14 +78,15 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.button_add.clicked.connect(MainWindow.button_add_clicked)
         self.button_export.clicked.connect(MainWindow.button_export_clicked)
-        self.checkbox_worksheet.toggled['bool'].connect(self.combobox_var_worksheet.setEnabled)
+        self.checkbox_organism.toggled['bool'].connect(self.combobox_var_worksheet.setEnabled)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.checkbox_worksheet.setText(_translate("MainWindow", "Diviser en plusieurs feuilles :"))
+        self.checkbox_organism.setText(_translate("MainWindow", "Diviser par rapport à l\'organisme"))
         self.label_worksheet.setText(_translate("MainWindow", "1 feuille par"))
+        self.checkbox_product.setText(_translate("MainWindow", "Diviser par rapport au produits d\'interêt"))
         self.button_add.setText(_translate("MainWindow", "Ajouter une colonne"))
         item = self.table.verticalHeaderItem(1)
         item.setText(_translate("MainWindow", "1"))

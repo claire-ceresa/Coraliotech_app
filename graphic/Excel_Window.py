@@ -90,11 +90,13 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
     ## OTHER FUNCTIONS ##
 
     def _get_datas(self):
-        if self.checkbox_worksheet.isChecked():
+        if self.checkbox_organism.isChecked():
             text = self.combobox_var_worksheet.currentText()
             variable_chosen = get_key(self.corresp_var_colname, text)
             datas_sorted = sorted(self.datas_raw, key=operator.attrgetter(variable_chosen))
             datas_to_export = split_list_of_product(datas_sorted, variable_chosen)
+        elif self.checkbox_product.isChecked():
+            datas_to_export = split_list_of_product(self.datas_raw, "name")
         else:
             datas_to_export = {"lists":[self.datas_raw], "values":[None]}
         return datas_to_export

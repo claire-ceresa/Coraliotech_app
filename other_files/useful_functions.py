@@ -1,4 +1,5 @@
 import urllib.request
+from database.functions_db import *
 
 def get_key(dict, item):
     for key, value in dict.items():
@@ -15,18 +16,41 @@ def split_list_on_index(data_list, index_list):
 
 
 def split_list_of_product(list, attribute):
-    index_list = []
-    values_of_attribute = [list[0].get_value(attribute)]
-    for index, product in enumerate(list[:-1]):
-        value_0 = list[index].get_value(attribute)
-        value_1 = list[index + 1].get_value(attribute)
-        if value_0 != value_1:
-            index_list.append(index)
-            values_of_attribute.append(value_1)
-    list_of_lists = {}
-    list_of_lists["lists"] = split_list_on_index(list, index_list)
-    list_of_lists["values"] = values_of_attribute
-    return list_of_lists
+
+    if attribute == "name":
+        interesting = get_all("Produits_interessants", "nom")
+        dict_excel = {"lists": [], "values": []}
+
+        for substring in interesting:
+            substring_in = []
+            other = []
+            for product in list:
+                if substring in product.name:
+                    substring_in.append(product)
+                else:
+                    other.append(product)
+            dict_excel["lists"].append(substring_in)
+            dict_excel["values"].append(substring)
+            list = other
+
+        dict_excel["lists"].append(list)
+        dict_excel["values"].append("others")
+
+        return dict_excel
+
+    else:
+        index_list = []
+        values_of_attribute = [list[0].get_value(attribute)]
+        for index, product in enumerate(list[:-1]):
+            value_0 = list[index].get_value(attribute)
+            value_1 = list[index + 1].get_value(attribute)
+            if value_0 != value_1:
+                index_list.append(index)
+                values_of_attribute.append(value_1)
+        list_of_lists = {}
+        list_of_lists["lists"] = split_list_on_index(list, index_list)
+        list_of_lists["values"] = values_of_attribute
+        return list_of_lists
 
 
 def connected_to_internet(url):
