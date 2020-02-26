@@ -81,6 +81,9 @@ class Product_Window(QMainWindow, Ui_MainWindow):
             self.prod_label_pred_value.setStyleSheet('color:red')
         self.prod_edit_note.setPlainText(self.product.note)
         self.esp_label_name.setText(self.product.organism.species)
+        self.esp_label_famille_value.setText(self.product.organism.family)
+        self.esp_label_ordre_value.setText(self.product.organism.order)
+        self.esp_label_classe_value.setText(self.product.organism.classe)
 
     def set_applications(self):
         """initialize the applications of the product"""
