@@ -20,6 +20,7 @@ class Excel:
     def add_QTableWidget(self, table, worksheet):
         """adding a QTableWidget to a worksheet"""
         headers = []
+        format_columns_name = self.workbook.add_format({'bold':True, 'valign':'center'})
 
         for column in range(table.columnCount()):
             header = table.horizontalHeaderItem(column)
@@ -28,6 +29,7 @@ class Excel:
             else:
                 headers.append("Column " + str(column))
         worksheet.write_row(0, 0, headers)
+        worksheet.set_row(0, None, format_columns_name)
 
         for row in range(table.rowCount()):
             rowdata = []
