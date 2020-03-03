@@ -1,3 +1,4 @@
+import os
 from PyQt5.QtWidgets import *
 from graphic.search_view import *
 from graphic.Product_Window import Product_Window
@@ -37,7 +38,8 @@ class Search_Window(QMainWindow, Ui_MainWindow):
 
     def button_export_clicked(self):
         """Export the table to an Excel file, without modification"""
-        name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
+        desktop_path = os.environ['USERPROFILE'] + '\Desktop\\'
+        name = QFileDialog.getSaveFileName(self, 'Enregister', desktop_path, "Excel (*.xlsx)")
         if len(name[0]) > 0:
             file = Excel(name[0])
             worksheet = file.add_worksheet()

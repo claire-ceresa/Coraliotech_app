@@ -1,4 +1,5 @@
 import operator
+import os
 from PyQt5.QtWidgets import *
 from other_files.useful_functions import *
 from graphic.excel_view import *
@@ -59,7 +60,8 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
     def button_export_clicked(self):
         """Create the Excel file and export the datas"""
         datas_to_export = self._get_datas()
-        name = QFileDialog.getSaveFileName(self, 'Enregister', "", "Excel (*.xlsx)")
+        desktop_path = os.environ['USERPROFILE'] + '\Desktop\\'
+        name = QFileDialog.getSaveFileName(self, 'Enregister', desktop_path, "Excel (*.xlsx)")
         filename = name[0]
 
         if len(filename) > 0:
