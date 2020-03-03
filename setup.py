@@ -7,14 +7,13 @@ if sys.platform == "win32":
 
 executables = [Executable("main.py", base=base, targetName="Coraliotech.exe", icon="icone.ico")]
 
-packages = ["os", "sqlite3", "Bio", "xlsxwriter", "urllib"]
+packages = ["os", "sqlite3", "Bio", "xlsxwriter", "urllib", "pandas"]
 excludes = ['tkinter']
 
 include_files = ["database",
                  "graphic",
                  "objects",
-                 "other_files",
-                 "logo.png"]
+                 "other_files"]
 
 options =  {
     "build_exe":

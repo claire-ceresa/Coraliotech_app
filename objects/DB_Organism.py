@@ -14,7 +14,7 @@ class DB_Organism:
         self.subclass = None
         self.classe = None
         self.phylum = None
-        self.status = None
+        self.statut = None
 
         if species is not None:
             self._set_properties()
@@ -48,4 +48,4 @@ class DB_Organism:
         self.subclass = organism["subclass"]
         self.classe = organism["classe"]
         self.phylum = organism["phylum"]
-        self.status = organism["statut"]
+        self.statut = organism["statut"]
