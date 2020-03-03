@@ -19,10 +19,19 @@ class DB_CDS:
             self._set_properties()
 
     def get_all_attributes(self):
+        """
+        Get all the attributes of the class
+        :return: list
+        """
         dict = self.__dict__.keys()
         return list(dict)
 
     def get_value(self, attribute):
+        """
+        Get the value of an attribute
+        :param attribute: string
+        :return: the value of the attribute
+        """
         try:
             value = getattr(self, attribute)
         except AttributeError:
@@ -30,7 +39,7 @@ class DB_CDS:
         return value
 
     def _set_properties(self):
-        """set all the variables with the values"""
+        """Set all the variables with the values"""
         cds = get_cds_by(id_cds=self.id)
         self.start = cds["start"]
         self.stop = cds["stop"]

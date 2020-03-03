@@ -26,24 +26,24 @@ class NCBI_Product:
         self.species = None
         self.cds = None
 
-        self.set_properties()
+        self._set_properties()
         self._check_exception()
 
     # SETTER METHODS #
 
-    def set_properties(self):
-        self.set_fiche()
-        self.set_features()
-        self.set_name()
-        self.set_is_predicted()
-        self.set_is_partial()
-        self.set_notes()
-        self.set_molecular_weight()
-        self.set_species()
-        self.set_cds()
+    def _set_properties(self):
+        self._set_fiche()
+        self._set_features()
+        self._set_name()
+        self._set_is_predicted()
+        self._set_is_partial()
+        self._set_notes()
+        self._set_molecular_weight()
+        self._set_species()
+        self._set_cds()
 
-    def set_fiche(self):
-        """set the attribute sequence with a SeqRecord old_object"""
+    def _set_fiche(self):
+        """Set the attribute sequence with a SeqRecord old_object"""
         try:
             fiche = Entrez.efetch(db="nucleotide", id=self.id, rettype="gb", retmode="text")
         except:
@@ -51,35 +51,35 @@ class NCBI_Product:
         else:
             self.fiche = SeqIO.read(fiche, "genbank")
 
-    def set_features(self):
-        """set the attributes concerning features"""
+    def _set_features(self):
+        """Set the attributes concerning features"""
         if self.fiche is not None:
             self.feature_cds = self.get_feature_by_type("CDS")
             self.feature_gene = self.get_feature_by_type("gene")
             self.feature_source = self.get_feature_by_type("source")
 
-    def set_name(self):
-        """set the attribute name"""
+    def _set_name(self):
+        """Set the attribute name"""
         if self.feature_cds is not None and 'product' in self.feature_cds.qualifiers:
             self.name = self.feature_cds.qualifiers["product"][0]
 
-    def set_is_predicted(self):
-        """set the boolean is_predicted"""
+    def _set_is_predicted(self):
+        """Set the boolean is_predicted"""
         if self.fiche is not None:
             self.is_predicted = "PREDICTED" in self.fiche.description
 
-    def set_is_partial(self):
-        """set the boolean is_partial"""
+    def _set_is_partial(self):
+        """Set the boolean is_partial"""
         if self.fiche is not None:
             self.is_partial = "partial" in self.fiche.description
 
-    def set_notes(self):
-        """set the attribute note"""
+    def _set_notes(self):
+        """Set the attribute note"""
         if self.feature_gene is not None and 'note' in self.feature_gene.qualifiers:
             self.note = " ".join(self.feature_gene.qualifiers["note"])
 
-    def set_molecular_weight(self):
-        """set the attribute molecular weight"""
+    def _set_molecular_weight(self):
+        """Set the attribute molecular weight"""
         translation = self.get_translation()
         if translation is not None:
             analysed_seq = ProteinAnalysis(translation)
@@ -88,14 +88,14 @@ class NCBI_Product:
             except Exception as e:
                 return False
 
-    def set_species(self):
-        """set the attribute species"""
+    def _set_species(self):
+        """Set the attribute species"""
         id = self.get_id_taxon()
         if id is not None:
             self.species = NCBI_Organism(id)
 
-    def set_cds(self):
-        """set the attribute cds with a CDS Object"""
+    def _set_cds(self):
+        """Set the attribute cds with a CDS Object"""
         if self.feature_cds is not None:
             start = self.feature_cds.location.start
             stop = self.feature_cds.location.end
@@ -108,6 +108,7 @@ class NCBI_Product:
     # ACCESSIBLE METHODS #
 
     def save_genbank_file(self):
+        """Save the GenBank fiche in a TXT file"""
         SeqIO.write(self.fiche, "fiche.txt", "genbank")
 
     def get_translation(self):
@@ -125,27 +126,32 @@ class NCBI_Product:
         return None
 
     def get_feature_by_type(self, type):
-        """:param type: type of the feature you need (CDS, source, etc)
-        :return: the old_object SeqFeature corresponding to the type"""
+        """
+        Get all the information of a feature
+        :param type: type of the feature you need (CDS, source, etc)
+        :return: the old_object SeqFeature corresponding to the type
+        """
         for feature in self.fiche.features:
             if feature.type == type:
                 return feature
         return None
 
     def _check_exception(self):
-        """check some precise exception and print a message if needed"""
+        """Check some precise exception and print a message if needed"""
         if self.cds.offset is not None and self.cds.offset > 1:
             print(str(self.id) + " : codon start > 1 --> verifier la taille du cds pour confirmation formule")
 
     # METHODS DEALING WITH THE LOCAL DATABASE#
 
     def save_on_database(self):
+        """Save the informations on the local DB"""
         organism_saved = self.save_organism()
         cds_saved = self.save_cds()
         product_saved = self.save_product()
         return product_saved
 
     def save_cds(self):
+        """Save the cds in the table CDS of the local DB"""
         datas_cds = {}
         datas_cds["id"] = "\"cds_" + self.id + "\""
         datas_cds["debut"] = str(self.cds.start)
@@ -158,6 +164,7 @@ class NCBI_Product:
         return commit
 
     def save_organism(self):
+        """Save the organism in the table Organisme of the local DB"""
         datas_org = {}
         datas_org["espece"] = "\"" + self.species.species + "\"" if self.species.species is not None else "NULL"
         datas_org["genre"] = "\"" + self.species.genus + "\"" if self.species.genus is not None else "NULL"
@@ -171,6 +178,7 @@ class NCBI_Product:
         return commit
 
     def save_product(self):
+        """Save the product in the table Produit of the local DB"""
         datas_prod = {}
         datas_prod["id"] = "\"" + self.id + "\""
         datas_prod["nom"] = "\"" + self.name + "\""

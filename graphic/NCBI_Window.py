@@ -18,24 +18,25 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
     # METHOD OF THE CLASS #
 
     def button_write_clicked(self):
-        """when button write is clicked, fill in the edit request"""
-        if self.organism_written():
-            terms = self.get_request_terms()
-            request = self.create_request(terms)
+        """Fill in the edit request"""
+        if self._organism_written():
+            terms = self._get_request_terms()
+            request = self._create_request(terms)
             self.edit_request.setEnabled(True)
             self.button_go.setEnabled(True)
             self.edit_id.setEnabled(False)
             self.edit_request.setText(request)
 
     def button_go_pressed(self):
-        """clean the previous messages"""
+        """Clean the previous messages"""
         self.label_messages.setText("Chargement...")
 
     def button_go_clicked(self):
-        """when button go is clicked, save on the DB the result of the request on NCBI"""
+        """Save the result of the request on NCBI on the local DB """
 
         url = "https://www.ncbi.nlm.nih.gov/nucleotide/"
         connexion = connected_to_internet(url)
+
         if connexion["connected"]:
 
             if self.edit_request.isEnabled():
@@ -54,7 +55,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
             if len(list_id) > 0:
                 for id in list_id:
                     product = NCBI_Product(id)
-                    if self.check_exceptions(product):
+                    if self._check_exceptions(product):
                         saved = product.save_on_database()
                         if saved["commited"]:
                             nb_product_saved = nb_product_saved + 1
@@ -69,7 +70,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
                 for product in products_not_saved:
                     message = message + " - " + product["id"] + " : " + product["error"] + "\n"
 
-            self.clean_widgets(message)
+            self._clean_widgets(message)
 
         else:
             create_messageBox("Attention", "Vous n'etes pas connecte a Internet !\n" + connexion["error"])
@@ -77,8 +78,8 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
     # GRAPHIC METHODS #
 
-    def clean_widgets(self, message):
-        """clean all the widgets after a research is done"""
+    def _clean_widgets(self, message):
+        """Clean all the QWidgets after a research is done"""
         self.label_messages.setText(message)
         self.edit_request.setEnabled(False)
         self.edit_id.setEnabled(True)
@@ -86,8 +87,11 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         self.edit_request.setText("")
         self.edit_org.setText("")
 
-    def get_request_terms(self):
-        """:return the value of the edits to build the request"""
+    def _get_request_terms(self):
+        """
+        Getting the value of all the QEdits
+        :return a dictionnary of the values needed to build the request
+        """
         terms = dict()
         terms["organism"] = self.edit_org.text()
         keys = self.edit_keys.text()
@@ -111,10 +115,14 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
         return terms
 
-    # GENERAL METHODS#
+    # OTHER METHODS #
 
-    def create_request(self, terms):
-        """:return the request, created thanks to the terms written"""
+    def _create_request(self, terms):
+        """
+        Create the good NCBI request
+        :param terms : a dictionnary of all the values
+        :return the request
+        """
         beginning = terms["organism"]
         and_terms = ""
         not_terms = ""
@@ -129,18 +137,29 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         request = beginning + and_terms + not_terms
         return request
 
-    def organism_written(self):
-        """:return boolean if an organism is written for the research"""
+    def _organism_written(self):
+        """
+        Check if the QEdit of the organism is filled
+        :return boolean
+        """
         if len(self.edit_org.text()) == 0:
             create_messageBox(title="Attention", text="Remplir un organisme !")
             return False
         return True
 
-    def check_exceptions(self, protein):
-        """:return boolean is the data is valid"""
-        if protein.molecular_weight is None:
+    def _check_exceptions(self, product):
+        """
+        Check if the data is valid, based on decided rules
+        :param product: a Product object
+        :return boolean
+        """
+        if product.molecular_weight is None:
+        # Unknown molecular weight = error in the ADN sequence
             return False
-        if protein.name is None:
+
+        if product.name is None:
+        # Unknown name = unuseful product
             return False
+
         return True
 

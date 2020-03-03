@@ -17,6 +17,6 @@ class NCBI_CDS:
         self._set_length()
 
     def _set_length(self):
-        """set the attribute length"""
+        """Set the attribute length"""
         if self.start is not None and self.stop is not None:
             self.length = self.stop - self.start + 1

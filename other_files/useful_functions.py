@@ -2,12 +2,24 @@ import urllib.request
 from database.functions_db import *
 
 def get_key(dict, item):
+    """
+    Find the key for an item value in a dictionnary
+    :param dict: a dictionnary {}
+    :param item: the value we want to find (string)
+    :return: the key corresponding to the item
+    """
     for key, value in dict.items():
         if value == item:
             return key
 
 
 def split_list_on_index(data_list, index_list):
+    """
+    Split a list of data on multiple index
+    :param data_list: a list of data []
+    :param index_list: a list of index []
+    :return: a list of sub-list [[]]
+    """
     all_index = (0,) + tuple(data + 1 for data in index_list) + (len(data_list),)
     all_lists = []
     for start, end in zip(all_index, all_index[1:]):
@@ -16,7 +28,14 @@ def split_list_on_index(data_list, index_list):
 
 
 def split_list_of_product(list, attribute):
-
+    """
+    Split a list of Product objects on a attribute
+    :param list: a list of Product objects []
+    :param attribute: the name of the attribute
+    :return: a dictionnary {'lists':[], 'values':[]}
+    lists = a list of sub-lists of the products
+    values = the value of the attribute for each sublist of products
+    """
     if attribute == "name":
         interesting = get_all("Produits_interessants", "nom")
         dict_excel = {"lists": [], "values": []}
@@ -54,7 +73,11 @@ def split_list_of_product(list, attribute):
 
 
 def connected_to_internet(url):
-    """check connection to Internet"""
+    """
+    Check connection to Internet
+    :param url : the url you want to test
+    :return a dictionnary {'connected':bool, 'error':string}
+    """
     try:
         urllib.request.urlopen(url)
         return {'connected':True, 'error':None}

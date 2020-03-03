@@ -22,6 +22,10 @@ class DB_Product:
             self._set_properties()
 
     def get_all_attributes(self):
+        """
+        Get all the attributes of the class
+        :return: list
+        """
         dict = list(self.__dict__.keys())
         attributes_org = DB_Organism().get_all_attributes()
         for org in attributes_org:
@@ -33,6 +37,11 @@ class DB_Product:
 
 
     def get_value(self, attribute):
+        """
+        Get the value of an attribute
+        :param attribute: string
+        :return: the value of the attribute
+        """
         if "organism" in attribute:
             attribute_split = attribute.split('.')
             variable = attribute_split[1]
@@ -49,7 +58,7 @@ class DB_Product:
         return value
 
     def _set_properties(self):
-        """set all the variables with the values"""
+        """Set all the variables with the values"""
         datas = get_product_by(id=self.id)
         if len(datas) > 0:
             if datas["is_delete"] == 0:

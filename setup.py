@@ -13,8 +13,8 @@ excludes = ['tkinter']
 include_files = ["database",
                  "graphic",
                  "objects",
-                 "logo.png",
-                 "useful_functions.py"]
+                 "other_files",
+                 "logo.png"]
 
 options =  {
     "build_exe":
@@ -26,7 +26,7 @@ options =  {
 setup(
     name = "Coraliotech",
     options = options,
-    version = "1.0",
+    version = "1.1",
     description = 'Cree par Claire Ceresa',
     executables = executables
 )

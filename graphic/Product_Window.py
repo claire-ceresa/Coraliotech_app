@@ -5,9 +5,7 @@ from objects.NCBI_Product import NCBI_Product
 from objects.DB_Product import DB_Product
 from graphic.product_view import Ui_MainWindow
 from graphic.Application_Window import Application_Window
-from database.functions_db import *
 from other_files.useful_functions import *
-from graphic.graphics_functions import *
 
 
 
@@ -23,28 +21,30 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.product = DB_Product(id=self.id)
         self.existed = self.product.existed
         self.app_checkboxes = []
-        self.create_frame_app()
+        self._create_frame_app()
         self.window_application = None
         self.species_web_page = QWebEngineView()
         if self.existed:
-            self.set_window()
-            self.set_url()
+            self._set_window()
+            self._set_url()
 
     # METHODS OF THE CLASS #
 
     def app_button_modif_clicked(self):
+        """Open the Application window"""
         self.window_application = Application_Window()
         self.window_application.show()
 
     def esp_button_open_clicked(self):
+        """Open the IUCN RedList page of the species"""
         self.species_web_page.setUrl(self.url)
         self.species_web_page.showMaximized()
 
 
     # GRAPHIC METHODS #
 
-    def create_frame_app(self):
-        """create the checkboxes for the applications"""
+    def _create_frame_app(self):
+        """Create the QCheckBox for the different applications"""
         applications = get_all_applications_possibles()
         layout = QVBoxLayout()
         self.app_groupbox_checkboxes.setLayout(layout)
@@ -54,14 +54,14 @@ class Product_Window(QMainWindow, Ui_MainWindow):
             layout.addWidget(checkbox)
             self.app_checkboxes.append(checkbox)
 
-    def set_window(self):
-        """initialize the window"""
-        self.set_labels()
-        self.set_fiche()
-        self.set_applications()
+    def _set_window(self):
+        """Initialize the window"""
+        self._set_labels()
+        self._set_fiche()
+        self._set_applications()
 
-    def set_labels(self):
-        """initialize the characteristics of the label"""
+    def _set_labels(self):
+        """Initialize the text of the QLabels with the information of the Product"""
         self.prod_label_name.setText(self.product.name)
         self.prod_label_source.setText(self.product.source)
         self.prod_label_id.setText(self.product.id)
@@ -85,23 +85,23 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.esp_label_ordre_value.setText(self.product.organism.order)
         self.esp_label_classe_value.setText(self.product.organism.classe)
 
-    def set_applications(self):
-        """initialize the applications of the product"""
+    def _set_applications(self):
+        """Initialize the QCheckBox of the applications of the Product"""
         for application in self.product.applications:
             for checkbox in self.app_checkboxes:
                 if application["nom_app"] == checkbox.text():
                     checkbox.setChecked(True)
                     checkbox.setStyleSheet('font:bold')
 
-    def set_fiche(self):
-        """initialize the GenBank fiche"""
+    def _set_fiche(self):
+        """Initialize the GenBank fiche"""
         protein = NCBI_Product(self.id)
         protein.save_genbank_file()
         text = open('fiche.txt').read()
         self.edit_fiche.setPlainText(text)
 
-    def set_url(self):
-        """initialize the url of the website IUCN Red List"""
+    def _set_url(self):
+        """Initialize the url of the IUCN RedList page of the species"""
         species = self.product.organism.species.replace(" ", "%20").lower()
         url_text = 'https://www.iucnredlist.org/search?query={0}&searchType=species'.format(str(species))
         self.url = QUrl(url_text)

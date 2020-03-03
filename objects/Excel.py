@@ -8,17 +8,21 @@ class Excel:
         self.worksheets = []
 
     def add_worksheet(self, title=None):
-        """add a worksheet to the workbook"""
+        """Add a worksheet to the workbook"""
         worksheet = self.workbook.add_worksheet(title)
         self.worksheets.append(worksheet)
         return worksheet
 
     def close(self):
-        """close the workbook"""
+        """Close the workbook"""
         self.workbook.close()
 
     def add_QTableWidget(self, table, worksheet):
-        """adding a QTableWidget to a worksheet"""
+        """
+        Adding a QTableWidget to a worksheet
+        :param table : QTableWidget object
+        :param worksheet : Worksheet object
+        """
         headers = []
         format_columns_name = self.workbook.add_format({'bold':True, 'valign':'center'})
 
@@ -42,6 +46,11 @@ class Excel:
             worksheet.write_row(row+1, 0, rowdata)
 
     def add_data(self, worksheet, datas):
+        """
+        Adding data to a worksheet
+        :param worksheet : Worksheet object
+        :param datas : dictionnary {'column_names':[], 'rows':[[]]}
+        """
         title = worksheet.get_name()
         columns_name = datas["column_names"]
 

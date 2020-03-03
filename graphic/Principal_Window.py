@@ -6,7 +6,6 @@ from graphic.Product_Window import Product_Window
 from graphic.Search_Window import Search_Window
 from graphic.Phylogeny_Window import Phylogeny_Window
 from graphic.graphics_functions import *
-from database.functions_db import *
 from objects.DB_Search import *
 
 
@@ -27,15 +26,17 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
     # CLASS METHOD #
 
     def button_download_clicked(self):
-        """when button download is clicked, open the NCBI window"""
+        """ Open the NCBI window """
         self.window_download = NCBI_Window()
         self.window_download.show()
 
     def button_visualise_product_clicked(self):
-        """when button Go is clicked : open a product or propose to download it"""
+        """Open a product or propose to download it"""
         id = self.edit_visualise_product.text()
+
         if len(id) == 0:
             create_messageBox(title="Attention !", text="Remplir le produit")
+
         else:
             self.window_product = Product_Window(id=id)
             if self.window_product.existed:
@@ -51,6 +52,7 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
                         print(e)
 
     def button_search_clicked(self):
+        """Open the Search window with the result of the query"""
         product_name = str(self.edit_search_name.text())
         organism_type = str(self.combobox_search_org.currentText())
         organism_value = str(self.edit_search_org.text())
@@ -88,6 +90,7 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
         self.window_search.show()
 
     def menu_phylogeny_clicked(self, action):
+        """Open the phylogeny of the clicked group"""
         group = action.text()
         self.window_phylogeny = Phylogeny_Window(group=group)
         self.window_phylogeny.show()
@@ -99,11 +102,12 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
     # GRAPHIC METHODS #
 
     def _set_image(self):
-        """set the logo on the window"""
+        """Set the logo on the window"""
         picture = QPixmap("other_files\logo.png")
         self.label_image.setPixmap(picture)
 
     def _set_combobox_org(self):
+        """Fill in the QCombobox of the "search" part with the attribute of the table Organisme"""
         columns = get_column_names("Organisme")
         for column in columns:
             self.combobox_search_org.addItem(column)

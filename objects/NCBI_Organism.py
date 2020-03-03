@@ -24,18 +24,18 @@ class NCBI_Organism:
             self._set_properties()
 
     def _set_taxonomy(self):
-        """set the attribute taxonomy"""
+        """Set the attribute taxonomy"""
         if self.id is not None:
             get_taxonomy = Entrez.efetch(db="Taxonomy", id=self.id, retmode="xml")
             self.taxonomy = Entrez.read(get_taxonomy)
 
     def _set_lineage(self):
-        """set the attribute lineage"""
+        """Set the attribute lineage"""
         if self.taxonomy is not None:
             self.lineage = self.taxonomy[0]["LineageEx"]
 
     def _set_properties(self):
-        """set all the variables with the values"""
+        """Set all the variables with the values"""
         self.species = self.taxonomy[0]["ScientificName"]
         genus = next((item for item in self.lineage if item["Rank"] == "genus"), None)
         self.genus = genus["ScientificName"] if genus is not None else None

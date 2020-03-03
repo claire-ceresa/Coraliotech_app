@@ -1,7 +1,6 @@
 from pandas import DataFrame
 from openpyxl import load_workbook
 from PyQt5.QtWidgets import *
-from PyQt5.QtGui import QFont
 from graphic.phylogeny_view import *
 from database.functions_db import *
 
@@ -15,11 +14,11 @@ class Phylogeny_Window(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.group = group
         self.setWindowTitle(self.group)
-        self.fill_in_tree()
+        self._fill_in_tree()
 
-
-    def fill_in_tree(self):
-        datas = self.read_file()
+    def _fill_in_tree(self):
+        """ Fill in the QTreeWidget with all the phylogeny"""
+        datas = self._read_file()
 
         ref_items = [self.treeWidget, None, None, None]
         ref_col = 0
@@ -53,10 +52,11 @@ class Phylogeny_Window(QMainWindow, Ui_MainWindow):
                             font.setBold(True)
                             item.setFont(0,font)
 
-
-
-    def read_file(self):
-        """open and read the phylogeny datas of the ile"""
+    def _read_file(self):
+        """
+        Open and read the phylogeny Exce file
+        :return a pandas DataFrame of the values
+        """
         workbook = load_workbook(filename="other_files\phylogeny.xlsx")
         worksheet = workbook[self.group]
         datas = DataFrame(worksheet.values)

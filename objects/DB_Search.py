@@ -5,11 +5,21 @@ from objects.DB_Product import DB_Product
 class DB_Search:
 
     def __init__(self, terms):
+        """
+        Search object, on the local database
+        :param terms: a dictionnary
+                {'organism': {'checked':bool, 'variable':'string, 'value':string},
+                 'name':{'checked':bool, 'variable':'nom', 'value':string}}
+        """
         self.terms = terms
         self.query = self.create_query()
         self.results = self.get_results()
 
     def create_query(self):
+        """
+        Create the MySQL query with the terms
+        :return: MySQL query
+        """
         query_select = "SELECT P.id"
 
         if self.terms["organism"]["checked"] and self.terms["name"]["checked"]:
@@ -29,6 +39,10 @@ class DB_Search:
         return query
 
     def get_results(self):
+        """
+        Get the result of the MySQL query
+        :return list of the results
+        """
         id_results = execute_query(self.query)
         results = []
         for id in id_results:
