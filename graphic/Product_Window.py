@@ -40,7 +40,6 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.species_web_page.setUrl(self.url)
         self.species_web_page.showMaximized()
 
-
     # GRAPHIC METHODS #
 
     def _create_frame_app(self):
@@ -57,8 +56,12 @@ class Product_Window(QMainWindow, Ui_MainWindow):
     def _set_window(self):
         """Initialize the window"""
         self._set_labels()
-        self._set_fiche()
         self._set_applications()
+        internet = connected_to_internet("https://www.ncbi.nlm.nih.gov/")
+        if internet["connected"]:
+            self._set_fiche()
+        else:
+            self.edit_fiche.setPlainText("Aucune connexion a Internet !")
 
     def _set_labels(self):
         """Initialize the text of the QLabels with the information of the Product"""
