@@ -35,7 +35,6 @@ class DB_Product:
             dict.append("cds." + cds)
         return list(dict)
 
-
     def get_value(self, attribute):
         """
         Get the value of an attribute

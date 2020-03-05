@@ -20,7 +20,7 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.id = id
         self.product = DB_Product(id=self.id)
         self.existed = self.product.existed
-        self.app_checkboxes = []
+        self.app_labels = []
         self._create_frame_app()
         self.window_application = None
         self.species_web_page = QWebEngineView()
@@ -45,13 +45,13 @@ class Product_Window(QMainWindow, Ui_MainWindow):
     def _create_frame_app(self):
         """Create the QCheckBox for the different applications"""
         applications = get_all_applications_possibles()
-        layout = QVBoxLayout()
-        self.app_groupbox_checkboxes.setLayout(layout)
+        layout_box = QVBoxLayout()
+        self.app_groupbox_checkboxes.setLayout(layout_box)
         for application in applications:
-            checkbox = QCheckBox()
-            checkbox.setText(application[0])
-            layout.addWidget(checkbox)
-            self.app_checkboxes.append(checkbox)
+            label_app = QLabel()
+            label_app.setText(application[0])
+            layout_box.addWidget(label_app)
+            self.app_labels.append(label_app)
 
     def _set_window(self):
         """Initialize the window"""
@@ -92,10 +92,16 @@ class Product_Window(QMainWindow, Ui_MainWindow):
     def _set_applications(self):
         """Initialize the QCheckBox of the applications of the Product"""
         for application in self.product.applications:
-            for checkbox in self.app_checkboxes:
-                if application["nom_app"] == checkbox.text():
-                    checkbox.setChecked(True)
-                    checkbox.setStyleSheet('font:bold')
+            for label in self.app_labels:
+                if application["nom_app"] == label.text():
+                    text = label.text() + " (" + str(application["validite"]) + ")"
+                    label.setText(text)
+                    if application["validite"] == 1:
+                        label.setStyleSheet('color:red')
+                    elif application["validite"] == 2:
+                        label.setStyleSheet('color:orange')
+                    else:
+                        label.setStyleSheet('font:bold;color:green')
 
     def _set_fiche(self):
         """Initialize the GenBank fiche"""
