@@ -57,10 +57,22 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
                     product = NCBI_Product(id)
                     if self._check_exceptions(product):
                         saved = product.save_on_database()
-                        if saved["commited"]:
+
+                        if saved["product"]["commited"]:
+
                             nb_product_saved = nb_product_saved + 1
+                            if saved["organism"]["commited"]:
+                                all_statut = get_all("IUCN_Categories", "acronyme")
+                                all_statut.append("Inconnu")
+                                species = product.species.species
+                                statut, ok = QInputDialog.getItem(self, 'Nouvelle espece !', 'Selectionner le statut IUCN pour ' + species + ' : ',
+                                                                  all_statut,
+                                                                  len(all_statut) - 1, False)
+                                if statut is not "Inconnu":
+                                    modif = product.modif_IUCN_statut(species, statut)
+
                         else:
-                            products_not_saved.append({'id':product.id, 'error':saved["error"]})
+                            products_not_saved.append({'id':product.id, 'error':saved["product"]["error"]})
                     else:
                         products_not_saved.append({'id': product.id, 'error': "Exception non utilisable"})
 

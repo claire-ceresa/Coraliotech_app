@@ -1,9 +1,11 @@
+from PyQt5.QtWidgets import QInputDialog
 from Bio import Entrez
 from Bio import SeqIO
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 from objects.NCBI_Organism import NCBI_Organism
 from objects.NCBI_CDS import NCBI_CDS
 from database.functions_db import *
+from graphic.graphics_functions import create_messageBox
 
 
 class NCBI_Product:
@@ -148,7 +150,7 @@ class NCBI_Product:
         organism_saved = self.save_organism()
         cds_saved = self.save_cds()
         product_saved = self.save_product()
-        return product_saved
+        return {"organism":organism_saved, "cds":cds_saved, "product":product_saved}
 
     def save_cds(self):
         """Save the cds in the table CDS of the local DB"""
@@ -174,6 +176,12 @@ class NCBI_Product:
         datas_org["classe"] = "\"" + self.species.classe + "\"" if self.species.classe is not None else "NULL"
         datas_org["embranchement"] = "\"" + self.species.phylum + "\"" if self.species.phylum is not None else "NULL"
         query = get_query_insert("Organisme", datas_org)
+        commit = commit_query(query)
+        return commit
+
+    def modif_IUCN_statut(self, species, statut):
+        """Update the statutIUCN attribute of the species on the local DB"""
+        query = 'UPDATE Organisme SET statutIUCN = \"' + statut + '\" WHERE espece = \"' + species + '\"'
         commit = commit_query(query)
         return commit
 

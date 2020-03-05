@@ -1,34 +1,37 @@
+import sys
 from Bio import Entrez
-from objects.DB_Search import *
+from openpyxl import load_workbook
+from pandas import DataFrame
 from database.functions_db import *
+from PyQt5.QtWidgets import *
+from PyQt5.QtCore import *
+
 
 Entrez.email = "claire.ceresa@hotmail.fr"
 
-terms = {'organism': {'checked': True, 'variable': 'espece', 'value': 'Stylophora pistillata'},
-         'name': {'checked': False, 'variable': 'nom', 'value': ''}
-         }
+# filename  = "C:\\Users\claire\Desktop\Coraliotech\IUCN Status.xlsx"
+# workbook = load_workbook(filename=filename)
+# worksheet = workbook["Connus"]
+# datas_total = DataFrame(worksheet.values)
+# datas_needed = datas_total[[0, 1]]
+#
+# for row, row_data in datas_needed.iterrows():
+#     statut = "\"" + row_data[1] + "\""
+#     espece = "\"" + row_data[0] + "\""
+#     query = 'UPDATE Organisme SET statutIUCN = ' + statut + ' WHERE espece = ' + espece
+#     commit = commit_query(query)
 
-search = DB_Search(terms)
-names = []
-for product in search.results:
-    names.append(product.name)
+# status = get_all("IUCN_Categories", "acronyme")
+# status.append("Inconnu")
+#
+# app = QApplication(sys.argv)
+# widget = QWidget()
+# text, ok = QInputDialog.getItem(widget, 'Nouvelle espece', 'Selectionner le statut: ', status, len(status)-1, False)
+# print(text)
+# sys.exit(app.exec_())
 
-interesting= get_all("Produits_interessants", "nom")
-
-dict_excel = {"lists":[], "values":[]}
-
-for substring in interesting:
-    substring_in = []
-    other = []
-    for name in names:
-        if substring in name:
-            substring_in.append(name)
-        else:
-            other.append(name)
-    dict_excel["lists"].append(substring_in)
-    dict_excel["values"].append(substring)
-    names = other
-dict_excel["lists"].append(names)
-dict_excel["values"].append("others")
-
-print(dict_excel)
+species = "Zostera marina"
+statut = "LC"
+query = 'UPDATE Organisme SET statutIUCN = \"' + statut + '\" WHERE espece = \"' + species + '\"'
+commit = commit_query(query)
+print(commit)
