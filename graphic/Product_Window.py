@@ -84,6 +84,7 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         self.esp_label_famille_value.setText(self.product.organism.family)
         self.esp_label_ordre_value.setText(self.product.organism.order)
         self.esp_label_classe_value.setText(self.product.organism.classe)
+        self.esp_label_statut_value.setText(self.product.organism.statut)
 
     def _set_applications(self):
         """Initialize the QCheckBox of the applications of the Product"""

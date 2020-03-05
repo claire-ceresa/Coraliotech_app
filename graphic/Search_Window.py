@@ -33,8 +33,11 @@ class Search_Window(QMainWindow, Ui_MainWindow):
         row = self.table_result.currentRow()
         item = self.table_result.item(row, 0)
         id = item.text()
-        self.window_product = Product_Window(id=id)
-        self.window_product.show()
+        try:
+            self.window_product = Product_Window(id=id)
+            self.window_product.show()
+        except Exception as e:
+            print(e)
 
     def button_export_clicked(self):
         """Export the table to an Excel file, without modification"""
