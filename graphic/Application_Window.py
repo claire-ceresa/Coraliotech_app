@@ -1,6 +1,5 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from graphic.application_view import Ui_MainWindow
-from graphic.graphics_functions import *
 from database.functions_db import *
 
 class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):

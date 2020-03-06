@@ -32,11 +32,8 @@ class Product_Window(QMainWindow, Ui_MainWindow):
 
     def app_button_modif_clicked(self):
         """Open the Application window"""
-        try:
-            self.window_application = Application_Window(applications=self.product.applications, id=self.product.id)
-            self.window_application.show()
-        except Exception as e:
-            print(e)
+        self.window_application = Application_Window(applications=self.product.applications, id=self.product.id)
+        self.window_application.show()
 
     def esp_button_open_clicked(self):
         """Open the IUCN RedList page of the species"""
