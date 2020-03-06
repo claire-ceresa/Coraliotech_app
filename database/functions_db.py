@@ -109,37 +109,25 @@ def get_cds_by(id_cds=None, id_product=None):
     return dict_result
 
 
-def get_all_applications_possibles():
-    """
-    Getting all the primary key of the table Applications_possibles
-    :return a list of the result
-    """
-    query = "SELECT nom FROM Applications_possibles WHERE is_delete = 0;"
-    result = execute_query(query)
-    return result
-
-
-def get_application_for_id(id=None):
+def get_application_for_id(id=None, nom=None):
     """
     Getting the applications of a product
     :param id : the GenBank id the of product
     :return a dict, with all the application of the product
     """
-    if id is None:
+    if id is None or nom is None:
         return ValueError
 
     else:
-        query = "SELECT nom_app, validite, remarques FROM Applications WHERE is_delete = 0 AND id_produit =\"" + id + "\""
+        query = "SELECT nom_app, validite, remarques FROM Applications WHERE is_delete = 0 AND id_produit =\"" + id + "\" " \
+                                                            "AND nom_app = \"" + nom + "\""
         results_temp = execute_query(query)
-        results = []
+        results = {}
 
-        for temp in results_temp:
-            dict = {}
-            dict["nom_app"] = temp[0]
-            dict["validite"] = temp[1]
-            dict["remarque"] = temp[2]
-            results.append(dict)
-
+        if len(results_temp)==1:
+            results["nom_app"] = results_temp[0][0]
+            results["validite"] = results_temp[0][1]
+            results["remarque"] = results_temp[0][2]
         return results
 
 
@@ -185,7 +173,7 @@ def get_all(table, attribute):
     :param attribute: the name of the attribute
     :return: a list of all the values []
     """
-    query = "SELECT DISTINCT " + attribute + " FROM " + table
+    query = "SELECT DISTINCT " + attribute + " FROM " + table + " WHERE is_delete = 0 ORDER BY " + attribute
     results = execute_query(query)
     datas = []
     for result in results:

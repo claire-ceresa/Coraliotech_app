@@ -1,6 +1,7 @@
 from database.functions_db import *
 from objects.DB_CDS import DB_CDS
 from objects.DB_Organism import DB_Organism
+from objects.DB_Application import DB_Application
 
 class DB_Product:
 
@@ -68,8 +69,16 @@ class DB_Product:
                 self.fonction = datas["fonction"]
                 self.organism = DB_Organism(datas["species"])
                 self.cds = DB_CDS(id=datas["cds_id"])
-                self.applications = get_application_for_id(self.id)
+                self.applications = self._set_applications()
             else:
                 self.existed = False
         else:
             self.existed = False
+
+    def _set_applications(self):
+        applications = []
+        applications_names = get_all("Applications_possibles", "nom")
+        for name in applications_names:
+            application = DB_Application(id=self.id, nom_application=name)
+            applications.append(application)
+        return applications

@@ -32,8 +32,11 @@ class Product_Window(QMainWindow, Ui_MainWindow):
 
     def app_button_modif_clicked(self):
         """Open the Application window"""
-        self.window_application = Application_Window()
-        self.window_application.show()
+        try:
+            self.window_application = Application_Window(applications=self.product.applications, id=self.product.id)
+            self.window_application.show()
+        except Exception as e:
+            print(e)
 
     def esp_button_open_clicked(self):
         """Open the IUCN RedList page of the species"""
@@ -44,12 +47,12 @@ class Product_Window(QMainWindow, Ui_MainWindow):
 
     def _create_frame_app(self):
         """Create the QCheckBox for the different applications"""
-        applications = get_all_applications_possibles()
+        applications = get_all("Applications_possibles", "nom")
         layout_box = QVBoxLayout()
         self.app_groupbox_checkboxes.setLayout(layout_box)
         for application in applications:
             label_app = QLabel()
-            label_app.setText(application[0])
+            label_app.setText(application)
             layout_box.addWidget(label_app)
             self.app_labels.append(label_app)
 
@@ -93,15 +96,16 @@ class Product_Window(QMainWindow, Ui_MainWindow):
         """Initialize the QCheckBox of the applications of the Product"""
         for application in self.product.applications:
             for label in self.app_labels:
-                if application["nom_app"] == label.text():
-                    text = label.text() + " (" + str(application["validite"]) + ")"
-                    label.setText(text)
-                    if application["validite"] == 1:
-                        label.setStyleSheet('color:red')
-                    elif application["validite"] == 2:
-                        label.setStyleSheet('color:orange')
-                    else:
-                        label.setStyleSheet('font:bold;color:green')
+                if application.name_app == label.text():
+                    if application.validity is not None:
+                        text = label.text() + " (" + str(application.validity) + ")"
+                        label.setText(text)
+                        if application.validity == 1:
+                            label.setStyleSheet('color:red')
+                        elif application.validity == 2:
+                            label.setStyleSheet('color:orange')
+                        else:
+                            label.setStyleSheet('font:bold;color:green')
 
     def _set_fiche(self):
         """Initialize the GenBank fiche"""
