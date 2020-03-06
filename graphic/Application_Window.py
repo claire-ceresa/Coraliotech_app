@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 from graphic.application_view import Ui_MainWindow
 from database.functions_db import *
 
@@ -23,6 +23,23 @@ class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def button_modif_clicked(self):
         print("ok")
+
+    def slider_changed(self, application_name):
+        label_int = self.widgets_applications[application_name]["label_int"]
+        slider = self.widgets_applications[application_name]["slider"]
+        slider_value = slider.value()
+        label_int.setText(str(slider_value))
+        if slider_value == 1:
+            label_int.setStyleSheet('font:bold;color:red')
+        elif slider_value == 2:
+            label_int.setStyleSheet('font:bold;color:orange')
+        else:
+            label_int.setStyleSheet('font:bold;color:green')
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        font.setPointSize(10)
+        label_int.setFont(font)
+
 
     # GRAPHIC METHODS #
 
@@ -50,34 +67,38 @@ class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.widgets_applications[application.name_app] = {}
         self.widgets_applications[application.name_app]["object"] = application
 
-        self.layout = QtWidgets.QHBoxLayout()
-        self.layout.setObjectName("layout_" + application.name_app.lower())
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setText("")
-        self.label.setObjectName("label_" + application.name_app.lower())
-        self.label.setText(application.name_app)
-        self.layout.addWidget(self.label)
-        self.slider = QtWidgets.QSlider(self.centralwidget)
-        self.slider.setMinimumSize(QtCore.QSize(101, 22))
-        self.slider.setMaximumSize(QtCore.QSize(101, 22))
-        self.slider.setMinimum(1)
-        self.slider.setMaximum(3)
-        self.slider.setOrientation(QtCore.Qt.Horizontal)
-        self.layout.addWidget(self.slider)
-        self.label_int = QtWidgets.QLabel(self.centralwidget)
-        self.label_int.setObjectName("label_int_" + application.name_app.lower())
-        self.label_int.setText("1")
-        self.layout.addWidget(self.label_int)
-        self.edit = QtWidgets.QLineEdit(self.centralwidget)
-        self.edit.setObjectName("edit_" + application.name_app.lower())
-        self.layout.addWidget(self.edit)
-        self.verticalLayout.addLayout(self.layout)
-        self.slider.valueChanged['int'].connect(self.label_int.setNum)
+        layout = QtWidgets.QHBoxLayout()
+        layout.setObjectName("layout_" + application.name_app.lower())
+        label = QtWidgets.QLabel(self.centralwidget)
+        label.setText("")
+        label.setObjectName("label_" + application.name_app.lower())
+        label.setText(application.name_app)
+        layout.addWidget(label)
+        slider = QtWidgets.QSlider(self.centralwidget)
+        slider.setMinimumSize(QtCore.QSize(101, 22))
+        slider.setMaximumSize(QtCore.QSize(101, 22))
+        slider.setMinimum(1)
+        slider.setMaximum(3)
+        slider.setOrientation(QtCore.Qt.Horizontal)
+        layout.addWidget(slider)
+        label_int = QtWidgets.QLabel(self.centralwidget)
+        label_int.setObjectName("label_int_" + application.name_app.lower())
+        label_int.setText("1")
+        layout.addWidget(label_int)
+        edit = QtWidgets.QLineEdit(self.centralwidget)
+        edit.setObjectName("edit_" + application.name_app.lower())
+        layout.addWidget(edit)
+        self.verticalLayout.addLayout(layout)
+        #slider.valueChanged['int'].connect(label_int.setNum)
+        try:
+            slider.valueChanged['int'].connect(lambda widget=slider: self.slider_changed(application.name_app))
+        except Exception as e:
+            print(e)
 
-        self.widgets_applications[application.name_app]["label"] = self.label
-        self.widgets_applications[application.name_app]["slider"] = self.slider
-        self.widgets_applications[application.name_app]["label_int"] = self.label_int
-        self.widgets_applications[application.name_app]["edit"] = self.edit
+        self.widgets_applications[application.name_app]["label"] = label
+        self.widgets_applications[application.name_app]["slider"] = slider
+        self.widgets_applications[application.name_app]["label_int"] = label_int
+        self.widgets_applications[application.name_app]["edit"] = edit
 
     def _create_button(self):
         self.button = QtWidgets.QPushButton(self.centralwidget)
