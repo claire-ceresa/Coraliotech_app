@@ -69,7 +69,7 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
                                                                   all_statut,
                                                                   len(all_statut) - 1, False)
                                 if statut is not "Inconnu":
-                                    modif = product.modif_IUCN_statut(species, statut)
+                                    modif = modif_IUCN_statut(species, statut)
 
                         else:
                             products_not_saved.append({'id':product.id, 'error':saved["product"]["error"]})

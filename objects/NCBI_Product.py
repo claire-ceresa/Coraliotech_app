@@ -179,12 +179,6 @@ class NCBI_Product:
         commit = commit_query(query)
         return commit
 
-    def modif_IUCN_statut(self, species, statut):
-        """Update the statutIUCN attribute of the species on the local DB"""
-        query = 'UPDATE Organisme SET statutIUCN = \"' + statut + '\" WHERE espece = \"' + species + '\"'
-        commit = commit_query(query)
-        return commit
-
     def save_product(self):
         """Save the product in the table Produit of the local DB"""
         datas_prod = {}

@@ -53,6 +53,9 @@ def get_query_insert(table, datas):
     return query
 
 
+## GETTERS
+
+
 def get_product_by(id=None, name=None):
     """
     Getting all the information for a Product, not deleted
@@ -119,7 +122,7 @@ def get_application_for_id(id=None, nom=None):
         return ValueError
 
     else:
-        query = "SELECT nom_app, validite, remarques FROM Applications WHERE is_delete = 0 AND id_produit =\"" + id + "\" " \
+        query = "SELECT nom_app, validite, remarque FROM Applications WHERE is_delete = 0 AND id_produit =\"" + id + "\" " \
                                                             "AND nom_app = \"" + nom + "\""
         results_temp = execute_query(query)
         results = {}
@@ -179,4 +182,18 @@ def get_all(table, attribute):
     for result in results:
         datas.append(result[0])
     return datas
+
+
+## SETTERS
+
+def modif_IUCN_statut(species, statut):
+    """Update the statutIUCN attribute of the species on the local DB"""
+    query = 'UPDATE Organisme SET statutIUCN = \"' + statut + '\" WHERE espece = \"' + species + '\"'
+    commit = commit_query(query)
+    return commit
+
+def modif_application(id, name_app, validite, remarque):
+    query = "UPDATE Applications SET validite = " + str(validite) + " , remarque = " + remarque + " WHERE nom_app = \"" + name_app + "\" AND id_produit = \"" + id + "\""
+    commit = commit_query(query)
+    return commit
 

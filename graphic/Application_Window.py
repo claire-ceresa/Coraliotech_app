@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets, QtCore, QtGui
 from graphic.application_view import Ui_MainWindow
+from graphic.graphics_functions import *
 from database.functions_db import *
 
 class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -22,7 +23,41 @@ class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
     # CLASS METHODS #
 
     def button_modif_clicked(self):
-        print("ok")
+        for app_name in self.widgets_applications:
+
+            old_value = self.widgets_applications[app_name]["object"].validity
+            new_value = self.widgets_applications[app_name]["slider"].value()
+            id = self.widgets_applications[app_name]["object"].id
+            text_remarque = self.widgets_applications[app_name]["edit"].text()
+            if len(text_remarque) > 0:
+                remarque = "\"" + text_remarque + "\""
+            else:
+                remarque = "NULL"
+
+            if old_value != new_value and old_value is not None:
+                modif = modif_application(id=id, name_app=app_name, validite=new_value, remarque=remarque)
+                if modif["commited"]:
+                    text = self.label_modified.text() + "\nModification effectuée pour " + app_name + " : " + str(
+                        old_value) + " -> " + str(new_value)
+                else:
+                    text = self.label_modified.text() + "\nErreur pour " + app_name + " : " + modif["error"]
+                self.label_modified.setText(text)
+
+            elif old_value != new_value and old_value is None:
+                datas_to_insert = {'id_produit':"\"" + id + "\"",
+                                   "nom_app": "\"" + app_name + "\"",
+                                   'validite':str(new_value),
+                                   'remarque':remarque}
+                query = get_query_insert("Applications", datas_to_insert)
+                insert = commit_query(query)
+                if insert["commited"]:
+                    text = self.label_modified.text() + "\nModification effectuée pour "+ app_name + " : " + str(new_value)
+                else:
+                    text = self.label_modified.text() + "\nErreur pour " + app_name + " : " + modif["error"]
+                self.label_modified.setText(text)
+
+            else:
+                continue
 
     def slider_changed(self, application_name):
         label_int = self.widgets_applications[application_name]["label_int"]
@@ -40,7 +75,6 @@ class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
         font.setPointSize(10)
         label_int.setFont(font)
 
-
     # GRAPHIC METHODS #
 
     def _set_window(self):
@@ -56,7 +90,9 @@ class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
                     label_int.setStyleSheet('font:bold;color:orange')
                 else:
                     label_int.setStyleSheet('font:bold;color:green')
-
+                remarque = self.widgets_applications[app_name]["object"].remark
+                edit = self.widgets_applications[app_name]["edit"]
+                edit.setText(remarque)
 
     def _create_window(self):
         for application in self.data_applications:
@@ -89,11 +125,7 @@ class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
         edit.setObjectName("edit_" + application.name_app.lower())
         layout.addWidget(edit)
         self.verticalLayout.addLayout(layout)
-        #slider.valueChanged['int'].connect(label_int.setNum)
-        try:
-            slider.valueChanged['int'].connect(lambda widget=slider: self.slider_changed(application.name_app))
-        except Exception as e:
-            print(e)
+        slider.valueChanged['int'].connect(lambda widget=slider: self.slider_changed(application.name_app))
 
         self.widgets_applications[application.name_app]["label"] = label
         self.widgets_applications[application.name_app]["slider"] = slider
@@ -106,6 +138,10 @@ class Application_Window(QtWidgets.QMainWindow, Ui_MainWindow):
         self.button.setText("Modifier")
         self.verticalLayout.addWidget(self.button)
         self.button.clicked.connect(self.button_modif_clicked)
+        self.label_modified = QtWidgets.QLabel(self.centralwidget)
+        self.label_modified.setObjectName("label_modified")
+        self.label_modified.setText("")
+        self.verticalLayout.addWidget(self.label_modified)
 
 
 
