@@ -139,11 +139,19 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
             variable_name = item.currentText()
             variable = get_key(self.corresp_var_colname, variable_name)
             variables.append(variable)
-            try:
-                text = self.corresp_var_colname[variable]
-            except KeyError:
-                text = variable if variable is not None else ""
-            headers.append(text.upper())
+
+            if variable == "applications":
+                applications = get_all("Applications_possibles", "nom")
+                for app_name in applications:
+                    headers.append(app_name.upper())
+
+            else:
+                try:
+                    text = self.corresp_var_colname[variable]
+                except KeyError:
+                    text = variable if variable is not None else ""
+                headers.append(text.upper())
+
         datas_formatted["column_names"] = headers
 
         for product in datas:
@@ -151,11 +159,18 @@ class Excel_Window(QMainWindow, Ui_MainWindow):
             for column in variables:
                 if column is None:
                     row.append("")
+
                 elif column == "url":
                     organism = getattr(product, "organism")
                     species = getattr(organism, "species")
                     row.append("https://www.iucnredlist.org/search?query=" + species.replace(" ",
                                                                                              "%20").lower() + "&searchType=species")
+
+                elif column == "applications":
+                    applications = getattr(product,"applications")
+                    for application in applications:
+                        row.append(application.validity)
+
                 else:
                     attributes = column.split(".")
                     if len(attributes) > 1:

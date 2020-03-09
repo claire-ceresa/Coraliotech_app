@@ -11,7 +11,7 @@ Entrez.email = "claire.ceresa@hotmail.fr"
 # KJ780789.1 vide
 
 app = QApplication(sys.argv)
-window = Product_Window(id="KJ780789.1")
+window = Product_Window(id="XM_015916425.1")
 window.show()
 sys.exit(app.exec_())
 
