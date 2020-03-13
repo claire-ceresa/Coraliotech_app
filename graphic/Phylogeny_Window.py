@@ -20,7 +20,7 @@ class Phylogeny_Window(QMainWindow, Ui_MainWindow):
         """ Fill in the QTreeWidget with all the phylogeny"""
         datas = self._read_file()
 
-        ref_items = [self.treeWidget, None, None, None]
+        ref_items = [self.treeWidget, None, None, None, None]
         ref_col = 0
 
         for row, row_data in datas.iterrows():
