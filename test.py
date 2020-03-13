@@ -4,14 +4,11 @@ from graphic.Product_Window import *
 from Bio import Entrez
 from objects.DB_Product import *
 from objects.DB_Application import *
+from objects.NCBI_Search import NCBI_Search
 
 Entrez.email = "claire.ceresa@hotmail.fr"
 
-# KJ766310.1 datas
-# KJ780789.1 vide
-
-app = QApplication(sys.argv)
-window = Product_Window(id="XM_015916425.1")
-window.show()
-sys.exit(app.exec_())
-
+query = "Anthozoa AND interleukin [Title] AND mRNA [Title] NOT partial [Title] "
+search = NCBI_Search(request=query)
+result = search.get_list_ids()
+print(result)
