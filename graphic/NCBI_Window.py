@@ -23,13 +23,13 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
             terms = self._get_request_terms()
             request = self._create_request(terms)
             self.edit_request.setEnabled(True)
-            self.button_go.setEnabled(True)
             self.edit_id.setEnabled(False)
             self.edit_request.setText(request)
 
     def button_go_pressed(self):
         """Clean the previous messages"""
-        self.label_messages.setText("Chargement...")
+        if len(self.edit_request.text()) > 0:
+            self.label_messages.setText("Chargement...")
 
     def button_go_clicked(self):
         """Save the result of the request on NCBI on the local DB """
@@ -39,12 +39,13 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
 
         if connexion["connected"]:
 
-            if self.edit_request.isEnabled():
+            if self.edit_request.isEnabled() and len(self.edit_request.text()) > 0:
                 request = self.edit_request.text()
-            elif self.edit_id.isEnabled():
+            elif self.edit_id.isEnabled() and len(self.edit_id.text()) > 0:
                 request = self.edit_id.text() + "[Accession]"
             else:
                 create_messageBox(title="Attention !", text="Il y a un problème !")
+                return
 
             search = NCBI_Search(request)
             list_id = search.get_list_ids()
@@ -111,17 +112,17 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         out_terms = self.edit_out.text()
 
         if len(keys) > 0:
-            terms["keys"] = keys.split(" , ")
+            terms["keys"] = keys.split(",")
         else:
             terms["keys"] = []
 
         if len(in_terms) > 0:
-            terms["in_terms"] = in_terms.split(" , ")
+            terms["in_terms"] = in_terms.split(",")
         else:
             terms["in_terms"] = []
 
         if len(out_terms) > 0:
-            terms["out_terms"] = out_terms.split(" , ")
+            terms["out_terms"] = out_terms.split(",")
         else:
             terms["out_terms"] = []
 
@@ -135,16 +136,16 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         :param terms : a dictionnary of all the values
         :return the request
         """
-        beginning = terms["organism"]
+        beginning = terms["organism"] + " [Organism]"
         and_terms = ""
         not_terms = ""
 
         for key in terms["keys"]:
-            and_terms = and_terms + " AND " + key
+            and_terms = and_terms + " AND " + key.strip()
         for in_term in terms["in_terms"]:
-            and_terms = and_terms + " AND " + in_term + " [Title]"
+            and_terms = and_terms + " AND " + in_term.strip() + " [Title]"
         for out_term in terms["out_terms"]:
-            not_terms = not_terms + " NOT " + out_term + " [Title]"
+            not_terms = not_terms + " NOT " + out_term.strip() + " [Title]"
 
         request = beginning + and_terms + not_terms
         return request
@@ -165,12 +166,17 @@ class NCBI_Window(QMainWindow, Ui_MainWindow):
         :param product: a Product object
         :return boolean
         """
+
         if product.molecular_weight is None:
         # Unknown molecular weight = error in the ADN sequence
             return False
 
         if product.name is None:
         # Unknown name = unuseful product
+            return False
+
+        if product.cds is None:
+        # No cds feature = unuseful product
             return False
 
         return True

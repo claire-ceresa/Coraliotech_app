@@ -140,8 +140,9 @@ class NCBI_Product:
 
     def _check_exception(self):
         """Check some precise exception and print a message if needed"""
-        if self.cds.offset is not None and self.cds.offset > 1:
-            print(str(self.id) + " : codon start > 1 --> verifier la taille du cds pour confirmation formule")
+        if self.cds is not None:
+            if self.cds.offset is not None and self.cds.offset > 1:
+                print(str(self.id) + " : codon start > 1 --> verifier la taille du cds pour confirmation formule")
 
     # METHODS DEALING WITH THE LOCAL DATABASE#
 
