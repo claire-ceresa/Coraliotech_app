@@ -169,9 +169,12 @@ class Ui_MainWindow(object):
         self.actionHerbiers.setObjectName("actionHerbiers")
         self.actionMangroves = QtWidgets.QAction(MainWindow)
         self.actionMangroves.setObjectName("actionMangroves")
+        self.actionCoralligene = QtWidgets.QAction(MainWindow)
+        self.actionCoralligene.setObjectName("actionCoralligene")
         self.menu_phylogenie.addAction(self.action_coraux)
         self.menu_phylogenie.addAction(self.actionHerbiers)
         self.menu_phylogenie.addAction(self.actionMangroves)
+        self.menu_phylogenie.addAction(self.actionCoralligene)
         self.menubar.addAction(self.menu_phylogenie.menuAction())
 
         self.retranslateUi(MainWindow)
@@ -206,6 +209,7 @@ class Ui_MainWindow(object):
         self.action_coraux.setText(_translate("MainWindow", "Coraux"))
         self.actionHerbiers.setText(_translate("MainWindow", "Herbiers"))
         self.actionMangroves.setText(_translate("MainWindow", "Mangroves"))
+        self.actionCoralligene.setText(_translate("MainWindow", "Coralligene"))
 
 
 if __name__ == "__main__":
