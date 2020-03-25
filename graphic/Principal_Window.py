@@ -55,7 +55,7 @@ class Principal_Window(QMainWindow, Ui_MainWindow):
         """Open the Search window with the result of the query"""
         product_name = str(self.edit_search_name.text())
         organism_type = str(self.combobox_search_org.currentText())
-        organism_value = str(self.edit_search_org.text())
+        organism_value = str(self.edit_search_org.text()).capitalize()
         terms = {'organism': {'checked':False, 'variable':'', 'value':''},
                  'name':{'checked':False, 'variable':'nom', 'value':''}
                  }
