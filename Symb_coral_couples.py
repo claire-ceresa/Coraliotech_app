@@ -1,18 +1,23 @@
-import sys
 import xlsxwriter as x
-from PyQt5.QtWidgets import *
-from graphic.Product_Window import *
-from graphic.Phylogeny_Window import *
 from Bio import Entrez
-from objects.DB_Product import *
-from objects.DB_Application import *
-from objects.NCBI_Search import NCBI_Search
+from objects.DB_Search import DB_Search
 from objects.NCBI_Product import NCBI_Product
 
 Entrez.email = "claire.ceresa@hotmail.fr"
 
-search = NCBI_Search(request = "Symbiodiniaceae AND mRNA [Title] AND complete [Title] AND cds [Title] ")
-list_ids = search.get_list_ids()
+needed = {'organism': {'checked':True, 'variable':'famille', 'value':'Symbiodiniaceae'},
+            'name':{'checked':False, 'variable':'nom', 'value':None}}
+
+search = DB_Search(terms=needed)
+list_products = search.results
+list_ids = []
+
+for product in list_products:
+    id = product.id
+    list_ids.append(id)
+
+# search = NCBI_Search(request = "Symbiodiniaceae AND mRNA [Title] AND complete [Title] AND cds [Title] ")
+# list_ids = search.get_list_ids()
 
 workbook = x.Workbook("host.xlsx")
 worksheet = workbook.add_worksheet("Couples")
@@ -26,7 +31,7 @@ for line, id in enumerate(list_ids):
         host = feature_source.qualifiers["host"][0]
     else:
         host = None
-    row = [species, host]
+    row = [id, species, host]
     worksheet.write_row(line, 0, row)
 
 workbook.close()

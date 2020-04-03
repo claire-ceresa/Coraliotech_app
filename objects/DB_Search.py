@@ -12,10 +12,10 @@ class DB_Search:
                  'name':{'checked':bool, 'variable':'nom', 'value':string}}
         """
         self.terms = terms
-        self.query = self.create_query()
-        self.results = self.get_results()
+        self.query = self._create_query()
+        self.results = self._get_results()
 
-    def create_query(self):
+    def _create_query(self):
         """
         Create the MySQL query with the terms
         :return: MySQL query
@@ -38,7 +38,7 @@ class DB_Search:
         query = query_select + query_from + query_where + " AND P.is_delete = 0"
         return query
 
-    def get_results(self):
+    def _get_results(self):
         """
         Get the result of the MySQL query
         :return list of the results
