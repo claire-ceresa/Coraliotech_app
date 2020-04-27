@@ -1,11 +1,9 @@
-from PyQt5.QtWidgets import QInputDialog
 from Bio import Entrez
 from Bio import SeqIO
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 from objects.NCBI_Organism import NCBI_Organism
 from objects.NCBI_CDS import NCBI_CDS
 from database.functions_db import *
-from graphic.graphics_functions import create_messageBox
 
 
 class NCBI_Product:
